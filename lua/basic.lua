@@ -4,6 +4,8 @@ vim.g.maplocalleader = " "
 -- utf8
 vim.g.encoding = "UTF-8"
 vim.opt.fileencoding = "utf-8"
+-- 换行符
+vim.opt.fileformats = "unix,dos,mac"
 -- more space in the neovim command line for displaying messages
 vim.opt.cmdheight = 1
 -- jk移动时光标下上方保留8行
