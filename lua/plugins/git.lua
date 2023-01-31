@@ -1,28 +1,21 @@
 return {
     "lewis6991/gitsigns.nvim",
+    lazy = true,
+    event = { "BufReadPost", "BufNewFile" },
     config = function()
         require("gitsigns").setup()
-
-        local wk = require("which-key")
-        wk.register({
-            g = {
-                name = "Git",
-                g = { "<cmd>Gitsigns<cr>", "Gitsigns" },
-                b = { "<cmd>Gitsigns blame_line<cr>", "blame_line" },
-                d = { "<cmd>Gitsigns diffthis<cr>", "diffthis" },
-                s = { "<cmd>Gitsigns stage_hunk<cr>", "stage_hunk" },
-                r = { "<cmd>Gitsigns reset_hunk<cr>", "reset_hunk" },
-                p = { "<cmd>Gitsigns preview_hunk<cr>", "preview_hunk" },
-                u = { "<cmd>Gitsigns undo_stage_hunk<cr>", "undo_stage_hunk" },
-                S = { "<cmd>Gitsigns stage_buffer<cr>", "stage_buffer" },
-                R = { "<cmd>Gitsigns reset_buffer<cr>", "reset_buffer" },
-                t = {
-                    name = "Toggle",
-                    d = { "<cmd>Gitsigns toggle_deleted<cr>", "Toggle deleted" },
-                    b = { "<cmd>Gitsigns toggle_current_line_blame<cr>", "Toggle current line blame" }
-                }
-            }
-        }, { prefix = "<leader>" })
-    end
+    end,
+    keys = {
+        { "<leader>g", desc = "+Git" },
+        { "<leader>gg", "<cmd>Gitsigns<cr>", desc = "Gitsigns" },
+        { "<leader>gb", "<cmd>Gitsigns blame_line<cr>", desc = "blame_line" },
+        { "<leader>gd", "<cmd>Gitsigns diffthis<cr>", desc = "diffthis" },
+        { "<leader>gs", "<cmd>Gitsigns stage_hunk<cr>", desc = "stage_hunk" },
+        { "<leader>gr", "<cmd>Gitsigns reset_hunk<cr>", desc = "reset_hunk" },
+        { "<leader>gp", "<cmd>Gitsigns preview_hunk<cr>", desc = "preview_hunk" },
+        { "<leader>gu", "<cmd>Gitsigns undo_stage_hunk<cr>", desc = "undo_stage_hunk" },
+        { "<leader>gS", "<cmd>Gitsigns stage_buffer<cr>", desc = "stage_buffer" },
+        { "<leader>gR", "<cmd>Gitsigns reset_buffer<cr>", desc = "reset_buffer" },
+        { "<leader>gt", "<cmd>lua _lazygit_toggle()<cr>", desc = "lazygit terminal" }
+    },
 }
-

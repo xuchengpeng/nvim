@@ -1,5 +1,7 @@
 return {
     "akinsho/bufferline.nvim",
+    lazy = true,
+    event = { "BufReadPost", "BufAdd", "BufNewFile" },
     dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
         require("bufferline").setup({
@@ -14,17 +16,12 @@ return {
                 },
             },
         })
-
-        local wk = require("which-key")
-        wk.register({
-            b = {
-                name = "Buffer",
-                s = { "<cmd>BufferLinePick<cr>", "Switch buffer" },
-                c = { "<cmd>BufferLinePickClose<cr>", "Close buffer" },
-                n = { "<cmd>BufferLineCycleNext<cr>", "Next buffer" },
-                p = { "<cmd>BufferLineCyclePrev<cr>", "Prev buffer" },
-            }
-        }, { prefix = "<leader>" })
-    end
+    end,
+    keys = {
+        { "<leader>b", desc = "+Buffer" },
+        { "<leader>bs", "<cmd>BufferLinePick<cr>", desc = "Switch buffer" },
+        { "<leader>bc", "<cmd>BufferLinePickClose<cr>", desc = "Close buffer" },
+        { "<leader>bn", "<cmd>BufferLineCycleNext<cr>", desc = "Next buffer" },
+        { "<leader>bp", "<cmd>BufferLineCyclePrev<cr>", desc = "Prev buffer" },
+    },
 }
-

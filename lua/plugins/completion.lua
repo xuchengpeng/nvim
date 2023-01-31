@@ -1,6 +1,8 @@
 return {
     {
         "williamboman/mason-lspconfig.nvim",
+        lazy = true,
+        event = { "BufReadPost", "BufAdd", "BufNewFile" },
         dependencies = { "williamboman/mason.nvim", "neovim/nvim-lspconfig" },
         config = function()
             require("mason").setup()
@@ -11,13 +13,16 @@ return {
     },
     {
         "hrsh7th/nvim-cmp",
+        lazy = true,
+        event = "InsertEnter",
         dependencies = {
             "hrsh7th/cmp-nvim-lsp",
             "hrsh7th/cmp-buffer",
             "hrsh7th/cmp-path",
             "hrsh7th/cmp-cmdline",
             "hrsh7th/cmp-vsnip",
-            "hrsh7th/vim-vsnip"
+            "hrsh7th/vim-vsnip",
+            "windwp/nvim-autopairs"
         },
         config = function()
             vim.opt.completeopt = { "menu", "menuone", "noselect" }
@@ -63,4 +68,3 @@ return {
         end
     }
 }
-

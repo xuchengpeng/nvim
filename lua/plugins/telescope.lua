@@ -1,20 +1,17 @@
 return {
     "nvim-telescope/telescope.nvim",
+    lazy = true,
+    cmd = "Telescope",
     dependencies = {"nvim-lua/plenary.nvim"},
     config = function()
         require("telescope").setup()
-
-        local wk = require("which-key")
-        wk.register({
-            f = {
-                name = "Telescope",
-                f = { "<cmd>Telescope find_files<cr>", "Find files" },
-                g = { "<cmd>Telescope live_grep<cr>", "Live grep" },
-                b = { "<cmd>Telescope buffers<cr>", "Find buffers" },
-                h = { "<cmd>Telescope help_tags<cr>", "Help tags" },
-                t = { "<cmd>Telescope<cr>", "Telescope" }
-            }
-        }, { prefix = "<leader>" })
-    end
+    end,
+    keys = {
+        { "<leader>f", desc = "+Telescope" },
+        { "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find files" },
+        { "<leader>fg", "<cmd>Telescope live_grep<cr>", desc = "Live grep" },
+        { "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "Find buffers" },
+        { "<leader>fh", "<cmd>Telescope help_tags<cr>", desc = "Help tags" },
+        { "<leader>ft", "<cmd>Telescope<cr>", desc = "Telescope" },
+    },
 }
-
