@@ -19,4 +19,17 @@ return {
             { "<leader>cf", "<cmd>lua vim.lsp.buf.format()<cr>", desc = "Format"},
         },
     },
+    {
+        "folke/trouble.nvim",
+        lazy = true,
+        cmd = { "Trouble", "TroubleToggle", "TroubleRefresh" },
+        config = function()
+            require("trouble").setup()
+        end,
+        keys = {
+            { "<leader>ct", desc = "+Trouble" },
+            { "<leader>ctt", "<cmd>TroubleToggle<cr>", desc = "Toggle" },
+            { "<leader>ctr", "<cmd>TroubleRefresh<cr>", desc = "Refresh" },
+        },
+    },
 }
