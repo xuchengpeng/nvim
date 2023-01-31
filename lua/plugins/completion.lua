@@ -65,6 +65,8 @@ return {
                     end, { "i", "s" }),
                 },
             })
+
+            require("nvim-autopairs").setup()
         end
     }
 }
