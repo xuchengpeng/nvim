@@ -1,6 +1,5 @@
 -- mapleader
 vim.g.mapleader = " "
-vim.g.maplocalleader = " "
 -- utf8
 vim.g.encoding = "UTF-8"
 vim.opt.fileencoding = "utf-8"
@@ -51,6 +50,7 @@ vim.opt.swapfile = false
 -- faster completion
 vim.opt.updatetime = 100
 -- time to wait for a mapped sequence to complete (in milliseconds)
+vim.opt.timeout = true
 vim.opt.timeoutlen = 1000
 -- split window 从下边和右边出现
 vim.opt.splitbelow = true

@@ -1,2 +1,1 @@
-require("basic")
-require("plugin")
+require("config")
