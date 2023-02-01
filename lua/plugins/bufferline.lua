@@ -10,7 +10,7 @@ return {
                     {
                         filetype = "NvimTree",
                         text = "File Explorer",
-                        highlight = "Directory",
+                        -- highlight = "Directory",
                         padding = 1,
                     },
                 },
