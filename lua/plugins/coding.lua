@@ -15,8 +15,8 @@ return {
             })
         end,
         keys = {
-            { "<leader>c", desc = "+Code" },
-            { "<leader>cf", "<cmd>lua vim.lsp.buf.format()<cr>", desc = "Format"},
+            { "<leader>c", desc = "+Coding" },
+            { "<leader>cf", "<cmd>lua vim.lsp.buf.format()<cr>", desc = "Format" },
         },
     },
     {
