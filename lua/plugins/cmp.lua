@@ -38,7 +38,8 @@ return {
                 mapping = {
                     ["<C-j>"] = cmp.mapping(cmp.mapping.select_next_item(), { "i", "c" }),
                     ["<C-k>"] = cmp.mapping(cmp.mapping.select_prev_item(), { "i", "c" }),
-                    ["<Down>"] = cmp.mapping(cmp.mapping.select_next_item { behavior = cmp.SelectBehavior.Select }, { "i" }),
+                    ["<Down>"] = cmp.mapping(cmp.mapping.select_next_item { behavior = cmp.SelectBehavior.Select },
+                        { "i" }),
                     ["<Up>"] = cmp.mapping(cmp.mapping.select_prev_item { behavior = cmp.SelectBehavior.Select }, { "i" }),
                     ["<C-e>"] = cmp.mapping.abort(),
                     ["<C-d>"] = cmp.mapping.scroll_docs(-4),

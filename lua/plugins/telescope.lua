@@ -2,7 +2,7 @@ return {
     "nvim-telescope/telescope.nvim",
     lazy = true,
     cmd = "Telescope",
-    dependencies = {"nvim-lua/plenary.nvim"},
+    dependencies = { "nvim-lua/plenary.nvim" },
     config = function()
         require("telescope").setup()
     end,
