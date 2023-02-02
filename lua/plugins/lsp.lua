@@ -9,6 +9,8 @@ return {
             require("mason-lspconfig").setup({
                 -- ensure_installed = { "clangd", "sumneko_lua", "pyright", "vimls" }
             })
+
+        require("lspconfig").clangd.setup{}
         end
     },
     {
@@ -29,7 +31,6 @@ return {
             null_ls.setup({
                 debug = false,
                 sources = {
-                    null_ls.builtins.formatting.clang_format,
                     null_ls.builtins.formatting.lua_format,
                     null_ls.builtins.formatting.prettier,
                 },
