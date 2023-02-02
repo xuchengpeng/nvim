@@ -6,7 +6,7 @@ return {
         config = function()
             local tokyonight = require("tokyonight")
             tokyonight.setup({
-                stype = "moon",
+                style = "moon",
                 light_style = "day",
                 styles = {
                     keywords = { italic = false },
