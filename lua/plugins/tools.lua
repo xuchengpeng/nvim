@@ -1,11 +1,11 @@
 return {
     {
         "folke/which-key.nvim",
-            lazy = true,
-            event = "VeryLazy",
-            config = function()
-                require("which-key").setup()
-            end
+        lazy = true,
+        event = "VeryLazy",
+        config = function()
+            require("which-key").setup()
+        end
     },
     {
         "folke/zen-mode.nvim",
@@ -22,5 +22,5 @@ return {
             })
         end,
         keys = { { "<leader>z", "<cmd>ZenMode<cr>", desc = "Zen Mode" } },
-    }
+    },
 }
