@@ -21,23 +21,13 @@ return {
         dependencies = { "nvim-tree/nvim-web-devicons" },
         config = function()
             require("lspsaga").setup()
-        end
-    },
-    {
-        "jose-elias-alvarez/null-ls.nvim",
-        lazy = true,
-        event = { "BufReadPost", "BufAdd", "BufNewFile" },
-        config = function()
-            local null_ls = require("null-ls")
-            null_ls.setup({
-                debug = false,
-                sources = {
-                    null_ls.builtins.formatting.prettier,
-                },
-            })
         end,
         keys = {
-            { "<leader>cf", "<cmd>lua vim.lsp.buf.format()<cr>", desc = "Format" },
+            { "<leader>cd", "<cmd>Lspsaga goto_definition<cr>", desc = "Goto definition" },
+            { "<leader>cf", "<cmd>Lspsaga lsp_finder<cr>", desc = "Find definition" },
+            { "<leader>cF", "<cmd>lua vim.lsp.buf.format()<cr>", desc = "Format" },
+            { "<leader>co", "<cmd>Lspsaga outline<cr>", desc = "Outline" },
+            { "<leader>cr", "<cmd>Lspsaga rename<cr>", desc = "Rename" },
         },
-    },
+    }
 }
