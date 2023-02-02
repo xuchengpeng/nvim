@@ -10,7 +10,15 @@ return {
                 -- ensure_installed = { "clangd", "sumneko_lua", "pyright", "vimls" }
             })
 
-            require("lspconfig").sumneko_lua.setup {}
+            require("lspconfig").sumneko_lua.setup {
+                settings = {
+                    Lua = {
+                        diagnostics = {
+                            globals = { "vim" },
+                        },
+                    },
+                },
+            }
             require("lspconfig").clangd.setup {}
         end
     },
