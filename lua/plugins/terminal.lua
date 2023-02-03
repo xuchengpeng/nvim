@@ -25,8 +25,9 @@ return {
                 winblend = 0,
             },
         })
-
-        function _lazygit_toggle()
+    end,
+    keys = {
+        { "<leader>gt", function()
             local Terminal = require('toggleterm.terminal').Terminal
             local lazygit  = Terminal:new({
                 cmd = "lazygit",
@@ -43,6 +44,6 @@ return {
             })
 
             lazygit:toggle()
-        end
-    end
+        end, desc = "lazygit terminal" },
+    },
 }

@@ -16,6 +16,5 @@ return {
         { "<leader>gu", "<cmd>Gitsigns undo_stage_hunk<cr>", desc = "undo_stage_hunk" },
         { "<leader>gS", "<cmd>Gitsigns stage_buffer<cr>", desc = "stage_buffer" },
         { "<leader>gR", "<cmd>Gitsigns reset_buffer<cr>", desc = "reset_buffer" },
-        { "<leader>gt", "<cmd>lua _lazygit_toggle()<cr>", desc = "lazygit terminal" }
     },
 }
