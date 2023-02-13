@@ -7,10 +7,10 @@ return {
         config = function()
             require("mason").setup()
             require("mason-lspconfig").setup({
-                -- ensure_installed = { "clangd", "sumneko_lua", "pyright", "vimls" }
+                -- ensure_installed = { "clangd", "lua_ls", "pyright", "vimls" }
             })
 
-            require("lspconfig").sumneko_lua.setup {
+            require("lspconfig").lua_ls.setup {
                 settings = {
                     Lua = {
                         diagnostics = {
@@ -31,11 +31,11 @@ return {
             require("lspsaga").setup()
         end,
         keys = {
-            { "<leader>cd", "<cmd>Lspsaga goto_definition<cr>", desc = "Goto definition" },
-            { "<leader>cf", "<cmd>Lspsaga lsp_finder<cr>", desc = "Find definition" },
+            { "<leader>cd", "<cmd>Lspsaga goto_definition<cr>",  desc = "Goto definition" },
+            { "<leader>cf", "<cmd>Lspsaga lsp_finder<cr>",       desc = "Find definition" },
             { "<leader>cF", "<cmd>lua vim.lsp.buf.format()<cr>", desc = "Format" },
-            { "<leader>co", "<cmd>Lspsaga outline<cr>", desc = "Outline" },
-            { "<leader>cr", "<cmd>Lspsaga rename<cr>", desc = "Rename" },
+            { "<leader>co", "<cmd>Lspsaga outline<cr>",          desc = "Outline" },
+            { "<leader>cr", "<cmd>Lspsaga rename<cr>",           desc = "Rename" },
         },
     }
 }
