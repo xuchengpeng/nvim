@@ -24,6 +24,18 @@ return {
             catppuccin.setup({
                 flavour = "mocha",
             })
+            catppuccin.load()
         end
-    }
+    },
+    {
+        "navarasu/onedark.nvim",
+        lazy = true,
+        config = function()
+            local onedark = require("onedark")
+            onedark.setup({
+                style = "dark",
+            })
+            onedark.load()
+        end
+    },
 }
