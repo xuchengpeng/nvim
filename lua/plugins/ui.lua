@@ -34,9 +34,10 @@ return {
             -- Disable folding on alpha buffer
             vim.cmd([[
             autocmd FileType alpha setlocal nofoldenable
-        ]]   )
+        ]])
         end
-    }, {
+    },
+    {
         "akinsho/bufferline.nvim",
         lazy = true,
         event = { "BufReadPost", "BufAdd", "BufNewFile" },
@@ -56,21 +57,29 @@ return {
             })
         end,
         keys = {
-            { "<leader>b", desc = "+Buffer" },
-            { "<leader>bs", "<cmd>BufferLinePick<cr>", desc = "Switch buffer" },
+            { "<leader>b",  desc = "+Buffer" },
+            { "<leader>bs", "<cmd>BufferLinePick<cr>",      desc = "Switch buffer" },
             { "<leader>bc", "<cmd>BufferLinePickClose<cr>", desc = "Close buffer" },
             { "<leader>bn", "<cmd>BufferLineCycleNext<cr>", desc = "Next buffer" },
             { "<leader>bp", "<cmd>BufferLineCyclePrev<cr>", desc = "Prev buffer" },
         },
-    }, {
+    },
+    {
         "nvim-lualine/lualine.nvim",
         lazy = true,
         event = { "BufReadPost", "BufAdd", "BufNewFile" },
         dependencies = { "nvim-tree/nvim-web-devicons" },
         config = function()
-            require("lualine").setup()
+            require("lualine").setup({
+                extensions = {
+                    "fzf",
+                    "nvim-tree",
+                    "toggleterm",
+                },
+            })
         end
-    }, {
+    },
+    {
         "nvim-tree/nvim-tree.lua",
         lazy = true,
         cmd = {
@@ -84,11 +93,11 @@ return {
             require("nvim-tree").setup()
         end,
         keys = {
-            { "<leader>t", desc = "+Tree" },
-            { "<leader>tt", "<cmd>NvimTreeToggle<cr>", desc = "Open or close the tree" },
+            { "<leader>t",  desc = "+Tree" },
+            { "<leader>tt", "<cmd>NvimTreeToggle<cr>",   desc = "Open or close the tree" },
             { "<leader>tf", "<cmd>NvimTreeFindFile<cr>", desc = "Find current file" },
             { "<leader>tc", "<cmd>NvimTreeCollapse<cr>", desc = "Collapses tree recursively" },
-            { "<leader>tr", "<cmd>NvimTreeRefresh<cr>", desc = "Refresh the tree" },
+            { "<leader>tr", "<cmd>NvimTreeRefresh<cr>",  desc = "Refresh the tree" },
         },
-    }
+    },
 }
