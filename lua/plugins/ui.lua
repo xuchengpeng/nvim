@@ -68,7 +68,9 @@ return {
             require("lualine").setup({
                 extensions = {
                     "fzf",
+                    "nvim-dap-ui",
                     "nvim-tree",
+                    "quickfix",
                     "toggleterm",
                 },
             })
