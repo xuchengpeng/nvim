@@ -1,58 +1,89 @@
-local function augroup(name)
-    return vim.api.nvim_create_augroup("_" .. name, { clear = true })
+local M = {}
+
+function M.load_defaults()
+    local definitions = {
+        -- Check if we need to reload the file when it changed
+        {
+            { "FocusGained", "TermClose", "TermLeave" },
+            {
+                group = "_general_settings",
+                command = "checktime",
+            },
+        },
+        -- Highlight on yank
+        {
+            "TextYankPost",
+            {
+                group = "_general_settings",
+                callback = function()
+                    vim.highlight.on_yank()
+                end,
+            },
+        },
+        -- resize splits if window got resized
+        {
+            { "VimResized" },
+            {
+                group = "_auto_resize",
+                callback = function()
+                    vim.cmd("tabdo wincmd =")
+                end,
+            },
+        },
+        -- close some filetypes with <q>
+        {
+            "FileType",
+            {
+                group = "_close_with_q",
+                pattern = {
+                    "qf",
+                    "help",
+                    "man",
+                    "notify",
+                    "floaterm",
+                    "lspinfo",
+                    "lsp-installer",
+                    "lir",
+                    "spectre_panel",
+                    "startuptime",
+                    "tsplayground",
+                    "PlenaryTestPopup",
+                },
+                callback = function(event)
+                    vim.bo[event.buf].buflisted = false
+                    vim.keymap.set("n", "q", "<cmd>close<cr>", { buffer = event.buf, silent = true })
+                end,
+            },
+        },
+        -- wrap and check for spell in text filetypes
+        {
+            "FileType",
+            {
+                group = "_filetype_settings",
+                pattern = { "gitcommit", "markdown" },
+                callback = function()
+                    vim.opt_local.wrap = true
+                    vim.opt_local.spell = true
+                end,
+            },
+        },
+    }
+
+    M.define_autocmds(definitions)
 end
 
--- Check if we need to reload the file when it changed
-vim.api.nvim_create_autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
-    group = augroup("checktime"),
-    command = "checktime",
-})
+function M.define_autocmds(definitions)
+    for _, entry in ipairs(definitions) do
+        local event = entry[1]
+        local opts = entry[2]
+        if type(opts.group) == "string" and opts.group ~= "" then
+            local exists, _ = pcall(vim.api.nvim_get_autocmds, { group = opts.group })
+            if not exists then
+                vim.api.nvim_create_augroup(opts.group, {})
+            end
+        end
+        vim.api.nvim_create_autocmd(event, opts)
+    end
+end
 
--- Highlight on yank
-vim.api.nvim_create_autocmd("TextYankPost", {
-    group = augroup("highlight_yank"),
-    callback = function()
-        vim.highlight.on_yank()
-    end,
-})
-
--- resize splits if window got resized
-vim.api.nvim_create_autocmd({ "VimResized" }, {
-    group = augroup("resize_splits"),
-    callback = function()
-        vim.cmd("tabdo wincmd =")
-    end,
-})
-
--- close some filetypes with <q>
-vim.api.nvim_create_autocmd("FileType", {
-    group = augroup("close_with_q"),
-    pattern = {
-        "qf",
-        "help",
-        "man",
-        "notify",
-        "floaterm",
-        "lspinfo",
-        "lsp-installer",
-        "lir",
-        "spectre_panel",
-        "startuptime",
-        "tsplayground",
-        "PlenaryTestPopup",
-    },
-    callback = function(event)
-        vim.bo[event.buf].buflisted = false
-        vim.keymap.set("n", "q", "<cmd>close<cr>", { buffer = event.buf, silent = true })
-    end,
-})
-
--- wrap and check for spell in text filetypes
-vim.api.nvim_create_autocmd("FileType", {
-    group = augroup("wrap_spell"),
-    pattern = { "gitcommit", "markdown" },
-    callback = function()
-        vim.opt_local.wrap = true
-        vim.opt_local.spell = true
-    end,
-})
+return M
