@@ -10,6 +10,21 @@ return {
                 "regex",
             },
             delay = 200,
+            filetypes_denylist = {
+                "dirvish",
+                "fugitive",
+                "alpha",
+                "NvimTree",
+                "lazy",
+                "neogitstatus",
+                "Trouble",
+                "lir",
+                "Outline",
+                "spectre_panel",
+                "toggleterm",
+                "DressingSelect",
+                "TelescopePrompt",
+            },
         })
     end
 }
