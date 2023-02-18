@@ -3,7 +3,11 @@ return {
         "williamboman/mason-lspconfig.nvim",
         lazy = true,
         event = { "BufReadPost", "BufAdd", "BufNewFile" },
-        dependencies = { "williamboman/mason.nvim", "neovim/nvim-lspconfig" },
+        dependencies = {
+            "williamboman/mason.nvim",
+            "neovim/nvim-lspconfig",
+            "folke/neodev.nvim",
+        },
         config = function()
             require("mason").setup()
             require("mason-lspconfig").setup({
