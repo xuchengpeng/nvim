@@ -26,7 +26,7 @@ return {
                 dashboard.button("r", "  > Recent", "<cmd>Telescope oldfiles<CR>"),
                 dashboard.button("s", "  > Settings", "<cmd>e $MYVIMRC | :cd %:p:h | split . | wincmd k | pwd<CR>"),
                 dashboard.button("u", "  > Update plugins", "<cmd>Lazy update<CR>"),
-                dashboard.button("q", "  > Quit NVIM", "<cmd>qa<CR>"),
+                dashboard.button("q", "  > Quit NVIM", "<cmd>quit<CR>"),
             }
 
             alpha.setup(dashboard.opts)
