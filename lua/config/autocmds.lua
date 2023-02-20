@@ -67,6 +67,22 @@ function M.load_defaults()
                 end,
             },
         },
+        {
+            "FileType",
+            {
+                group = "_filetype_settings",
+                pattern = "dap-repl",
+                command = "set nobuflisted",
+            },
+        },
+        {
+            "FileType",
+            {
+                group = "_filetype_settings",
+                pattern = "alpha",
+                command = "set nobuflisted",
+            },
+        },
     }
 
     M.define_autocmds(definitions)
