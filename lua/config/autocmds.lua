@@ -83,6 +83,17 @@ function M.load_defaults()
                 command = "set nobuflisted",
             },
         },
+        -- automatically create missing directories when saving files
+        {
+            "BufWritePre",
+            {
+                group = "_auto_create_dir",
+                callback = function(event)
+                    local file = vim.loop.fs_realpath(event.match) or event.match
+                    vim.fn.mkdir(vim.fn.fnamemodify(file, ":p:h"), "p")
+                end
+            },
+        },
     }
 
     M.define_autocmds(definitions)
