@@ -6,10 +6,11 @@ return {
         config = function()
             require("which-key").setup()
         end
-    }, {
+    },
+    {
         "akinsho/toggleterm.nvim",
         lazy = true,
-        event = "UIEnter",
+        cmd = { "ToggleTerm" },
         config = function()
             if vim.fn.has('win64') == 1 or vim.fn.has('win32') == 1 then
                 vim.opt.shellcmdflag = "-c"
@@ -35,7 +36,9 @@ return {
             })
         end,
         keys = {
-            { "<leader>gt", function()
+            { "<leader>t",  desc = "+Terminal" },
+            { "<leader>tt", "<cmd>ToggleTerm<cr>", desc = "Terminal" },
+            { "<leader>tg", function()
                 local Terminal = require('toggleterm.terminal').Terminal
                 local lazygit  = Terminal:new({
                     cmd = "lazygit",
@@ -47,12 +50,13 @@ return {
                     on_open = function(_)
                         vim.cmd "startinsert!"
                     end,
-                    on_close = function(_) end,
+                    on_close = function(_)
+                    end,
                     count = 99,
                 })
 
                 lazygit:toggle()
-            end, desc = "lazygit terminal" },
+            end, desc = "Lazygit terminal" },
         },
     },
     {

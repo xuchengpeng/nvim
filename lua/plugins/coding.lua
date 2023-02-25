@@ -9,7 +9,7 @@ return {
         keys = {
             { "<leader>c",   desc = "+Coding" },
             { "<leader>cx",  desc = "+Trouble" },
-            { "<leader>cxt", "<cmd>TroubleToggle<cr>",  desc = "Toggle" },
+            { "<leader>cxx", "<cmd>TroubleToggle<cr>",  desc = "Trouble" },
             { "<leader>cxr", "<cmd>TroubleRefresh<cr>", desc = "Refresh" },
         },
     },
@@ -23,8 +23,8 @@ return {
             require("todo-comments").setup()
         end,
         keys = {
-            { "<leader>ct", "<cmd>TodoTrouble<cr>",   desc = "Todo (Trouble)" },
-            { "<leader>cT", "<cmd>TodoTelescope<cr>", desc = "Todo" },
+            { "<leader>cxt", "<cmd>TodoTrouble<cr>",   desc = "Todo (Trouble)" },
+            { "<leader>cxT", "<cmd>TodoTelescope<cr>", desc = "Todo" },
         },
     },
     {
