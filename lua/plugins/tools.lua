@@ -75,4 +75,11 @@ return {
         end,
         keys = { { "<leader>z", "<cmd>ZenMode<cr>", desc = "Zen Mode" } },
     },
+    {
+        "nvim-pack/nvim-spectre",
+        lazy = true,
+        cmd = "Spectre",
+        dependencies = { "nvim-lua/plenary.nvim" },
+        config = true,
+    },
 }
