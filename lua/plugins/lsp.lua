@@ -35,11 +35,16 @@ return {
             require("lspsaga").setup()
         end,
         keys = {
-            { "<leader>cd", "<cmd>Lspsaga goto_definition<cr>",  desc = "Goto definition" },
-            { "<leader>cf", "<cmd>Lspsaga lsp_finder<cr>",       desc = "Find definition" },
-            { "<leader>cF", "<cmd>lua vim.lsp.buf.format()<cr>", desc = "Format" },
-            { "<leader>co", "<cmd>Lspsaga outline<cr>",          desc = "Outline" },
-            { "<leader>cr", "<cmd>Lspsaga rename<cr>",           desc = "Rename" },
+            { "<leader>l",  desc = "+Lsp" },
+            { "<leader>ld", "<cmd>Lspsaga goto_definition<cr>",      desc = "Goto definition" },
+            { "<leader>lf", "<cmd>Lspsaga lsp_finder<cr>",           desc = "Find definition" },
+            { "<leader>lF", "<cmd>lua vim.lsp.buf.format()<cr>",     desc = "Format" },
+            { "<leader>lh", "<cmd>Lspsaga hover_doc<cr>",            desc = "Hover doc" },
+            { "<leader>lo", "<cmd>Lspsaga outline<cr>",              desc = "Outline" },
+            { "<leader>lr", "<cmd>Lspsaga rename<cr>",               desc = "Rename" },
+            { "<leader>lt", "<cmd>Lspsaga goto_type_definition<cr>", desc = "Goto type definition" },
+            { "<leader>ln", "<cmd>Lspsaga diagnostic_jump_next<cr>", desc = "Diagnostic next" },
+            { "<leader>lp", "<cmd>Lspsaga diagnostic_jump_prev<cr>", desc = "Diagnostic prev" },
         },
     }
 }
