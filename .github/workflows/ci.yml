@@ -25,4 +25,4 @@ jobs:
           sudo mkdir -p ~/.config/nvim
           sudo cp -rf * ~/.config/nvim/
           sudo nvim --version
-          sudo nvim --headless -c "quit"
+          sudo nvim --headless -c "checkhealth" -c "quit" -c "quit"
