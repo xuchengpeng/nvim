@@ -21,9 +21,9 @@ return {
 
             dashboard.section.buttons.val = {
                 dashboard.button("e", "  > New file", "<cmd>ene <BAR> startinsert <CR>"),
-                dashboard.button("f", "  > Find file", "<cmd>Telescope find_files<CR>"),
+                dashboard.button("f", "  > Find files", "<cmd>Telescope find_files<CR>"),
                 dashboard.button("g", "  > Grep word", "<cmd>Telescope live_grep<CR>"),
-                dashboard.button("r", "  > Recent", "<cmd>Telescope oldfiles<CR>"),
+                dashboard.button("r", "  > Recent files", "<cmd>Telescope oldfiles<CR>"),
                 dashboard.button("s", "  > Settings", "<cmd>e $MYVIMRC | :cd %:p:h | split . | wincmd k | pwd<CR>"),
                 dashboard.button("u", "  > Update plugins", "<cmd>Lazy update<CR>"),
                 dashboard.button("q", "  > Quit NVIM", "<cmd>quit<CR>"),
