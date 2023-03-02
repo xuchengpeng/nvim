@@ -16,18 +16,6 @@ return {
         end
     },
     {
-        "catppuccin/nvim",
-        name = "catppuccin.nvim",
-        lazy = true,
-        config = function()
-            local catppuccin = require("catppuccin")
-            catppuccin.setup({
-                flavour = "mocha",
-            })
-            catppuccin.load()
-        end
-    },
-    {
         "navarasu/onedark.nvim",
         lazy = true,
         config = function()
