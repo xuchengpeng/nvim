@@ -15,6 +15,7 @@ function M.setup()
     vim.opt.rtp:prepend(lazypath)
 
     require("lazy").setup({
+        root = vim.fn.stdpath("data") .. "/lazy",
         spec = {
             { import = "plugins" },
         },
