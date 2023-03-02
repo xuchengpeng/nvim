@@ -2,7 +2,7 @@ return {
     {
         "goolord/alpha-nvim",
         lazy = true,
-        event = "BufWinEnter",
+        event = "VimEnter",
         dependencies = { "nvim-tree/nvim-web-devicons" },
         config = function()
             local alpha = require("alpha")
@@ -62,7 +62,7 @@ return {
     {
         "nvim-lualine/lualine.nvim",
         lazy = true,
-        event = { "BufReadPost", "BufAdd", "BufNewFile" },
+        event = { "VimEnter" },
         dependencies = { "nvim-tree/nvim-web-devicons" },
         config = function()
             require("lualine").setup({
