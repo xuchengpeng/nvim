@@ -44,19 +44,25 @@ return {
                     cmd = "lazygit",
                     hidden = true,
                     direction = "float",
-                    float_opts = {
-                        -- border = "none",
-                    },
                     on_open = function(_)
                         vim.cmd "startinsert!"
                     end,
                     on_close = function(_)
                     end,
-                    count = 99,
                 })
 
                 lazygit:toggle()
             end, desc = "Lazygit terminal" },
+            { "<leader>tb", function()
+                local Terminal = require('toggleterm.terminal').Terminal
+                local bottom   = Terminal:new({
+                    cmd = "btm",
+                    hidden = true,
+                    direction = "float",
+                })
+
+                bottom:toggle()
+            end, desc = "Bottom" },
         },
     },
     {
