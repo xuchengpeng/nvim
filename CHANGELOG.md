@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.1](https://github.com/xuchengpeng/nvim/compare/v1.2.0...v1.2.1) (2023-03-04)
+
+
+### Bug Fixes
+
+* **treesj:** depend on nvim-treesitter ([93c62c0](https://github.com/xuchengpeng/nvim/commit/93c62c0114318a46003beae3839c50158f7c80cd))
+
 ## [1.2.0](https://github.com/xuchengpeng/nvim/compare/v1.1.0...v1.2.0) (2023-03-04)
 
 
