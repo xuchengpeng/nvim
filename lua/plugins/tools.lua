@@ -63,6 +63,16 @@ return {
 
                 bottom:toggle()
             end, desc = "Bottom" },
+            { "<leader>td", function()
+                local Terminal = require('toggleterm.terminal').Terminal
+                local gdu = Terminal:new({
+                    cmd = "gdu",
+                    hidden = true,
+                    direction = "float",
+                })
+
+                gdu:toggle()
+            end, desc = "Disk usage" },
         },
     },
     {
