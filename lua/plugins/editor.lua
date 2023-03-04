@@ -33,6 +33,7 @@ return {
         "Wansmer/treesj",
         lazy = true,
         cmd = { "TSJToggle", "TSJSplit", "TSJJoin" },
+        dependencies = { "nvim-treesitter/nvim-treesitter" },
         opts = { use_default_keymaps = false },
         keys = {
             { "<leader>cj", "<cmd>TSJJoin<cr>",  desc = "Join" },
