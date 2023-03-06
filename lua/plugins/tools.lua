@@ -38,7 +38,7 @@ return {
         keys = {
             { "<leader>t",  desc = "+Terminal" },
             { "<leader>tt", "<cmd>ToggleTerm<cr>", desc = "Terminal" },
-            { "<leader>tg", function()
+            { "<leader>tl", function()
                 local Terminal = require('toggleterm.terminal').Terminal
                 local lazygit  = Terminal:new({
                     cmd = "lazygit",
@@ -52,7 +52,7 @@ return {
                 })
 
                 lazygit:toggle()
-            end, desc = "Lazygit terminal" },
+            end, desc = "Lazygit" },
             { "<leader>tb", function()
                 local Terminal = require('toggleterm.terminal').Terminal
                 local bottom   = Terminal:new({
@@ -73,6 +73,16 @@ return {
 
                 gdu:toggle()
             end, desc = "Disk usage" },
+            { "<leader>tg", function()
+                local Terminal = require('toggleterm.terminal').Terminal
+                local glow = Terminal:new({
+                    cmd = "glow",
+                    hidden = true,
+                    direction = "float",
+                })
+
+                glow:toggle()
+            end, desc = "Glow" },
         },
     },
     {
