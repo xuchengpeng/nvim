@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.1](https://github.com/xuchengpeng/nvim/compare/v1.3.0...v1.3.1) (2023-03-06)
+
+
+### Bug Fixes
+
+* set number column width to 2 ([656d795](https://github.com/xuchengpeng/nvim/commit/656d795b775ce2cdca0a8c4859d98fd08cc1f5e5))
+
 ## [1.3.0](https://github.com/xuchengpeng/nvim/compare/v1.2.3...v1.3.0) (2023-03-06)
 
 
