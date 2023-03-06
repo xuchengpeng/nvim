@@ -23,6 +23,7 @@ return {
                     "cpp",
                     "help",
                     "lua",
+                    "luap",
                     "markdown",
                     "markdown_inline",
                     "python",
