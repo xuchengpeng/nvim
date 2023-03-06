@@ -29,7 +29,7 @@ return {
     {
         "glepnir/lspsaga.nvim",
         lazy = true,
-        event = { "BufRead" },
+        event = { "BufRead", "BufNewFile" },
         dependencies = { "nvim-tree/nvim-web-devicons" },
         config = function()
             require("lspsaga").setup()
