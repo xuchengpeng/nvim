@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.2.3](https://github.com/xuchengpeng/nvim/compare/v1.2.2...v1.2.3) (2023-03-06)
+
+
+### Bug Fixes
+
+* **illuminate:** enable with BufReadPost,BufNewFile event ([e4eb2ec](https://github.com/xuchengpeng/nvim/commit/e4eb2ec56dfa7fdd16ebffc8a73f0810085831d6))
+* **lspsaga:** enable with BufRead,BufNewFile event ([0f7c047](https://github.com/xuchengpeng/nvim/commit/0f7c047fcdb9bb5058ef08514a9d1e07f90ceb81))
+* **nvim-tree:** bind nvim-tree with &lt;leader&gt;ce ([ac99bed](https://github.com/xuchengpeng/nvim/commit/ac99bedf10aab7087fc3ed5aad1a6a8ece4c4223))
+* remote lir support ([b4bccd0](https://github.com/xuchengpeng/nvim/commit/b4bccd08a23e6ba10d04426e2705ea0e3b2265d0))
+
 ## [1.2.2](https://github.com/xuchengpeng/nvim/compare/v1.2.1...v1.2.2) (2023-03-06)
 
 
