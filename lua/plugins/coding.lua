@@ -17,7 +17,6 @@ return {
         "folke/todo-comments.nvim",
         lazy = true,
         cmd = { "TodoTrouble", "TodoTelescope" },
-        event = { "BufReadPost" },
         dependencies = { "nvim-lua/plenary.nvim" },
         config = function()
             require("todo-comments").setup()
@@ -30,7 +29,7 @@ return {
     {
         "numToStr/Comment.nvim",
         lazy = true,
-        event = { "BufRead" },
+        event = { "BufRead", "BufNewFile" },
         config = function()
             require("Comment").setup()
         end
@@ -38,7 +37,7 @@ return {
     {
         "lukas-reineke/indent-blankline.nvim",
         lazy = true,
-        event = { "BufRead" },
+        event = { "BufRead", "BufNewFile" },
         config = function()
             require("indent_blankline").setup({
                 show_current_context = true,
