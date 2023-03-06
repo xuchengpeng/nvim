@@ -93,7 +93,7 @@ return {
             require("nvim-tree").setup()
         end,
         keys = {
-            { "<leader>ce", "<cmd>NvimTreeToggle<cr>",   desc = "Explorer" },
+            { "<leader>ce", "<cmd>NvimTreeToggle<cr>", desc = "Explorer" },
         },
     },
     {
@@ -108,11 +108,27 @@ return {
             require("noice").setup({
                 debug = false,
                 presets = {
-                    bottom_search = true, -- use a classic bottom cmdline for search
-                    command_palette = true, -- position the cmdline and popupmenu together
+                    bottom_search = true,         -- use a classic bottom cmdline for search
+                    command_palette = true,       -- position the cmdline and popupmenu together
                     long_message_to_split = true, -- long messages will be sent to a split
                 },
             })
+        end
+    },
+    {
+        "stevearc/dressing.nvim",
+        lazy = true,
+        init = function()
+            ---@diagnostic disable-next-line: duplicate-set-field
+            vim.ui.select = function(...)
+                require("lazy").load({ plugins = { "dressing.nvim" } })
+                return vim.ui.select(...)
+            end
+            ---@diagnostic disable-next-line: duplicate-set-field
+            vim.ui.input = function(...)
+                require("lazy").load({ plugins = { "dressing.nvim" } })
+                return vim.ui.input(...)
+            end
         end
     },
 }
