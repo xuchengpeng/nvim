@@ -93,7 +93,7 @@ return {
             require("nvim-tree").setup()
         end,
         keys = {
-            { "<leader>ct", "<cmd>NvimTreeToggle<cr>",   desc = "File tree" },
+            { "<leader>ce", "<cmd>NvimTreeToggle<cr>",   desc = "Explorer" },
         },
     },
     {
