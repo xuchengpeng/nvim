@@ -70,15 +70,7 @@ function M.load_defaults()
       "FileType",
       {
         group = "_filetype_settings",
-        pattern = "dap-repl",
-        command = "set nobuflisted",
-      },
-    },
-    {
-      "FileType",
-      {
-        group = "_filetype_settings",
-        pattern = "alpha",
+        pattern = { "alpha", "dap-repl" },
         command = "set nobuflisted",
       },
     },
@@ -88,9 +80,9 @@ function M.load_defaults()
         group = "_filetype_settings",
         pattern = "lua",
         callback = function()
-          vim.bo.tabstop = 2 -- local to buffer
-          vim.bo.softtabstop = 2 -- local to buffer
-          vim.bo.shiftwidth = 2 -- local to buffer
+          vim.opt_local.tabstop = 2
+          vim.opt_local.softtabstop = 2
+          vim.opt_local.shiftwidth = 2
         end,
       },
     },
