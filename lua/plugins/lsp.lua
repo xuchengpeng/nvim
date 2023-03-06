@@ -38,7 +38,19 @@ return {
       { "<leader>l", desc = "+Lsp" },
       { "<leader>ld", "<cmd>Lspsaga goto_definition<cr>", desc = "Goto definition" },
       { "<leader>lf", "<cmd>Lspsaga lsp_finder<cr>", desc = "Find definition" },
-      { "<leader>lF", "<cmd>lua vim.lsp.buf.format()<cr>", desc = "Format" },
+      {
+        "<leader>lF",
+        function()
+          if vim.bo.filetype == "lua" and vim.fn.executable("stylua") == 1 then
+            local file_path = vim.fn.expand("%")
+            vim.fn.system({ "stylua", file_path })
+            vim.cmd("checktime %")
+          else
+            vim.lsp.buf.format()
+          end
+        end,
+        desc = "Format",
+      },
       { "<leader>lh", "<cmd>Lspsaga hover_doc<cr>", desc = "Hover doc" },
       { "<leader>lo", "<cmd>Lspsaga outline<cr>", desc = "Outline" },
       { "<leader>lr", "<cmd>Lspsaga rename<cr>", desc = "Rename" },
