@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.2](https://github.com/xuchengpeng/nvim/compare/v1.2.1...v1.2.2) (2023-03-06)
+
+
+### Bug Fixes
+
+* **treesitter:** ensure luap installed ([2bd7ce8](https://github.com/xuchengpeng/nvim/commit/2bd7ce840f6fb24d8f7f6a2c9b02aeeeee0e1c16))
+
 ## [1.2.1](https://github.com/xuchengpeng/nvim/compare/v1.2.0...v1.2.1) (2023-03-04)
 
 
