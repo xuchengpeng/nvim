@@ -1,5 +1,20 @@
 # Changelog
 
+## [1.3.0](https://github.com/xuchengpeng/nvim/compare/v1.2.3...v1.3.0) (2023-03-06)
+
+
+### Features
+
+* **dressing:** improve the default vim.ui interfaces ([e192c13](https://github.com/xuchengpeng/nvim/commit/e192c133db0ee22664ff79abe3162c50f5c0c814))
+* **glow:** markdown preview using glow ([6ade8c2](https://github.com/xuchengpeng/nvim/commit/6ade8c275d543e83f4755e6362c6b35ecd38e53f))
+* **keymaps:** load default keymaps ([63e0bfe](https://github.com/xuchengpeng/nvim/commit/63e0bfee27f4cebc04915e3b2d3a1465537a7ded))
+
+
+### Bug Fixes
+
+* **alpha:** improve menu ([4eaa1ac](https://github.com/xuchengpeng/nvim/commit/4eaa1acc5ebd05ffd2dd3ebcbecb8e22de2c07e8))
+* **illuminate:** no highlighting for lspsagaoutline ([be9d1be](https://github.com/xuchengpeng/nvim/commit/be9d1be0b41b17e158bfa49df439112d6d7f4796))
+
 ## [1.2.3](https://github.com/xuchengpeng/nvim/compare/v1.2.2...v1.2.3) (2023-03-06)
 
 
