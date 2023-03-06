@@ -36,14 +36,13 @@ function M.load_defaults()
             {
                 group = "_close_with_q",
                 pattern = {
-                    "qf",
-                    "help",
-                    "man",
-                    "notify",
                     "floaterm",
+                    "help",
                     "lspinfo",
                     "lsp-installer",
-                    "lir",
+                    "man",
+                    "notify",
+                    "qf",
                     "spectre_panel",
                     "startuptime",
                     "tsplayground",
