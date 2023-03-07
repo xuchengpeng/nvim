@@ -49,13 +49,12 @@ return {
       require("lspsaga").setup()
     end,
     keys = {
-      { "K", "<cmd>Lspsaga hover_doc<cr>", "Hover doc" },
+      { "K", "<cmd>Lspsaga hover_doc<cr>", desc = "Hover doc" },
       { "<leader>l", desc = "+Lsp" },
       { "<leader>la", "<cmd>Lspsaga code_action<cr>", desc = "Code action" },
       { "<leader>ld", "<cmd>Lspsaga goto_definition<cr>", desc = "Goto definition" },
-      { "<leader>lf", "<cmd>Lspsaga lsp_finder<cr>", desc = "Find definition" },
-      { "<leader>lF", "<cmd>lua vim.lsp.buf.format()<cr>", desc = "Format" },
-      { "<leader>lh", "<cmd>Lspsaga hover_doc<cr>", desc = "Hover doc" },
+      { "<leader>lf", "<cmd>lua vim.lsp.buf.format()<cr>", desc = "Format" },
+      { "<leader>lh", "<cmd>Lspsaga lsp_finder<cr>", desc = "LSP finder" },
       { "<leader>lo", "<cmd>Lspsaga outline<cr>", desc = "Outline" },
       { "<leader>lr", "<cmd>Lspsaga rename<cr>", desc = "Rename" },
       { "<leader>lt", "<cmd>Lspsaga goto_type_definition<cr>", desc = "Goto type definition" },
