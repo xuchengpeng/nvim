@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.4.0](https://github.com/xuchengpeng/nvim/compare/v1.3.1...v1.4.0) (2023-03-07)
+
+
+### Features
+
+* **null-ls:** formatting with stylua,shfmt ([e780002](https://github.com/xuchengpeng/nvim/commit/e7800024368087a322a84c856d5284321655b1a8))
+
+
+### Bug Fixes
+
+* autoread after 200ms ([009e66d](https://github.com/xuchengpeng/nvim/commit/009e66df04bbf402e0e2a949af079f6fc2787748))
+* **lsp:** add code_action,hover_doc keymaps ([722ab48](https://github.com/xuchengpeng/nvim/commit/722ab4886858038be384d869efdd0ea7119fceb9))
+
 ## [1.3.1](https://github.com/xuchengpeng/nvim/compare/v1.3.0...v1.3.1) (2023-03-06)
 
 
