@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.5.0](https://github.com/xuchengpeng/nvim/compare/v1.4.1...v1.5.0) (2023-03-07)
+
+
+### Features
+
+* **ui:** use aerial as code outline window ([932aa12](https://github.com/xuchengpeng/nvim/commit/932aa121431ecbab9e5d83a1f0abcff64de4067b))
+
+
+### Bug Fixes
+
+* **keymaps:** add git next_hunk,prev_hunk keymaps ([bd26a1f](https://github.com/xuchengpeng/nvim/commit/bd26a1f03c896684a03e260b5b5c3629f07d047b))
+
 ## [1.4.1](https://github.com/xuchengpeng/nvim/compare/v1.4.0...v1.4.1) (2023-03-07)
 
 
