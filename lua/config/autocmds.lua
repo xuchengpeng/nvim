@@ -70,7 +70,7 @@ function M.load_defaults()
       "FileType",
       {
         group = "_filetype_settings",
-        pattern = { "alpha", "dap-repl" },
+        pattern = { "aerial", "alpha", "dap-repl" },
         command = "set nobuflisted",
       },
     },

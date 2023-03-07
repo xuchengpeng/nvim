@@ -70,7 +70,9 @@ return {
           disabled_filetypes = { status_line = { "alpha" } },
         },
         extensions = {
+          "aerial",
           "fzf",
+          "man",
           "nvim-dap-ui",
           "nvim-tree",
           "quickfix",
@@ -130,5 +132,21 @@ return {
         return vim.ui.input(...)
       end
     end,
+  },
+  {
+    "stevearc/aerial.nvim",
+    lazy = true,
+    cmd = { "AerialToggle" },
+    config = function()
+      require("aerial").setup({
+        backends = { "lsp", "treesitter", "markdown", "man" },
+        layout = {
+          min_width = 25,
+        },
+      })
+    end,
+    keys = {
+      { "<leader>co", "<cmd>AerialToggle<cr>", desc = "Outline" },
+    },
   },
 }
