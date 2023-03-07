@@ -35,7 +35,9 @@ return {
       require("lspsaga").setup()
     end,
     keys = {
+      { "K", "<cmd>Lspsaga hover_doc<cr>", "Hover doc" },
       { "<leader>l", desc = "+Lsp" },
+      { "<leader>la", "<cmd>Lspsaga code_action<cr>", desc = "Code action" },
       { "<leader>ld", "<cmd>Lspsaga goto_definition<cr>", desc = "Goto definition" },
       { "<leader>lf", "<cmd>Lspsaga lsp_finder<cr>", desc = "Find definition" },
       {
