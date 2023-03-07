@@ -4,7 +4,7 @@ function M.load_defaults()
   local definitions = {
     -- Check if we need to reload the file when it changed
     {
-      { "FocusGained", "TermClose", "TermLeave" },
+      { "CursorHold", "CursorHoldI", "FocusGained", "TermClose", "TermLeave" },
       {
         group = "_general_settings",
         command = "checktime",

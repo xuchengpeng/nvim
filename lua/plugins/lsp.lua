@@ -46,7 +46,6 @@ return {
           if vim.bo.filetype == "lua" and vim.fn.executable("stylua") == 1 then
             local file_path = vim.fn.expand("%")
             vim.fn.system({ "stylua", file_path })
-            vim.cmd("checktime %")
           else
             vim.lsp.buf.format()
           end
