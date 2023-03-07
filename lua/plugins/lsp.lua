@@ -59,8 +59,8 @@ return {
       { "<leader>lt", "<cmd>Telescope lsp_type_definitions<cr>", desc = "Goto Type Definition" },
       { "<leader>ls", "<cmd>Telescope lsp_document_symbols<cr>", desc = "Document Symbols" },
       { "<leader>lS", "<cmd>Telescope lsp_workspace_symbols<cr>", desc = "Workspace Symbols" },
-      { "<leader>ln", vim.diagnostic.goto_next, desc = "Diagnostic next" },
-      { "<leader>lp", vim.diagnostic.goto_prev, desc = "Diagnostic prev" },
+      { "<leader>ln", vim.diagnostic.goto_next, desc = "Next Diagnostic" },
+      { "<leader>lp", vim.diagnostic.goto_prev, desc = "Prev Diagnostic" },
     },
   },
   {
