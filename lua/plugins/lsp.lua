@@ -27,6 +27,20 @@ return {
     end,
   },
   {
+    "jose-elias-alvarez/null-ls.nvim",
+    lazy = true,
+    event = { "BufReadPost", "BufAdd", "BufNewFile" },
+    config = function()
+      local null_ls = require("null-ls")
+      null_ls.setup({
+        sources = {
+          null_ls.builtins.formatting.stylua,
+          null_ls.builtins.formatting.shfmt,
+        },
+      })
+    end,
+  },
+  {
     "glepnir/lspsaga.nvim",
     lazy = true,
     event = { "BufRead", "BufNewFile" },
@@ -40,18 +54,7 @@ return {
       { "<leader>la", "<cmd>Lspsaga code_action<cr>", desc = "Code action" },
       { "<leader>ld", "<cmd>Lspsaga goto_definition<cr>", desc = "Goto definition" },
       { "<leader>lf", "<cmd>Lspsaga lsp_finder<cr>", desc = "Find definition" },
-      {
-        "<leader>lF",
-        function()
-          if vim.bo.filetype == "lua" and vim.fn.executable("stylua") == 1 then
-            local file_path = vim.fn.expand("%")
-            vim.fn.system({ "stylua", file_path })
-          else
-            vim.lsp.buf.format()
-          end
-        end,
-        desc = "Format",
-      },
+      { "<leader>lF", "<cmd>lua vim.lsp.buf.format()<cr>", desc = "Format" },
       { "<leader>lh", "<cmd>Lspsaga hover_doc<cr>", desc = "Hover doc" },
       { "<leader>lo", "<cmd>Lspsaga outline<cr>", desc = "Outline" },
       { "<leader>lr", "<cmd>Lspsaga rename<cr>", desc = "Rename" },
