@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.4.1](https://github.com/xuchengpeng/nvim/compare/v1.4.0...v1.4.1) (2023-03-07)
+
+
+### Bug Fixes
+
+* **lsp:** proper keymaps ([9b1ddc0](https://github.com/xuchengpeng/nvim/commit/9b1ddc0c8a8e4db09c9a076243ddeafd0cb9d9f3))
+* **lsp:** remove Lspsaga ([1a18113](https://github.com/xuchengpeng/nvim/commit/1a181135cda481e257bf320af8af61a4693648b8))
+
 ## [1.4.0](https://github.com/xuchengpeng/nvim/compare/v1.3.1...v1.4.0) (2023-03-07)
 
 
