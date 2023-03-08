@@ -34,6 +34,8 @@ return {
         "<leader>lf",
         function()
           vim.lsp.buf.format({
+            async = true,
+            timeout_ms = 2000, -- No effect if async=true
             filter = function(client)
               local filetype = vim.bo.filetype
               local n = require("null-ls")
@@ -73,6 +75,7 @@ return {
         sources = {
           null_ls.builtins.formatting.stylua,
           null_ls.builtins.formatting.shfmt,
+          null_ls.builtins.formatting.black,
         },
       })
     end,
