@@ -98,6 +98,20 @@ return {
         end,
         desc = "Glow",
       },
+      {
+        "<leader>tp",
+        function()
+          local Terminal = require("toggleterm.terminal").Terminal
+          local python = Terminal:new({
+            cmd = "python",
+            hidden = true,
+            direction = "float",
+          })
+
+          python:toggle()
+        end,
+        desc = "Python",
+      },
     },
   },
   {
