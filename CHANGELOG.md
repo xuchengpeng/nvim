@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.5.2](https://github.com/xuchengpeng/nvim/compare/v1.5.1...v1.5.2) (2023-03-08)
+
+
+### Bug Fixes
+
+* **lualine:** hide statusline for alpha,lazy ([1b9b8cc](https://github.com/xuchengpeng/nvim/commit/1b9b8cc97fc8c3c8207781f8595b2e18c803bfdb))
+* **terminal:** bind python with &lt;leader&gt;tp ([3a58490](https://github.com/xuchengpeng/nvim/commit/3a584905aaa5ede60c2eef752f2f941cef3082cb))
+
 ## [1.5.1](https://github.com/xuchengpeng/nvim/compare/v1.5.0...v1.5.1) (2023-03-08)
 
 
