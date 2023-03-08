@@ -67,7 +67,7 @@ return {
     config = function()
       require("lualine").setup({
         options = {
-          disabled_filetypes = { status_line = { "alpha" } },
+          disabled_filetypes = { statusline = { "alpha", "lazy" } },
         },
         extensions = {
           "aerial",
