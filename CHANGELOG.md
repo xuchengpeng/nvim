@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.5.1](https://github.com/xuchengpeng/nvim/compare/v1.5.0...v1.5.1) (2023-03-08)
+
+
+### Bug Fixes
+
+* **null-ls:** format python with black ([5d95d06](https://github.com/xuchengpeng/nvim/commit/5d95d0642bd64764af70352f596f6afc36e0aad1))
+
 ## [1.5.0](https://github.com/xuchengpeng/nvim/compare/v1.4.1...v1.5.0) (2023-03-07)
 
 
