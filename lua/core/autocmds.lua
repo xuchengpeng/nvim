@@ -1,6 +1,6 @@
 local M = {}
 
-function M.load_defaults()
+M.load_defaults = function()
   local definitions = {
     -- Check if we need to reload the file when it changed
     {
@@ -102,7 +102,7 @@ function M.load_defaults()
   M.define_autocmds(definitions)
 end
 
-function M.define_autocmds(definitions)
+M.define_autocmds = function(definitions)
   for _, entry in ipairs(definitions) do
     local event = entry[1]
     local opts = entry[2]

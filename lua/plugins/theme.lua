@@ -1,29 +1,33 @@
-return {
-  {
-    "folke/tokyonight.nvim",
-    lazy = false,
-    priority = 1000,
-    config = function()
-      local tokyonight = require("tokyonight")
-      tokyonight.setup({
-        style = "moon",
-        light_style = "day",
-        styles = {
-          keywords = { italic = false },
-        },
-      })
-      tokyonight.load()
-    end,
-  },
-  {
-    "navarasu/onedark.nvim",
-    lazy = true,
-    config = function()
-      local onedark = require("onedark")
-      onedark.setup({
-        style = "dark",
-      })
-      onedark.load()
-    end,
-  },
+local M = {}
+
+local user_themes = {
+  ["tokyonight"] = function()
+    local tokyonight = require("tokyonight")
+    tokyonight.setup({
+      style = "moon",
+      light_style = "day",
+      styles = {
+        keywords = { italic = false },
+      },
+    })
+    tokyonight.load()
+  end,
+  ["onedark"] = function()
+    local onedark = require("onedark")
+    onedark.setup({
+      style = "dark",
+    })
+    onedark.load()
+  end,
 }
+
+M.load = function(theme_name)
+  local load_theme = user_themes[theme_name]
+  if not load_theme then
+    vim.notify(string.format("%s theme not exist.", theme_name))
+    return
+  end
+  load_theme()
+end
+
+return M
