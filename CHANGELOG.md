@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.6.0](https://github.com/xuchengpeng/nvim/compare/v1.5.2...v1.6.0) (2023-03-09)
+
+
+### Features
+
+* refactor plugins management ([8ecdd7f](https://github.com/xuchengpeng/nvim/commit/8ecdd7f3ae8140acc46df5546965652a6d530789))
+
+
+### Bug Fixes
+
+* **keymaps:** camelcase keymaps descriptions ([2269ba1](https://github.com/xuchengpeng/nvim/commit/2269ba13629346fd1f9008684204642810ee438e))
+* **telescope:** load aerial extension if available ([fb8b4bb](https://github.com/xuchengpeng/nvim/commit/fb8b4bbbbc6820e0e29eaee0c8a97eecb5a55ed6))
+
 ## [1.5.2](https://github.com/xuchengpeng/nvim/compare/v1.5.1...v1.5.2) (2023-03-08)
 
 
