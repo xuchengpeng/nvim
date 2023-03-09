@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.6.1](https://github.com/xuchengpeng/nvim/compare/v1.6.0...v1.6.1) (2023-03-09)
+
+
+### Bug Fixes
+
+* **illuminate:** no highlighting for aerial,lspinfo ([aecc031](https://github.com/xuchengpeng/nvim/commit/aecc03135f9b7e79bfddfc305fbef6fbd376932c))
+
 ## [1.6.0](https://github.com/xuchengpeng/nvim/compare/v1.5.2...v1.6.0) (2023-03-09)
 
 
