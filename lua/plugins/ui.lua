@@ -53,10 +53,10 @@ return {
     end,
     keys = {
       { "<leader>b", desc = "+Buffer" },
-      { "<leader>bs", "<cmd>BufferLinePick<cr>", desc = "Switch buffer" },
-      { "<leader>bc", "<cmd>BufferLinePickClose<cr>", desc = "Close buffer" },
-      { "<leader>bn", "<cmd>BufferLineCycleNext<cr>", desc = "Next buffer" },
-      { "<leader>bp", "<cmd>BufferLineCyclePrev<cr>", desc = "Prev buffer" },
+      { "<leader>bs", "<cmd>BufferLinePick<cr>", desc = "Switch Buffer" },
+      { "<leader>bc", "<cmd>BufferLinePickClose<cr>", desc = "Close Buffer" },
+      { "<leader>bn", "<cmd>BufferLineCycleNext<cr>", desc = "Next Buffer" },
+      { "<leader>bp", "<cmd>BufferLineCyclePrev<cr>", desc = "Prev Buffer" },
     },
   },
   {
