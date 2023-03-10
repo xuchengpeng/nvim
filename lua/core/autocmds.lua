@@ -36,6 +36,7 @@ M.load_defaults = function()
       {
         group = "_close_with_q",
         pattern = {
+          "dap-float",
           "floaterm",
           "help",
           "lspinfo",
