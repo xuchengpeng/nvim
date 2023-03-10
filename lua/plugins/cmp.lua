@@ -2,6 +2,7 @@ local M = {}
 
 M.setup = function()
   vim.opt.completeopt = { "menu", "menuone", "noselect" }
+  local kind_icons = require("utils.icons").kind
   local cmp = require("cmp")
   cmp.setup({
     snippet = {
@@ -15,6 +16,21 @@ M.setup = function()
       { name = "path" },
       { name = "cmdline" },
       { name = "luasnip" },
+    },
+    formatting = {
+      format = function(entry, vim_item)
+        vim_item.kind = string.format("%s %s", kind_icons[vim_item.kind], vim_item.kind)
+        vim_item.menu = ({
+          nvim_lsp = "[LSP]",
+          buffer = "[Buffer]",
+          path = "[Path]",
+          luasnip = "[Snippet]",
+          emoji = "[Emoji]",
+          vsnip = "[Snippet]",
+          treesitter = "[TreeSitter]",
+        })[entry.source.name]
+        return vim_item
+      end,
     },
     mapping = {
       ["<C-j>"] = cmp.mapping(cmp.mapping.select_next_item(), { "i", "c" }),
