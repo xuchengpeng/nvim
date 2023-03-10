@@ -210,8 +210,13 @@ return {
     lazy = true,
     event = "VeryLazy",
     dependencies = {
-      "MunifTanjim/nui.nvim",
-      "rcarriga/nvim-notify",
+      { "MunifTanjim/nui.nvim" },
+      {
+        "rcarriga/nvim-notify",
+        config = function()
+          vim.notify = require("notify")
+        end,
+      },
     },
     config = function()
       require("plugins.noice").setup()
