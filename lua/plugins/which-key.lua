@@ -1,6 +1,9 @@
 local M = {}
 
 local mappings = {
+  h = { "<cmd>nohlsearch<cr>", "No Highlight" },
+  q = { "<cmd>confirm quit<cr>", "Quit" },
+  z = { "<cmd>ZenMode<cr>", "Zen Mode" },
   b = {
     name = "+Buffer",
     c = { "<cmd>BufferLinePickClose<cr>", "Close Buffer" },
@@ -60,7 +63,7 @@ local mappings = {
     R = { "<cmd>Gitsigns reset_buffer<cr>", "Reset Buffer" },
   },
   l = {
-    name = "+Lsp",
+    name = "+LSP",
     a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
     d = { "<cmd>Telescope lsp_definitions<cr>", "Goto Definition" },
     f = { "<cmd>lua require('plugins.lsp').format()<cr>", "Format" },
@@ -82,7 +85,6 @@ local mappings = {
     l = { "<cmd>lua require('plugins.toggleterm').toggle_term_cmd('lazygit')<cr>", "Lazygit" },
     p = { "<cmd>lua require('plugins.toggleterm').toggle_term_cmd('python')<cr>", "Python" },
   },
-  z = { "<cmd>ZenMode<cr>", "Zen Mode" },
 }
 
 M.setup = function()
