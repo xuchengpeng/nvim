@@ -1,7 +1,11 @@
 local M = {}
 
 M.setup = function()
-  require("telescope").setup()
+  require("telescope").setup({
+    defaults = {
+      path_display = { "truncate" },
+    },
+  })
   require("telescope").load_extension("file_browser")
   require("telescope").load_extension("live_grep_args")
   require("telescope").load_extension("fzf")
