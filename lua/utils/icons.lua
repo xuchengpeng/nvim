@@ -127,6 +127,7 @@ return {
     TriangleShortArrowLeft = "",
     TriangleShortArrowRight = "",
     TriangleShortArrowUp = "",
+    Update = "",
   },
   diagnostics = {
     BoldError = "",
