@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.6.2](https://github.com/xuchengpeng/nvim/compare/v1.6.1...v1.6.2) (2023-03-10)
+
+
+### Bug Fixes
+
+* **dap:** close dap-float with q ([02a4477](https://github.com/xuchengpeng/nvim/commit/02a44776e11b76ad37a007d4519024a501ed68d0))
+* **keymaps:** add standard operations ([1889a4a](https://github.com/xuchengpeng/nvim/commit/1889a4a6ceb3bae00d0a73b2ecba6b96c46ed8bf))
+* **telescope:** path display truncate ([96b08d9](https://github.com/xuchengpeng/nvim/commit/96b08d91bb1b6558a698463e897741ca4a98c486))
+
 ## [1.6.1](https://github.com/xuchengpeng/nvim/compare/v1.6.0...v1.6.1) (2023-03-09)
 
 
