@@ -1,17 +1,32 @@
 local M = {}
 
 M.setup = function()
-  require("telescope").setup({
+  local telescope = require("telescope")
+  local actions = require("telescope.actions")
+  telescope.setup({
     defaults = {
       path_display = { "truncate" },
+      mappings = {
+        i = {
+          ["<C-c>"] = actions.close,
+          ["<C-n>"] = actions.move_selection_next,
+          ["<C-p>"] = actions.move_selection_previous,
+          ["<C-j>"] = actions.cycle_history_next,
+          ["<C-k>"] = actions.cycle_history_prev,
+        },
+        n = {
+          ["<C-n>"] = actions.move_selection_next,
+          ["<C-p>"] = actions.move_selection_previous,
+        },
+      },
     },
   })
-  require("telescope").load_extension("file_browser")
-  require("telescope").load_extension("live_grep_args")
-  require("telescope").load_extension("fzf")
+  telescope.load_extension("file_browser")
+  telescope.load_extension("live_grep_args")
+  telescope.load_extension("fzf")
   local status_ok, _ = pcall(require, "aerial")
   if status_ok then
-    require("telescope").load_extension("aerial")
+    telescope.load_extension("aerial")
   end
 end
 
