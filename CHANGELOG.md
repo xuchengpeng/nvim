@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.6.3](https://github.com/xuchengpeng/nvim/compare/v1.6.2...v1.6.3) (2023-03-10)
+
+
+### Bug Fixes
+
+* **alpha:** customize menu icons ([eed1575](https://github.com/xuchengpeng/nvim/commit/eed1575701216034a458b7573203894cef7839b2))
+* **cmp:** customize the appearance of the completion menu with icons ([21bac07](https://github.com/xuchengpeng/nvim/commit/21bac0782a0d0aaa375547c3dbbd2f59191ce4ef))
+* **noice:** configure notify ([a08647c](https://github.com/xuchengpeng/nvim/commit/a08647c2a6e77f9681d9de9a199fe9af386f3441))
+* **telescope:** add mappings ([c3e340e](https://github.com/xuchengpeng/nvim/commit/c3e340ef01004f483cb510e330be57e09abf1aaa))
+
 ## [1.6.2](https://github.com/xuchengpeng/nvim/compare/v1.6.1...v1.6.2) (2023-03-10)
 
 
