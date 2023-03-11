@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.6.6](https://github.com/xuchengpeng/nvim/compare/v1.6.5...v1.6.6) (2023-03-11)
+
+
+### Bug Fixes
+
+* **alpla:** customize menus ([3fa8523](https://github.com/xuchengpeng/nvim/commit/3fa85239e76df505780a5714d98c5df855391868))
+* **cmp:** add friendly-snippets ([6326464](https://github.com/xuchengpeng/nvim/commit/6326464db8c9b89361b86d3d0e8ee72f0fe7f297))
+* **cmp:** add window border ([248d0ba](https://github.com/xuchengpeng/nvim/commit/248d0ba7fd805e8c8733b6f59d166b90cae3ac75))
+* ensure plenary.nvim installed ([6c7edd9](https://github.com/xuchengpeng/nvim/commit/6c7edd978531389d4b4cd1eabf16d156aab76a4d))
+
 ## [1.6.5](https://github.com/xuchengpeng/nvim/compare/v1.6.4...v1.6.5) (2023-03-11)
 
 
