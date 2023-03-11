@@ -13,6 +13,7 @@ return {
       require("plugins.theme").load("onedark")
     end,
   },
+  { "nvim-lua/plenary.nvim", lazy = true },
   {
     "goolord/alpha-nvim",
     lazy = true,
@@ -65,7 +66,6 @@ return {
     lazy = true,
     cmd = "Telescope",
     dependencies = {
-      "nvim-lua/plenary.nvim",
       "nvim-telescope/telescope-file-browser.nvim",
       "nvim-telescope/telescope-live-grep-args.nvim",
       {
@@ -107,10 +107,7 @@ return {
       require("plugins.lsp").setup()
     end,
   },
-  {
-    "jose-elias-alvarez/null-ls.nvim",
-    lazy = true,
-  },
+  { "jose-elias-alvarez/null-ls.nvim", lazy = true },
   {
     "nvim-treesitter/nvim-treesitter",
     lazy = true,
@@ -157,7 +154,6 @@ return {
     "folke/todo-comments.nvim",
     lazy = true,
     cmd = { "TodoTrouble", "TodoTelescope" },
-    dependencies = { "nvim-lua/plenary.nvim" },
     config = true,
   },
   {
@@ -241,7 +237,6 @@ return {
     "nvim-pack/nvim-spectre",
     lazy = true,
     cmd = "Spectre",
-    dependencies = { "nvim-lua/plenary.nvim" },
     config = true,
   },
   {
