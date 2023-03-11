@@ -1,7 +1,9 @@
 local M = {}
 
+local utils = require("utils")
+
 M.setup = function()
-  local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+  local lazypath = utils.get_data_dir() .. "/lazy/lazy.nvim"
   if not vim.loop.fs_stat(lazypath) then
     vim.fn.system({
       "git",
@@ -16,8 +18,8 @@ M.setup = function()
 
   local plugins = require("core.plugins")
   local opts = {
-    root = vim.fn.stdpath("data") .. "/lazy",
-    lockfile = vim.fn.stdpath("config") .. "/lazy-lock.json",
+    root = utils.get_data_dir() .. "/lazy",
+    lockfile = utils.get_config_dir() .. "/lazy-lock.json",
     install = { colorscheme = { "tokyonight", "habamax" } },
   }
 

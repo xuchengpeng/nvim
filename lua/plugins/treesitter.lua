@@ -1,7 +1,7 @@
 local M = {}
 
 M.setup = function()
-  local path = vim.fn.stdpath("data") .. "/lazy" .. "/nvim-treesitter"
+  local path = require("utils").get_data_dir() .. "/lazy" .. "/nvim-treesitter"
   vim.opt.rtp:prepend(path) -- treesitter needs to be before nvim's runtime in rtp
   require("nvim-treesitter.configs").setup({
     ensure_installed = {

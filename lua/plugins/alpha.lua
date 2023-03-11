@@ -26,6 +26,13 @@ M.setup = function()
     dashboard.button("q", ui.Close .. "  > Quit NVIM", "<cmd>quit<CR>"),
   }
 
+  local stats = require("lazy").stats()
+  dashboard.section.footer.val = {
+    "",
+    "",
+    "⚡ Neovim loaded " .. stats.count .. " plugins in " .. stats.startuptime .. "ms",
+  }
+
   alpha.setup(dashboard.opts)
 end
 
