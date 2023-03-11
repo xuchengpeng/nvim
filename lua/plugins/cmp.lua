@@ -3,8 +3,17 @@ local M = {}
 M.setup = function()
   vim.opt.completeopt = { "menu", "menuone", "noselect" }
   local kind_icons = require("utils.icons").kind
+  local border_opts = {
+    border = "single",
+    winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:Visual,Search:None",
+    scrollbar = false,
+  }
   local cmp = require("cmp")
   cmp.setup({
+    window = {
+      completion = cmp.config.window.bordered(border_opts),
+      documentation = cmp.config.window.bordered(border_opts),
+    },
     snippet = {
       expand = function(args)
         require("luasnip").lsp_expand(args.body)
