@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.6.5](https://github.com/xuchengpeng/nvim/compare/v1.6.4...v1.6.5) (2023-03-11)
+
+
+### Bug Fixes
+
+* **alpha:** add nvim version ([a9d11a9](https://github.com/xuchengpeng/nvim/commit/a9d11a91467a090f94c8ca1350a9f723dc649e15))
+
 ## [1.6.4](https://github.com/xuchengpeng/nvim/compare/v1.6.3...v1.6.4) (2023-03-11)
 
 
