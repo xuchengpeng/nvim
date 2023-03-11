@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.6.4](https://github.com/xuchengpeng/nvim/compare/v1.6.3...v1.6.4) (2023-03-11)
+
+
+### Bug Fixes
+
+* **alpha:** add plugins startup time ([371a2a8](https://github.com/xuchengpeng/nvim/commit/371a2a86f41674d91b6f127f654fa1229e9faee4))
+
 ## [1.6.3](https://github.com/xuchengpeng/nvim/compare/v1.6.2...v1.6.3) (2023-03-10)
 
 
