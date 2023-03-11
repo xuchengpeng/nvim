@@ -27,11 +27,13 @@ M.setup = function()
   }
 
   local stats = require("lazy").stats()
-  dashboard.section.footer.val = {
-    "",
+  local text = require("utils.text")
+  local nvim_version = require("utils.git").get_nvim_version()
+  dashboard.section.footer.val = text.align_center({ width = 0 }, {
     "",
     "⚡ Neovim loaded " .. stats.count .. " plugins in " .. stats.startuptime .. "ms",
-  }
+    nvim_version,
+  }, 0.5)
 
   alpha.setup(dashboard.opts)
 end
