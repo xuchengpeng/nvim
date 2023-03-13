@@ -28,7 +28,6 @@ M.setup = function()
   if status_ok then
     telescope.load_extension("aerial")
   end
-  telescope.load_extension("notify")
 end
 
 return M

@@ -210,23 +210,6 @@ return {
     config = true,
   },
   {
-    "folke/noice.nvim",
-    lazy = true,
-    event = "VeryLazy",
-    dependencies = {
-      { "MunifTanjim/nui.nvim" },
-      {
-        "rcarriga/nvim-notify",
-        config = function()
-          vim.notify = require("notify")
-        end,
-      },
-    },
-    config = function()
-      require("plugins.noice").setup()
-    end,
-  },
-  {
     "stevearc/dressing.nvim",
     lazy = true,
     init = function()
