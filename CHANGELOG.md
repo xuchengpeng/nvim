@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.6.7](https://github.com/xuchengpeng/nvim/compare/v1.6.6...v1.6.7) (2023-03-13)
+
+
+### Bug Fixes
+
+* **cmp:** cmp-cmdline enabled on CmdlineEnter ([584a6f1](https://github.com/xuchengpeng/nvim/commit/584a6f1dd9fa4b7322ea5e24450c5e29bc123b5e))
+* **nvim-tree:** open Explorer with NvimTreeFindFileToggle ([b312545](https://github.com/xuchengpeng/nvim/commit/b312545543b05c54440c91354444142952979fd6))
+* **ui:** remove noice ([8d36a1c](https://github.com/xuchengpeng/nvim/commit/8d36a1cdbf4c3a5d4297e7fa14c8f70fcc3552df))
+
 ## [1.6.6](https://github.com/xuchengpeng/nvim/compare/v1.6.5...v1.6.6) (2023-03-11)
 
 
