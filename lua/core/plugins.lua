@@ -26,7 +26,7 @@ return {
   {
     "akinsho/bufferline.nvim",
     lazy = true,
-    event = { "BufReadPost", "BufAdd", "BufNewFile" },
+    event = { "User FileOpened" },
     config = function()
       require("plugins.bufferline").setup()
     end,
@@ -103,7 +103,7 @@ return {
   {
     "williamboman/mason-lspconfig.nvim",
     lazy = true,
-    event = { "BufReadPost", "BufAdd", "BufNewFile" },
+    event = { "User FileOpened" },
     dependencies = {
       "williamboman/mason.nvim",
       "neovim/nvim-lspconfig",
@@ -117,7 +117,7 @@ return {
   {
     "nvim-treesitter/nvim-treesitter",
     lazy = true,
-    event = { "BufRead", "BufNewFile", "BufWinEnter" },
+    event = { "User FileOpened" },
     cmd = {
       "TSInstall",
       "TSUninstall",
@@ -135,7 +135,7 @@ return {
   {
     "nvim-treesitter/nvim-treesitter-context",
     lazy = true,
-    event = { "BufReadPre" },
+    event = { "User FileOpened" },
     config = true,
   },
   {
@@ -147,7 +147,7 @@ return {
   {
     "numToStr/Comment.nvim",
     lazy = true,
-    event = { "BufRead", "BufNewFile" },
+    event = { "User FileOpened" },
     config = true,
   },
   {
@@ -165,7 +165,7 @@ return {
   {
     "lukas-reineke/indent-blankline.nvim",
     lazy = true,
-    event = { "BufRead", "BufNewFile" },
+    event = { "User FileOpened" },
     config = function()
       require("plugins.indent-blankline").setup()
     end,
@@ -189,7 +189,7 @@ return {
   {
     "RRethy/vim-illuminate",
     lazy = true,
-    event = { "BufReadPost", "BufNewFile" },
+    event = { "User FileOpened" },
     config = function()
       require("plugins.illuminate").setup()
     end,
@@ -204,7 +204,7 @@ return {
   {
     "lewis6991/gitsigns.nvim",
     lazy = true,
-    event = { "BufReadPost", "BufNewFile" },
+    event = { "User FileOpened" },
     config = true,
   },
   {

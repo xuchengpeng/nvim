@@ -98,6 +98,18 @@ M.load_defaults = function()
         end,
       },
     },
+    {
+      { "BufReadPost", "BufNewFile" },
+      {
+        group = "_file_user_events",
+        callback = function(args)
+          local buftype = vim.api.nvim_get_option_value("buftype", { buf = args.buf })
+          if not (vim.fn.expand("%") == "" or buftype == "nofile") then
+            require("utils").event("FileOpened")
+          end
+        end,
+      },
+    },
   }
 
   M.define_autocmds(definitions)

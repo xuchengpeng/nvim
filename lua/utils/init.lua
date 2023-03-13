@@ -16,4 +16,12 @@ M.get_state_dir = function()
   return vim.fn.stdpath("state")
 end
 
+--- Trigger an user event
+-- @param event the event name
+M.event = function(event)
+  vim.schedule(function()
+    vim.api.nvim_exec_autocmds("User", { pattern = event })
+  end)
+end
+
 return M
