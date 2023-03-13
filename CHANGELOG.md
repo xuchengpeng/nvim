@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.6.8](https://github.com/xuchengpeng/nvim/compare/v1.6.7...v1.6.8) (2023-03-13)
+
+
+### Bug Fixes
+
+* active plugins on User FileOpened event ([809029f](https://github.com/xuchengpeng/nvim/commit/809029fddcf536e856c677bbc421571eee4120c1))
+
 ## [1.6.7](https://github.com/xuchengpeng/nvim/compare/v1.6.6...v1.6.7) (2023-03-13)
 
 
