@@ -14,11 +14,11 @@ return {
     end,
   },
   { "nvim-lua/plenary.nvim", lazy = true },
+  { "nvim-tree/nvim-web-devicons", lazy = true },
   {
     "goolord/alpha-nvim",
     lazy = true,
     event = "VimEnter",
-    dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
       require("plugins.alpha").setup()
     end,
@@ -27,7 +27,6 @@ return {
     "akinsho/bufferline.nvim",
     lazy = true,
     event = { "BufReadPost", "BufAdd", "BufNewFile" },
-    dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
       require("plugins.bufferline").setup()
     end,
@@ -36,7 +35,6 @@ return {
     "nvim-lualine/lualine.nvim",
     lazy = true,
     event = { "VimEnter" },
-    dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
       require("plugins.lualine").setup()
     end,
@@ -49,8 +47,8 @@ return {
       "NvimTreeFindFile",
       "NvimTreeCollapse",
       "NvimTreeRefresh",
+      "NvimTreeFindFileToggle",
     },
-    dependencies = { "nvim-tree/nvim-web-devicons" },
     config = true,
   },
   {

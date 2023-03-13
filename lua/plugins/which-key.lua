@@ -13,7 +13,7 @@ local mappings = {
   },
   c = {
     name = "+Coding",
-    e = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
+    e = { "<cmd>NvimTreeFindFileToggle<cr>", "Explorer" },
     j = { "<cmd>TSJJoin<cr>", "Join" },
     s = { "<cmd>TSJSplit<cr>", "Split" },
     o = { "<cmd>AerialToggle<cr>", "Outline" },
