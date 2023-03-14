@@ -108,7 +108,7 @@ return {
   {
     "williamboman/mason-lspconfig.nvim",
     lazy = true,
-    event = { "User FileOpened" },
+    event = { "BufReadPre", "BufNewFile" },
     dependencies = {
       "williamboman/mason.nvim",
       "neovim/nvim-lspconfig",
