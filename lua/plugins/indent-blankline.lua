@@ -9,7 +9,7 @@ M.setup = function()
       "lazy",
       "lspinfo",
       "man",
-      "NvimTree",
+      "neo-tree",
       "Trouble",
       "text",
     },

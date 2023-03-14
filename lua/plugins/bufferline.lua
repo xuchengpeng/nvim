@@ -5,7 +5,7 @@ M.setup = function()
     options = {
       offsets = {
         {
-          filetype = "NvimTree",
+          filetype = "neo-tree",
           text = "Explorer",
           highlight = "Directory",
           text_align = "left",

@@ -15,6 +15,7 @@ return {
   },
   { "nvim-lua/plenary.nvim", lazy = true },
   { "nvim-tree/nvim-web-devicons", lazy = true },
+  { "MunifTanjim/nui.nvim", lazy = true },
   {
     "rcarriga/nvim-notify",
     lazy = true,
@@ -48,16 +49,12 @@ return {
     end,
   },
   {
-    "nvim-tree/nvim-tree.lua",
+    "nvim-neo-tree/neo-tree.nvim",
     lazy = true,
-    cmd = {
-      "NvimTreeToggle",
-      "NvimTreeFindFile",
-      "NvimTreeCollapse",
-      "NvimTreeRefresh",
-      "NvimTreeFindFileToggle",
-    },
-    config = true,
+    cmd = { "Neotree" },
+    config = function()
+      require("plugins.neo-tree").setup()
+    end,
   },
   {
     "stevearc/aerial.nvim",

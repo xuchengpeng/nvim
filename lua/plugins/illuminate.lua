@@ -11,7 +11,7 @@ M.setup = function()
     filetypes_denylist = {
       "aerial",
       "alpha",
-      "NvimTree",
+      "neo-tree",
       "lazy",
       "lspinfo",
       "Trouble",
