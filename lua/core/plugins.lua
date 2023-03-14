@@ -16,6 +16,14 @@ return {
   { "nvim-lua/plenary.nvim", lazy = true },
   { "nvim-tree/nvim-web-devicons", lazy = true },
   {
+    "rcarriga/nvim-notify",
+    lazy = true,
+    event = "VimEnter",
+    config = function()
+      vim.notify = require("notify")
+    end,
+  },
+  {
     "goolord/alpha-nvim",
     lazy = true,
     event = "VimEnter",
