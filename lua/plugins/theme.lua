@@ -24,7 +24,7 @@ local user_themes = {
 M.load = function(theme_name)
   local load_theme = user_themes[theme_name]
   if not load_theme then
-    vim.notify(string.format("%s theme not exist.", theme_name))
+    require("utils").notify(string.format("%s theme not exist.", theme_name), "error")
     return
   end
   load_theme()
