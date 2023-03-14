@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.6.9](https://github.com/xuchengpeng/nvim/compare/v1.6.8...v1.6.9) (2023-03-14)
+
+
+### Bug Fixes
+
+* append &lt;,&gt;,[,],h,l to whichwrap ([c2b0057](https://github.com/xuchengpeng/nvim/commit/c2b005706b64ae64cc2581053caedb086d525c78))
+* **utils:** join path segments that were passed as input ([9c3fbe0](https://github.com/xuchengpeng/nvim/commit/9c3fbe0a4972ae763b4a28a6179623aad66aef53))
+
 ## [1.6.8](https://github.com/xuchengpeng/nvim/compare/v1.6.7...v1.6.8) (2023-03-13)
 
 
