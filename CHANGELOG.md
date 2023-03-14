@@ -1,5 +1,16 @@
 # Changelog
 
+## [1.6.10](https://github.com/xuchengpeng/nvim/compare/v1.6.9...v1.6.10) (2023-03-14)
+
+
+### Bug Fixes
+
+* better notify ([38e8917](https://github.com/xuchengpeng/nvim/commit/38e8917c4b964a89172ee0c3b5fd0edf0cf9e76c))
+* **cmp:** disable scrollbar of completion window ([273af2d](https://github.com/xuchengpeng/nvim/commit/273af2d50c334707bd28f47ee666f8664eb3884b))
+* **neotree:** toggle Neotree by default ([3bbb31c](https://github.com/xuchengpeng/nvim/commit/3bbb31c7fa58a526f2b505f52545c4e87fd6d0c7))
+* replace nvim-tree with neo-tree ([3e3cf2d](https://github.com/xuchengpeng/nvim/commit/3e3cf2db2c58eb9d2953d70857c3f088de509cc7))
+* **theme:** better notify ([8b6e6b2](https://github.com/xuchengpeng/nvim/commit/8b6e6b246ca27bbfacac0a0af1bf6ebe303eb706))
+
 ## [1.6.9](https://github.com/xuchengpeng/nvim/compare/v1.6.8...v1.6.9) (2023-03-14)
 
 
