@@ -16,6 +16,15 @@ M.get_state_dir = function()
   return vim.fn.stdpath("state")
 end
 
+local path_sep = vim.loop.os_uname().version:match("Windows") and "\\" or "/"
+
+---Join path segments that were passed as input
+---@return string
+M.join_paths = function(...)
+  local result = table.concat({ ... }, path_sep)
+  return result
+end
+
 --- Trigger an user event
 -- @param event the event name
 M.event = function(event)
