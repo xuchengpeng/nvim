@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.6.11](https://github.com/xuchengpeng/nvim/compare/v1.6.10...v1.6.11) (2023-03-14)
+
+
+### Bug Fixes
+
+* add function descriptions ([e83b660](https://github.com/xuchengpeng/nvim/commit/e83b660590fd845d1e4371c664cbfcd6ef59b775))
+* **alpha:** open configuration with neo-tree ([8b8510c](https://github.com/xuchengpeng/nvim/commit/8b8510c250e3ace3914315992b7e27e738634018))
+* **lsp:** active lsp sooner ([366dadf](https://github.com/xuchengpeng/nvim/commit/366dadf5dc3f759070f7d83edaf8fba03afd87a2))
+
 ## [1.6.10](https://github.com/xuchengpeng/nvim/compare/v1.6.9...v1.6.10) (2023-03-14)
 
 
