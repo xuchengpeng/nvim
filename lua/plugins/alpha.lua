@@ -21,7 +21,7 @@ M.setup = function()
     dashboard.button("f", ui.FindFile .. "  > Find File", "<cmd>Telescope find_files<CR>"),
     dashboard.button("r", ui.History .. "  > Recent Files", "<cmd>Telescope oldfiles<CR>"),
     dashboard.button("t", ui.FindText .. "  > Find Text", "<cmd>Telescope live_grep<CR>"),
-    dashboard.button("c", ui.Gear .. "  > Configuration", "<cmd>edit " .. require("utils").get_config_dir() .. "<CR>"),
+    dashboard.button("c", ui.Gear .. "  > Configuration", "<cmd>Neotree " .. require("utils").get_config_dir() .. "<CR>"),
     dashboard.button("u", ui.Update .. "  > Update Plugins", "<cmd>Lazy update<CR>"),
     dashboard.button("q", ui.Close .. "  > Quit NVIM", "<cmd>quit<CR>"),
   }
