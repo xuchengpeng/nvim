@@ -2,16 +2,16 @@ local M = {}
 
 M.load_defaults = function()
   local definitions = {
-    -- Check if we need to reload the file when it changed
     {
+      -- Check if we need to reload the file when it changed
       { "CursorHold", "CursorHoldI", "FocusGained", "TermClose", "TermLeave" },
       {
         group = "_general_settings",
         command = "checktime",
       },
     },
-    -- Highlight on yank
     {
+      -- Highlight on yank
       "TextYankPost",
       {
         group = "_general_settings",
@@ -20,8 +20,8 @@ M.load_defaults = function()
         end,
       },
     },
-    -- resize splits if window got resized
     {
+      -- resize splits if window got resized
       { "VimResized" },
       {
         group = "_auto_resize",
@@ -30,8 +30,8 @@ M.load_defaults = function()
         end,
       },
     },
-    -- close some filetypes with <q>
     {
+      -- close some filetypes with <q>
       "FileType",
       {
         group = "_close_with_q",
@@ -55,8 +55,8 @@ M.load_defaults = function()
         end,
       },
     },
-    -- wrap and check for spell in text filetypes
     {
+      -- wrap and check for spell in text filetypes
       "FileType",
       {
         group = "_filetype_settings",
@@ -87,8 +87,8 @@ M.load_defaults = function()
         end,
       },
     },
-    -- automatically create missing directories when saving files
     {
+      -- automatically create missing directories when saving files
       "BufWritePre",
       {
         group = "_auto_create_dir",
@@ -106,6 +106,20 @@ M.load_defaults = function()
           local buftype = vim.api.nvim_get_option_value("buftype", { buf = args.buf })
           if not (vim.fn.expand("%") == "" or buftype == "nofile") then
             require("utils").event("FileOpened")
+          end
+        end,
+      },
+    },
+    {
+      -- go to last loc when opening a buffer
+      "BufReadPost",
+      {
+        group = "_last_loc",
+        callback = function()
+          local mark = vim.api.nvim_buf_get_mark(0, '"')
+          local lcount = vim.api.nvim_buf_line_count(0)
+          if mark[1] > 0 and mark[1] <= lcount then
+            pcall(vim.api.nvim_win_set_cursor, 0, mark)
           end
         end,
       },
