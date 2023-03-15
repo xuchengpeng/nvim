@@ -6,6 +6,14 @@ M.setup = function()
     layout = {
       min_width = 25,
     },
+    filter_kind = false,
+    show_guides = true,
+    guides = {
+      mid_item = "├ ",
+      last_item = "└ ",
+      nested_top = "│ ",
+      whitespace = "  ",
+    },
   })
 end
 
