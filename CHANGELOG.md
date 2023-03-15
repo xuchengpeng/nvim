@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.7.0](https://github.com/xuchengpeng/nvim/compare/v1.6.11...v1.7.0) (2023-03-15)
+
+
+### Features
+
+* **lsp:** support formatting on save ([667b152](https://github.com/xuchengpeng/nvim/commit/667b1527be34f16373bb0fcaad3170137ac7a884))
+
+
+### Bug Fixes
+
+* go to last loc when opening a buffer ([8021194](https://github.com/xuchengpeng/nvim/commit/802119481652f85b02977248781d8f7ad0d729bb))
+
 ## [1.6.11](https://github.com/xuchengpeng/nvim/compare/v1.6.10...v1.6.11) (2023-03-14)
 
 
