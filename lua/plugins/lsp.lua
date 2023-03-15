@@ -1,5 +1,7 @@
 local M = {}
 
+local utils = require("utils")
+
 M.setup = function()
   require("mason").setup()
   require("mason-lspconfig").setup({
@@ -9,8 +11,23 @@ M.setup = function()
   require("lspconfig").lua_ls.setup({
     settings = {
       Lua = {
+        runtime = {
+          version = "LuaJIT",
+        },
         diagnostics = {
           globals = { "vim" },
+        },
+        workspace = {
+          library = {
+            vim.fn.expand("$VIMRUNTIME"),
+            utils.get_config_dir(),
+            require("neodev.config").types(),
+          },
+          maxPreload = 5000,
+          preloadFileSize = 10000,
+        },
+        telemetry = {
+          enable = false,
         },
       },
     },
@@ -29,27 +46,64 @@ M.setup = function()
   })
 end
 
----Simple wrapper for vim.lsp.buf.format() to provide defaults
-M.format = function()
-  vim.lsp.buf.format({
-    async = true,
-    timeout_ms = 2000, -- No effect if async=true
-    filter = function(client)
-      local filetype = vim.bo.filetype
-      local n = require("null-ls")
-      local s = require("null-ls.sources")
-      local method = n.methods.FORMATTING
-      local available_formatters = s.get_available(filetype, method)
+---filter passed to vim.lsp.buf.format
+---always selects null-ls if it's available and caches the value per buffer
+---@param client table client attached to a buffer
+---@return boolean if client matches
+M.format_filter = function(client)
+  local filetype = vim.bo.filetype
+  local n = require("null-ls")
+  local s = require("null-ls.sources")
+  local method = n.methods.FORMATTING
+  local available_formatters = s.get_available(filetype, method)
 
-      if #available_formatters > 0 then
-        return client.name == "null-ls"
-      elseif client.supports_method("textDocument/formatting") then
-        return true
-      else
-        return false
-      end
-    end,
+  if #available_formatters > 0 then
+    return client.name == "null-ls"
+  elseif client.supports_method("textDocument/formatting") then
+    return true
+  else
+    return false
+  end
+end
+
+---Simple wrapper for vim.lsp.buf.format() to provide defaults
+---@param opts table|nil
+M.format = function(opts)
+  opts = opts or { async = true }
+  opts.filter = opts.filter or M.format_filter
+  vim.lsp.buf.format(opts)
+end
+
+M.enable_format_on_save = function()
+  require("core.autocmds").create_autocmds({
+    {
+      "BufWritePre",
+      {
+        group = "_lsp_format_on_save",
+        callback = function()
+          M.format({ timeout_ms = 2000 })
+        end,
+      },
+    },
   })
+  utils.notify("enabled format-on-save")
+end
+
+M.disable_format_on_save = function()
+  require("core.autocmds").clear_autocmds("_lsp_format_on_save")
+  utils.notify("disabled format-on-save")
+end
+
+M.toggle_format_on_save = function()
+  local exists, autocmd = pcall(vim.api.nvim_get_autocmds, {
+    group = "_lsp_format_on_save",
+    event = "BufWritePre",
+  })
+  if not exists or #autocmd == 0 then
+    M.enable_format_on_save()
+  else
+    M.disable_format_on_save()
+  end
 end
 
 return M
