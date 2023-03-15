@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.7.1](https://github.com/xuchengpeng/nvim/compare/v1.7.0...v1.7.1) (2023-03-15)
+
+
+### Bug Fixes
+
+* **aerial:** display all symbols ([4f99a95](https://github.com/xuchengpeng/nvim/commit/4f99a95301f9abd28e4ea71b65655c894402233f))
+* **telescope:** load extensions if available ([631721d](https://github.com/xuchengpeng/nvim/commit/631721d61688f39669f405dba217bca079369a1a))
+
 ## [1.7.0](https://github.com/xuchengpeng/nvim/compare/v1.6.11...v1.7.0) (2023-03-15)
 
 
