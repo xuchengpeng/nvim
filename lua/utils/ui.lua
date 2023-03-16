@@ -2,6 +2,10 @@ local M = {}
 
 local utils = require("utils")
 
+local function bool2str(bool)
+  return bool and "on" or "off"
+end
+
 ---Set the indent and tab related numbers
 M.set_indent = function()
   vim.ui.input({
@@ -21,6 +25,22 @@ M.set_indent = function()
     vim.bo.shiftwidth = indent -- local to buffer
     utils.notify(string.format("indent=%d %s", indent, vim.bo.expandtab and "expandtab" or "noexpandtab"))
   end)
+end
+
+---Toggle autopairs
+M.toggle_autopairs = function()
+  local ok, autopairs = pcall(require, "nvim-autopairs")
+  if not ok then
+    utils.notify("autopairs not available")
+    return
+  end
+
+  if autopairs.state.disabled then
+    autopairs.enable()
+  else
+    autopairs.disable()
+  end
+  utils.notify(string.format("autopairs %s", bool2str(autopairs.state.disabled)))
 end
 
 return M

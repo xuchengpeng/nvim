@@ -98,6 +98,7 @@ local mappings = {
   },
   u = {
     name = "+UI",
+    a = { "<cmd>lua require('utils.ui').toggle_autopairs()<cr>", "Toggle Autopairs" },
     i = { "<cmd>lua require('utils.ui').set_indent()<cr>", "Set Indent" },
   },
 }
