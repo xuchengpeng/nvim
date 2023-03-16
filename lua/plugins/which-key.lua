@@ -67,6 +67,7 @@ local mappings = {
     a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
     d = { "<cmd>Telescope lsp_definitions<cr>", "Goto Definition" },
     f = { "<cmd>lua require('plugins.lsp').format()<cr>", "Format" },
+    F = { "<cmd>ToggleFormatOnSave<cr>", "Toggle Format On Save" },
     i = { "<cmd>Telescope lsp_implementations<cr>", "Goto Implementation" },
     r = { "<cmd>Telescope lsp_references<cr>", "References" },
     R = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
@@ -84,6 +85,10 @@ local mappings = {
     g = { "<cmd>lua require('plugins.toggleterm').toggle_term_cmd('glow')<cr>", "Glow" },
     l = { "<cmd>lua require('plugins.toggleterm').toggle_term_cmd('lazygit')<cr>", "Lazygit" },
     p = { "<cmd>lua require('plugins.toggleterm').toggle_term_cmd('python')<cr>", "Python" },
+  },
+  u = {
+    name = "+UI",
+    i = { "<cmd>lua require('utils.ui').set_indent()<cr>", "Set Indent" },
   },
 }
 
