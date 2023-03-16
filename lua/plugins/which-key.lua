@@ -77,6 +77,16 @@ local mappings = {
     n = { "<cmd>lua vim.diagnostic.goto_next()<cr>", "Next Diagnostic" },
     p = { "<cmd>lua vim.diagnostic.goto_prev()<cr>", "Prev Diagnostic" },
   },
+  p = {
+    name = "+Plugins",
+    h = { "<cmd>Lazy home<cr>", "Home" },
+    i = { "<cmd>Lazy install<cr>", "Install" },
+    l = { "<cmd>Lazy log<cr>", "Log" },
+    p = { "<cmd>Lazy profile<cr>", "Profile" },
+    s = { "<cmd>Lazy sync<cr>", "Install,Clean,Update" },
+    u = { "<cmd>Lazy update<cr>", "Update" },
+    x = { "<cmd>Lazy clean<cr>", "Clean" },
+  },
   t = {
     name = "+Terminal",
     t = { "<cmd>ToggleTerm<cr>", "Terminal" },
