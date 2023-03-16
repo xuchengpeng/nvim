@@ -27,16 +27,26 @@ M.setup = function()
     dashboard.button("q", ui.Close .. "  > Quit NVIM", "<cmd>quit<CR>"),
   }
 
-  local stats = require("lazy").stats()
-  local text = require("utils.text")
-  local nvim_version = require("utils.git").get_nvim_version()
-  dashboard.section.footer.val = text.align_center({ width = 0 }, {
-    "",
-    "⚡ Neovim loaded " .. stats.count .. " plugins in " .. stats.startuptime .. "ms",
-    nvim_version,
-  }, 0.5)
-
   alpha.setup(dashboard.opts)
+
+  require("core.autocmds").create_autocmds({
+    {
+      "UIEnter",
+      {
+        callback = function()
+          local stats = require("lazy").stats()
+          local ms = math.floor(stats.startuptime * 100 + 0.5) / 100
+          local text = require("utils.text")
+          local nvim_version = require("utils.git").get_nvim_version()
+          dashboard.section.footer.val = text.align_center({ width = 0 }, {
+            "",
+            "⚡ Neovim loaded " .. stats.count .. " plugins in " .. ms .. "ms",
+            nvim_version,
+          }, 0.5)
+        end,
+      },
+    },
+  })
 end
 
 return M
