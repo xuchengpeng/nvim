@@ -49,4 +49,17 @@ M.toggle_background = function()
   utils.notify(string.format("background=%s", vim.go.background))
 end
 
+---Toggle laststatus=3|2|0
+M.toggle_statusline = function()
+  local laststatus = vim.opt.laststatus:get()
+  if laststatus == 0 then
+    vim.opt.laststatus = 2
+  elseif laststatus == 2 then
+    vim.opt.laststatus = 3
+  elseif laststatus == 3 then
+    vim.opt.laststatus = 0
+  end
+  utils.notify(string.format("statusline %d", vim.opt.laststatus:get()))
+end
+
 return M
