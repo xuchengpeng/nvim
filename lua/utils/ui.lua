@@ -6,6 +6,15 @@ local function bool2str(bool)
   return bool and "on" or "off"
 end
 
+---Set colorscheme
+M.set_colorscheme = function()
+  vim.ui.select({ "tokyonight", "onedark" }, {
+    prompt = "Select Colorscheme",
+  }, function(selected)
+    require("plugins.theme").load(selected)
+  end)
+end
+
 ---Set the indent and tab related numbers
 M.set_indent = function()
   vim.ui.input({
