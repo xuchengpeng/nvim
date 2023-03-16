@@ -1,6 +1,8 @@
 local M = {}
 
 M.setup = function()
+  vim.opt_local.laststatus = 0
+
   local config_dir = require("utils").get_config_dir()
   local ui = require("utils.icons").ui
   local alpha = require("alpha")

@@ -43,7 +43,7 @@ return {
   {
     "nvim-lualine/lualine.nvim",
     lazy = true,
-    event = { "VimEnter" },
+    event = { "User FileOpened" },
     config = function()
       require("plugins.lualine").setup()
     end,
