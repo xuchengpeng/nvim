@@ -138,12 +138,6 @@ return {
     build = ":TSUpdate",
   },
   {
-    "nvim-treesitter/nvim-treesitter-context",
-    lazy = true,
-    event = { "User FileOpened" },
-    config = true,
-  },
-  {
     "windwp/nvim-autopairs",
     lazy = true,
     event = "InsertEnter",
