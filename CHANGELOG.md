@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.7.3](https://github.com/xuchengpeng/nvim/compare/v1.7.2...v1.7.3) (2023-03-16)
+
+
+### Bug Fixes
+
+* **theme:** support set colorscheme interface ([390de5d](https://github.com/xuchengpeng/nvim/commit/390de5d2dac55f0b773ef2ff8d95f9940f34a004))
+
 ## [1.7.2](https://github.com/xuchengpeng/nvim/compare/v1.7.1...v1.7.2) (2023-03-16)
 
 
