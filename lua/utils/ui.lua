@@ -43,4 +43,10 @@ M.toggle_autopairs = function()
   utils.notify(string.format("autopairs %s", bool2str(autopairs.state.disabled)))
 end
 
+---Toggle background
+M.toggle_background = function()
+  vim.go.background = vim.go.background == "light" and "dark" or "light"
+  utils.notify(string.format("background=%s", vim.go.background))
+end
+
 return M
