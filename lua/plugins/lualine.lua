@@ -3,8 +3,31 @@ local M = {}
 M.setup = function()
   require("lualine").setup({
     options = {
-      disabled_filetypes = { statusline = { "alpha", "lazy" } },
+      disabled_filetypes = {
+        statusline = { "alpha", "lazy" },
+        winbar = {
+          "aerial",
+          "alpha",
+          "dap-repl",
+          "dap-terminal",
+          "dapui_console",
+          "dapui_hover",
+          "DressingSelect",
+          "lazy",
+          "help",
+          "neo-tree",
+          "notify",
+          "Outline",
+          "spectre_panel",
+          "toggleterm",
+          "Trouble",
+        },
+      },
     },
+    winbar = {
+      lualine_c = { "aerial" },
+    },
+    inactive_winbar = {},
     extensions = {
       "aerial",
       "fzf",
