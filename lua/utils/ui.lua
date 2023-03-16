@@ -68,4 +68,10 @@ M.toggle_wrap = function()
   utils.notify(string.format("wrap %s", bool2str(vim.wo.wrap)))
 end
 
+---Toggle number
+M.toggle_number = function()
+  vim.wo.number = not vim.wo.number -- local to window
+  utils.notify(string.format("number %s", bool2str(vim.wo.number)))
+end
+
 return M
