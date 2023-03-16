@@ -1,5 +1,23 @@
 # Changelog
 
+## [1.7.2](https://github.com/xuchengpeng/nvim/compare/v1.7.1...v1.7.2) (2023-03-16)
+
+
+### Bug Fixes
+
+* **alpha:** hide statusline ([161521d](https://github.com/xuchengpeng/nvim/commit/161521d2588e339c39e27228e8d061f4be701bac))
+* **alpha:** update footer after UIEnter ([2124e99](https://github.com/xuchengpeng/nvim/commit/2124e99ceca11bfd6e19fe97debf86862f2e66d6))
+* **autopairs:** add toggle interface ([5091765](https://github.com/xuchengpeng/nvim/commit/5091765863ef94b62d5a08c55d4fde03cabcec35))
+* **clangd:** customize cmd params ([bec5208](https://github.com/xuchengpeng/nvim/commit/bec52083433192225e014bb31ac4451af8a59b0a))
+* **indent:** add set indent interface ([b5b927d](https://github.com/xuchengpeng/nvim/commit/b5b927df516b4f5eb5431568f43a54fd348602e7))
+* **lazy:** add plugins keymaps ([034fa8e](https://github.com/xuchengpeng/nvim/commit/034fa8e0955347d1b68de23aee4cd055b7c7dfbf))
+* **lualine:** enable aerial on winbar ([f86e781](https://github.com/xuchengpeng/nvim/commit/f86e781d2370ae936179f6d1b1583fd8e35c0a57))
+* **statusline:** support toggle statusline ([3ae6a44](https://github.com/xuchengpeng/nvim/commit/3ae6a44768b0cb8ea378da9076cf3aae79dcf127))
+* support toggle number ([4fe60be](https://github.com/xuchengpeng/nvim/commit/4fe60be188c60118e9f64187a23bc8e5a1fd9a38))
+* support toggle wrap ([d64e604](https://github.com/xuchengpeng/nvim/commit/d64e604b2a72b02870d14cc557c5a34b30660a5e))
+* **treesitter:** remove context support ([64057d7](https://github.com/xuchengpeng/nvim/commit/64057d7f4e06b920a4a3bb636c5ecfa178b03f20))
+* **ui:** add background toggle interface ([2509649](https://github.com/xuchengpeng/nvim/commit/2509649c7c7025d2bc6076998e147764d7190ee3))
+
 ## [1.7.1](https://github.com/xuchengpeng/nvim/compare/v1.7.0...v1.7.1) (2023-03-15)
 
 
