@@ -62,4 +62,10 @@ M.toggle_statusline = function()
   utils.notify(string.format("statusline %d", vim.opt.laststatus:get()))
 end
 
+---Toggle wrap
+M.toggle_wrap = function()
+  vim.wo.wrap = not vim.wo.wrap -- local to window
+  utils.notify(string.format("wrap %s", bool2str(vim.wo.wrap)))
+end
+
 return M

@@ -102,6 +102,7 @@ local mappings = {
     b = { "<cmd>lua require('utils.ui').toggle_background()<cr>", "Toggle Background" },
     i = { "<cmd>lua require('utils.ui').set_indent()<cr>", "Set Indent" },
     s = { "<cmd>lua require('utils.ui').toggle_statusline()<cr>", "Toggle Statusline" },
+    w = { "<cmd>lua require('utils.ui').toggle_wrap()<cr>", "Toggle Wrap" },
   },
 }
 
