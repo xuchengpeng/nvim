@@ -11,6 +11,9 @@ M.set_colorscheme = function()
   vim.ui.select({ "tokyonight", "onedark", "catppuccin" }, {
     prompt = "Select Colorscheme",
   }, function(selected)
+    if not selected then
+      return
+    end
     require("plugins.theme").load(selected)
   end)
 end
