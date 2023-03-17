@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.7.4](https://github.com/xuchengpeng/nvim/compare/v1.7.3...v1.7.4) (2023-03-17)
+
+
+### Bug Fixes
+
+* **colorscheme:** add catppuccin ([1431e7e](https://github.com/xuchengpeng/nvim/commit/1431e7e2fd755f460d6dd9de0ba78f6f31948500))
+* **colorscheme:** trigger ColorScheme event when setting colorscheme ([d9f927e](https://github.com/xuchengpeng/nvim/commit/d9f927e52e770e537cd3c016c733442e8ceac8d5))
+* **lsp:** add pyright,vimls,bashls ([2a8d307](https://github.com/xuchengpeng/nvim/commit/2a8d307e50f34a1314cde373ac1a6078080b5fc1))
+* **toggleterm:** open horizontal terminal with &lt;leader&gt;tt ([5aa9378](https://github.com/xuchengpeng/nvim/commit/5aa9378cc242d5b4b44a37c623c192c726a3bc61))
+
 ## [1.7.3](https://github.com/xuchengpeng/nvim/compare/v1.7.2...v1.7.3) (2023-03-16)
 
 
