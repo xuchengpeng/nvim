@@ -32,6 +32,7 @@ M.setup = function()
       },
     },
   })
+
   require("lspconfig").clangd.setup({
     cmd = {
       "clangd",
@@ -50,6 +51,10 @@ M.setup = function()
       "-j=12",
     },
   })
+
+  require("lspconfig").pyright.setup({})
+  require("lspconfig").vimls.setup({})
+  require("lspconfig").bashls.setup({})
 
   require("core.keymaps").set_keymaps("n", "K", { vim.lsp.buf.hover, { desc = "Hover" } })
 
