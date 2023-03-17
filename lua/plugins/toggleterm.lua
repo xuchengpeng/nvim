@@ -34,8 +34,7 @@ M.setup = function()
   end
 
   require("toggleterm").setup({
-    active = true,
-    on_config_done = nil,
+    size = 15,
     open_mapping = [[<c-\>]],
     hide_numbers = true, -- hide the number column in toggleterm buffers
     shade_terminals = true,
