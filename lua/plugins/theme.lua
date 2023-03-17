@@ -19,6 +19,17 @@ local user_themes = {
     })
     onedark.load()
   end,
+  ["catppuccin"] = function()
+    local catppuccin = require("catppuccin")
+    catppuccin.setup({
+      flavour = "mocha",
+      background = {
+        light = "latte",
+        dark = "mocha",
+      },
+    })
+    catppuccin.load()
+  end,
 }
 
 M.load = function(theme_name)

@@ -13,6 +13,14 @@ return {
       require("plugins.theme").load("onedark")
     end,
   },
+  {
+    "catppuccin/nvim",
+    lazy = true,
+    name = "catppuccin.nvim",
+    config = function()
+      require("plugins.theme").load("catppuccin")
+    end,
+  },
   { "nvim-lua/plenary.nvim", lazy = true },
   { "nvim-tree/nvim-web-devicons", lazy = true },
   { "MunifTanjim/nui.nvim", lazy = true },
