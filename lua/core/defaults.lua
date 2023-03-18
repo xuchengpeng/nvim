@@ -59,6 +59,7 @@ M.load_defaults = function()
     vim.opt[k] = v
   end
 
+  vim.opt.shortmess:append("cI")
   vim.opt.whichwrap:append("<,>,[,],h,l")
 end
 
