@@ -67,7 +67,6 @@ local mappings = {
     a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
     d = { "<cmd>Telescope lsp_definitions<cr>", "Goto Definition" },
     f = { "<cmd>lua require('plugins.lsp').format()<cr>", "Format" },
-    F = { "<cmd>ToggleFormatOnSave<cr>", "Toggle Format On Save" },
     i = { "<cmd>Telescope lsp_implementations<cr>", "Goto Implementation" },
     r = { "<cmd>Telescope lsp_references<cr>", "References" },
     R = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
