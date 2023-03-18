@@ -1,5 +1,22 @@
 # Changelog
 
+## [1.7.5](https://github.com/xuchengpeng/nvim/compare/v1.7.4...v1.7.5) (2023-03-18)
+
+
+### Bug Fixes
+
+* **cmp:** tab mapping with luasnip ([b26110b](https://github.com/xuchengpeng/nvim/commit/b26110b7ed1104bb182b8b708f58ff246893e960))
+* don't show intro and ins-completion-menu messages ([1baa51e](https://github.com/xuchengpeng/nvim/commit/1baa51e54615d866518bdfabf3e7f14e24e84f1f))
+* **indent:** indent vim with 2 spaces ([97fae2a](https://github.com/xuchengpeng/nvim/commit/97fae2ace105548e4573d36f45d9c91af04bcefa))
+* **keymaps:** remove ToggleFormatOnSave ([056ba74](https://github.com/xuchengpeng/nvim/commit/056ba746c7c1d0d641d066ead3efe9a25c57f70d))
+* **null-ls:** add eslint support ([dcf5c14](https://github.com/xuchengpeng/nvim/commit/dcf5c1455a3351730bd1bfdc4d23d08472a19436))
+* **null-ls:** add gitsigns code actions ([ae91838](https://github.com/xuchengpeng/nvim/commit/ae91838a6330d1d4937f785e0d2ec67598fd86d5))
+* **null-ls:** format html,json,jsonc,yaml,markdown with prettier ([f3908b6](https://github.com/xuchengpeng/nvim/commit/f3908b6a9ab127d123b9eb371a31a99bf6d82427))
+* **null-ls:** run eslint.cmd on Windows ([37faee7](https://github.com/xuchengpeng/nvim/commit/37faee76ff87812f79900d1a7b29826f6762a360))
+* **null-ls:** run prettier.cmd on Windows ([2f61019](https://github.com/xuchengpeng/nvim/commit/2f6101977ab61455a2c0f8fcf232e5a0befa3045))
+* **toggleterm:** typo ([a430969](https://github.com/xuchengpeng/nvim/commit/a4309694ebe52adeb72e7551ed824b21bcb9e786))
+* **toggleterm:** use powershell on Windows ([ed6785e](https://github.com/xuchengpeng/nvim/commit/ed6785e457b9788c17ca712895234549cf272795))
+
 ## [1.7.4](https://github.com/xuchengpeng/nvim/compare/v1.7.3...v1.7.4) (2023-03-17)
 
 
