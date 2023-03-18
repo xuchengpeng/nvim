@@ -67,6 +67,7 @@ M.setup = function()
       null_ls.builtins.formatting.black,
       null_ls.builtins.formatting.eslint,
       null_ls.builtins.formatting.prettier.with({
+        command = vim.loop.os_uname().version:match("Windows") and "prettier.cmd" or "prettier",
         filetypes = { "html", "json", "jsonc", "yaml", "markdown" },
       }),
       null_ls.builtins.formatting.shfmt,
