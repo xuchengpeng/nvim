@@ -66,6 +66,9 @@ M.setup = function()
       null_ls.builtins.diagnostics.eslint,
       null_ls.builtins.formatting.black,
       null_ls.builtins.formatting.eslint,
+      null_ls.builtins.formatting.prettier.with({
+        filetypes = { "html", "json", "jsonc", "yaml", "markdown" },
+      }),
       null_ls.builtins.formatting.shfmt,
       null_ls.builtins.formatting.stylua,
     },
