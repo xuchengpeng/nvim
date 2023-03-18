@@ -78,7 +78,7 @@ local defaults = {
     "FileType",
     {
       group = "_filetype_settings",
-      pattern = "lua",
+      pattern = { "lua", "vim" },
       callback = function()
         vim.opt_local.tabstop = 2
         vim.opt_local.softtabstop = 2
