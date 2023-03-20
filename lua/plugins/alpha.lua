@@ -20,13 +20,13 @@ M.setup = function()
   }
 
   dashboard.section.buttons.val = {
-    dashboard.button("e", ui.NewFile .. "  > New File", "<cmd>ene <BAR> startinsert <CR>"),
     dashboard.button("f", ui.FindFile .. "  > Find File", "<cmd>Telescope find_files<CR>"),
+    dashboard.button("n", ui.NewFile .. "  > New File", "<cmd>enew<CR>"),
     dashboard.button("r", ui.History .. "  > Recent Files", "<cmd>Telescope oldfiles<CR>"),
     dashboard.button("t", ui.FindText .. "  > Find Text", "<cmd>Telescope live_grep<CR>"),
     dashboard.button("c", ui.Gear .. "  > Configuration", "<cmd>Neotree " .. config_dir .. "<CR>"),
     dashboard.button("u", ui.Update .. "  > Update Plugins", "<cmd>Lazy update<CR>"),
-    dashboard.button("q", ui.Close .. "  > Quit NVIM", "<cmd>quit<CR>"),
+    dashboard.button("q", ui.SignOut .. "  > Quit NVIM", "<cmd>quit<CR>"),
   }
 
   alpha.setup(dashboard.opts)
