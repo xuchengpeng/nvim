@@ -25,6 +25,7 @@ M.setup = function()
           },
           maxPreload = 5000,
           preloadFileSize = 10000,
+          checkThirdParty = false,
         },
         telemetry = {
           enable = false,
