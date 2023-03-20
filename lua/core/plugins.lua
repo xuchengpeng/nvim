@@ -14,6 +14,13 @@ return {
     end,
   },
   {
+    "gbprod/nord.nvim",
+    lazy = true,
+    config = function()
+      require("plugins.theme").load("nord")
+    end,
+  },
+  {
     "catppuccin/nvim",
     lazy = true,
     name = "catppuccin.nvim",

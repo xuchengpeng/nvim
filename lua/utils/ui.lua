@@ -8,7 +8,7 @@ end
 
 ---Set colorscheme
 M.set_colorscheme = function()
-  vim.ui.select({ "tokyonight", "onedark", "catppuccin" }, {
+  vim.ui.select({ "tokyonight", "catppuccin", "nord", "onedark" }, {
     prompt = "Select Colorscheme",
   }, function(selected)
     if not selected then
