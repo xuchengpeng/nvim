@@ -78,12 +78,7 @@ return {
     cmd = "Telescope",
     dependencies = {
       "nvim-telescope/telescope-file-browser.nvim",
-      "nvim-telescope/telescope-live-grep-args.nvim",
-      {
-        "nvim-telescope/telescope-fzf-native.nvim",
-        lazy = true,
-        build = "make",
-      },
+      { "nvim-telescope/telescope-fzf-native.nvim", lazy = true, build = "make" },
     },
     config = function()
       require("plugins.telescope").setup()

@@ -22,7 +22,6 @@ M.setup = function()
     },
   })
   telescope.load_extension("file_browser")
-  telescope.load_extension("live_grep_args")
   telescope.load_extension("fzf")
   local conditional_func = require("utils").conditional_func
   conditional_func(telescope.load_extension, pcall(require, "aerial"), "aerial")
