@@ -1,5 +1,16 @@
 # Changelog
 
+## [1.7.6](https://github.com/xuchengpeng/nvim/compare/v1.7.5...v1.7.6) (2023-03-20)
+
+
+### Bug Fixes
+
+* **alpha:** bind new file with n ([a72b2ed](https://github.com/xuchengpeng/nvim/commit/a72b2ed2bbccc3834697b4896a47e1856a9b7d76))
+* **colorscheme:** add nord theme ([2e2c636](https://github.com/xuchengpeng/nvim/commit/2e2c636e75c25caca22ddc262630c05d787b5058))
+* **illuminate:** no highlighting for help ([0e97da4](https://github.com/xuchengpeng/nvim/commit/0e97da42f02bf09643000fcaef97a0603adc8d1f))
+* **lua_ls:** do not check third party ([3ea8b93](https://github.com/xuchengpeng/nvim/commit/3ea8b938de408926a9c18773057782039ee2719e))
+* **telescope:** remove live-grep-args extension ([140010b](https://github.com/xuchengpeng/nvim/commit/140010b2dd61fedca9a3ecbea6e72ae1d3b4712a))
+
 ## [1.7.5](https://github.com/xuchengpeng/nvim/compare/v1.7.4...v1.7.5) (2023-03-18)
 
 
