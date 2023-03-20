@@ -11,15 +11,16 @@ M.setup = function()
     filetypes_denylist = {
       "aerial",
       "alpha",
-      "neo-tree",
+      "DressingSelect",
+      "help",
       "lazy",
       "lspinfo",
-      "Trouble",
+      "neo-tree",
       "Outline",
       "spectre_panel",
       "toggleterm",
-      "DressingSelect",
       "TelescopePrompt",
+      "Trouble",
     },
   })
 end
