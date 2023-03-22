@@ -51,6 +51,9 @@ M.setup = function()
       "--pch-storage=memory",
       "-j=12",
     },
+    capabilities = {
+      offsetEncoding = "utf-8",
+    },
   })
 
   require("lspconfig").pyright.setup({})
@@ -67,7 +70,7 @@ M.setup = function()
       null_ls.builtins.code_actions.eslint.with(eslint_opts),
       null_ls.builtins.code_actions.gitsigns,
       null_ls.builtins.diagnostics.eslint.with(eslint_opts),
-      null_ls.builtins.formatting.black,
+      null_ls.builtins.formatting.black.with({ extra_args = { "-l", "120" } }),
       null_ls.builtins.formatting.eslint.with(eslint_opts),
       null_ls.builtins.formatting.prettier.with({
         command = on_windows and "prettier.cmd" or "prettier",
