@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.7.7](https://github.com/xuchengpeng/nvim/compare/v1.7.6...v1.7.7) (2023-03-22)
+
+
+### Bug Fixes
+
+* **lsp:** set clangd offsetEncoding with utf-8 ([1fb2b37](https://github.com/xuchengpeng/nvim/commit/1fb2b376306b44292959b932683890562383ab79))
+* unified code style ([a33260b](https://github.com/xuchengpeng/nvim/commit/a33260bcc482bbe49a97f387763b60b2ab4e65b7))
+
 ## [1.7.6](https://github.com/xuchengpeng/nvim/compare/v1.7.5...v1.7.6) (2023-03-20)
 
 
