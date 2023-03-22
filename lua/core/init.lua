@@ -1,6 +1,6 @@
 local M = {}
 
-M.load = function()
+function M.load()
   require("core.defaults").load_defaults()
   require("core.keymaps").load_defaults()
   require("core.autocmds").load_defaults()

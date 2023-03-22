@@ -125,13 +125,13 @@ local defaults = {
   },
 }
 
-M.load_defaults = function()
+function M.load_defaults()
   M.create_autocmds(defaults)
 end
 
 ---Create autocmds
 ---@param definitions table the autocmds
-M.create_autocmds = function(definitions)
+function M.create_autocmds(definitions)
   for _, entry in ipairs(definitions) do
     local event = entry[1]
     local opts = entry[2]
@@ -147,7 +147,7 @@ end
 
 ---Clean autocommand in a group if it exists
 ---@param group string the augroup name
-M.clear_autocmds = function(group)
+function M.clear_autocmds(group)
   vim.schedule(function()
     pcall(function()
       vim.api.nvim_clear_autocmds({ group = group })

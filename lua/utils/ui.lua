@@ -7,7 +7,7 @@ local function bool2str(bool)
 end
 
 ---Set colorscheme
-M.set_colorscheme = function()
+function M.set_colorscheme()
   vim.ui.select({ "tokyonight", "catppuccin", "nord", "onedark" }, {
     prompt = "Select Colorscheme",
   }, function(selected)
@@ -19,7 +19,7 @@ M.set_colorscheme = function()
 end
 
 ---Set the indent and tab related numbers
-M.set_indent = function()
+function M.set_indent()
   vim.ui.input({
     prompt = "Set indent value (>0 expandtab, <=0 noexpandtab): ",
   }, function(input)
@@ -40,7 +40,7 @@ M.set_indent = function()
 end
 
 ---Toggle autopairs
-M.toggle_autopairs = function()
+function M.toggle_autopairs()
   local ok, autopairs = pcall(require, "nvim-autopairs")
   if not ok then
     utils.notify("autopairs not available")
@@ -56,13 +56,13 @@ M.toggle_autopairs = function()
 end
 
 ---Toggle background
-M.toggle_background = function()
+function M.toggle_background()
   vim.go.background = vim.go.background == "light" and "dark" or "light"
   utils.notify(string.format("background=%s", vim.go.background))
 end
 
 ---Toggle laststatus=3|2|0
-M.toggle_statusline = function()
+function M.toggle_statusline()
   local laststatus = vim.opt.laststatus:get()
   if laststatus == 0 then
     vim.opt.laststatus = 2
@@ -75,13 +75,13 @@ M.toggle_statusline = function()
 end
 
 ---Toggle wrap
-M.toggle_wrap = function()
+function M.toggle_wrap()
   vim.wo.wrap = not vim.wo.wrap -- local to window
   utils.notify(string.format("wrap %s", bool2str(vim.wo.wrap)))
 end
 
 ---Toggle number
-M.toggle_number = function()
+function M.toggle_number()
   vim.wo.number = not vim.wo.number -- local to window
   utils.notify(string.format("number %s", bool2str(vim.wo.number)))
 end

@@ -1,6 +1,6 @@
 local M = {}
 
-M.setup = function()
+function M.setup()
   require("aerial").setup({
     backends = { "lsp", "treesitter", "markdown", "man" },
     layout = {

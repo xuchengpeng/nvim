@@ -1,6 +1,6 @@
 local M = {}
 
-M.setup = function()
+function M.setup()
   vim.opt_local.laststatus = 0
 
   local config_dir = require("utils").get_config_dir()

@@ -1,6 +1,6 @@
 local M = {}
 
-M.setup = function()
+function M.setup()
   require("indent_blankline").setup({
     buftype_exclude = { "terminal", "nofile", "quickfix", "prompt" },
     filetype_exclude = {

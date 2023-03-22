@@ -9,13 +9,13 @@ local defaults = {
   },
 }
 
-M.load_defaults = function()
+function M.load_defaults()
   M.create_user_commands(defaults)
 end
 
 ---Create user commands
 ---@param collection table the commands
-M.create_user_commands = function(collection)
+function M.create_user_commands(collection)
   local utils = require("utils")
   local common_opts = { force = true }
   for _, cmd in pairs(collection) do

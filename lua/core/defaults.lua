@@ -1,6 +1,6 @@
 local M = {}
 
-M.load_defaults = function()
+function M.load_defaults()
   vim.g.mapleader = " "
   vim.g.encoding = "UTF-8"
 

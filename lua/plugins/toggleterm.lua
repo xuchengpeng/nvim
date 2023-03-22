@@ -5,7 +5,7 @@ local user_terminals = {}
 
 --- Toggle a user terminal if it exists, if not then create a new one and save it
 -- @param term_details a terminal command string or a table of options for Terminal:new() (Check toggleterm.nvim documentation for table format)
-M.toggle_term_cmd = function(opts)
+function M.toggle_term_cmd(opts)
   local terms = user_terminals
   -- if a command string is provided, create a basic table for Terminal:new() options
   if type(opts) == "string" then
@@ -26,7 +26,7 @@ M.toggle_term_cmd = function(opts)
   user_terminals[opts.cmd][num]:toggle()
 end
 
-M.setup = function()
+function M.setup()
   if vim.loop.os_uname().version:match("Windows") then
     vim.opt.shell = vim.fn.executable("pwsh") == 1 and "pwsh" or "powershell"
     vim.opt.shellcmdflag =

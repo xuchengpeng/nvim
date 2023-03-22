@@ -2,7 +2,7 @@ local M = {}
 
 local utils = require("utils")
 
-M.setup = function()
+function M.setup()
   require("mason").setup()
   require("mason-lspconfig").setup({
     -- ensure_installed = { "clangd", "lua_ls", "pyright", "vimls" }
@@ -86,7 +86,7 @@ end
 ---always selects null-ls if it's available and caches the value per buffer
 ---@param client table client attached to a buffer
 ---@return boolean if client matches
-M.format_filter = function(client)
+function M.format_filter(client)
   local filetype = vim.bo.filetype
   local n = require("null-ls")
   local s = require("null-ls.sources")
@@ -104,13 +104,13 @@ end
 
 ---Simple wrapper for vim.lsp.buf.format() to provide defaults
 ---@param opts table|nil
-M.format = function(opts)
+function M.format(opts)
   opts = opts or { async = true }
   opts.filter = opts.filter or M.format_filter
   vim.lsp.buf.format(opts)
 end
 
-M.enable_format_on_save = function()
+function M.enable_format_on_save()
   require("core.autocmds").create_autocmds({
     {
       "BufWritePre",
@@ -125,12 +125,12 @@ M.enable_format_on_save = function()
   utils.notify("enabled format-on-save")
 end
 
-M.disable_format_on_save = function()
+function M.disable_format_on_save()
   require("core.autocmds").clear_autocmds("_lsp_format_on_save")
   utils.notify("disabled format-on-save")
 end
 
-M.toggle_format_on_save = function()
+function M.toggle_format_on_save()
   local exists, autocmd = pcall(vim.api.nvim_get_autocmds, {
     group = "_lsp_format_on_save",
     event = "BufWritePre",

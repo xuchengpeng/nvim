@@ -29,7 +29,7 @@ local user_themes = {
   end,
 }
 
-M.load = function(theme_name)
+function M.load(theme_name)
   local setup_theme = user_themes[theme_name]
   if not setup_theme then
     require("utils").notify(string.format("%s theme not exist.", theme_name), "error")

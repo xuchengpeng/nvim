@@ -106,7 +106,7 @@ local mappings = {
   },
 }
 
-M.setup = function()
+function M.setup()
   local which_key = require("which-key")
   which_key.setup()
   which_key.register(mappings, { prefix = "<leader>" })

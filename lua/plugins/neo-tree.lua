@@ -1,6 +1,6 @@
 local M = {}
 
-M.setup = function()
+function M.setup()
   vim.g.neo_tree_remove_legacy_commands = true
 
   require("neo-tree").setup({

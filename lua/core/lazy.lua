@@ -2,7 +2,7 @@ local M = {}
 
 local utils = require("utils")
 
-M.setup = function()
+function M.setup()
   local lazypath = utils.join_paths(utils.get_data_dir(), "lazy", "lazy.nvim")
   if not vim.loop.fs_stat(lazypath) then
     vim.fn.system({

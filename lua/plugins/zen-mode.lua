@@ -1,6 +1,6 @@
 local M = {}
 
-M.setup = function()
+function M.setup()
   require("zen-mode").setup({
     window = {
       backdrop = 0.95,

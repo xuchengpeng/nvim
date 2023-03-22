@@ -25,13 +25,13 @@ local function git_cmd(opts)
   return ret, stdout, stderr
 end
 
-M.get_nvim_branch = function()
+function M.get_nvim_branch()
   local _, results = git_cmd({ args = { "rev-parse", "--abbrev-ref", "HEAD" } })
   local branch = if_nil(results[1], "")
   return branch
 end
 
-M.get_nvim_tag = function()
+function M.get_nvim_tag()
   local args = { "describe", "--tags", "--abbrev=0" }
 
   local _, results = git_cmd({ args = args })
@@ -39,14 +39,14 @@ M.get_nvim_tag = function()
   return tag
 end
 
-M.get_nvim_description = function()
+function M.get_nvim_description()
   local _, results = git_cmd({ args = { "describe", "--dirty", "--always" } })
 
   local description = if_nil(results[1], M.get_nvim_branch())
   return description
 end
 
-M.get_nvim_version = function()
+function M.get_nvim_version()
   local current_branch = M.get_nvim_branch()
 
   local nvim_version

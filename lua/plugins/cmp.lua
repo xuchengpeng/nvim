@@ -1,6 +1,6 @@
 local M = {}
 
-M.setup = function()
+function M.setup()
   local utils = require("utils")
   local kind_icons = require("utils.icons").kind
   local border_opts = {
