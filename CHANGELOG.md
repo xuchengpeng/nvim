@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.7.8](https://github.com/xuchengpeng/nvim/compare/v1.7.7...v1.7.8) (2023-03-23)
+
+
+### Bug Fixes
+
+* **lsp:** refactor lsp setup ([21afa86](https://github.com/xuchengpeng/nvim/commit/21afa8681949dc6ebdab658961dae4f8ef605ab4))
+* **ui:** replace bufferline,lualine with heirline ([5d696c5](https://github.com/xuchengpeng/nvim/commit/5d696c51f2ba0c6a827bcc762b37e3fcd74bf780))
+
 ## [1.7.7](https://github.com/xuchengpeng/nvim/compare/v1.7.6...v1.7.7) (2023-03-22)
 
 
