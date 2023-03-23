@@ -48,19 +48,11 @@ return {
     end,
   },
   {
-    "akinsho/bufferline.nvim",
+    "rebelot/heirline.nvim",
     lazy = true,
     event = { "User FileOpened" },
     config = function()
-      require("plugins.bufferline").setup()
-    end,
-  },
-  {
-    "nvim-lualine/lualine.nvim",
-    lazy = true,
-    event = { "User FileOpened" },
-    config = function()
-      require("plugins.lualine").setup()
+      require("plugins.heirline").setup()
     end,
   },
   {
