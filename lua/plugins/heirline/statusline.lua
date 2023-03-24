@@ -33,6 +33,7 @@ local inactive_statusline = {
   components.file_type,
   space,
   components.ruler,
+  hl = { fg = "gray", force = true },
 }
 
 local special_statusline = {
@@ -52,13 +53,9 @@ local terminal_statusline = {
   condition = function()
     return conditions.buffer_matches({ buftype = { "terminal" } })
   end,
-
   hl = { bg = "dark_red" },
-
-  -- Quickly add a condition to the ViMode to only show it when buffer is active!
-  { condition = conditions.is_active, components.vi_mode, space },
+  { provider = "Terminal " },
   components.terminal_name,
-  align,
 }
 
 return {
