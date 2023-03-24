@@ -1,5 +1,21 @@
 # Changelog
 
+## [1.7.9](https://github.com/xuchengpeng/nvim/compare/v1.7.8...v1.7.9) (2023-03-24)
+
+
+### Bug Fixes
+
+* **colorscheme:** remove onedark ([4674e83](https://github.com/xuchengpeng/nvim/commit/4674e83dc72b014798605919a0dde538403a36a9))
+* **heirline:** add winbar left padding ([3b663ed](https://github.com/xuchengpeng/nvim/commit/3b663ed48e676cbf1191969fcd075e09625d6244))
+* **heirline:** add winbar support ([75be440](https://github.com/xuchengpeng/nvim/commit/75be440c794ae4c6d5e0e556a4a9029d5aafcee5))
+* **heirline:** customize git diff icons ([9561a65](https://github.com/xuchengpeng/nvim/commit/9561a6579c1fec02eef4d849c4a0e170886173aa))
+* **heirline:** customize inactive special statusline highlight ([e9d0da2](https://github.com/xuchengpeng/nvim/commit/e9d0da207a7ded5d9c2b8a1153f2f6779b9c21d4))
+* **heirline:** customize mode and file highlight ([4de0915](https://github.com/xuchengpeng/nvim/commit/4de09155dd89cfe85ba727c5ce60137d42968ad7))
+* **heirline:** set fg to gray for inactive statusline ([e9a2fad](https://github.com/xuchengpeng/nvim/commit/e9a2fadc6e537f2c27a530616b833da70a811977))
+* **heirline:** set toggleterm statusline ([20891b4](https://github.com/xuchengpeng/nvim/commit/20891b4b6dd30f36a38b333957fb7ec26b4649c2))
+* **heirline:** show macro-recoding and searchcount ([c54c7f3](https://github.com/xuchengpeng/nvim/commit/c54c7f3230a16e9c46935183da4a607771dc59cf))
+* **statusline:** set global statusline ([6aabfee](https://github.com/xuchengpeng/nvim/commit/6aabfee21826e96ce0b22b86b1275ddb00f719ec))
+
 ## [1.7.8](https://github.com/xuchengpeng/nvim/compare/v1.7.7...v1.7.8) (2023-03-23)
 
 
