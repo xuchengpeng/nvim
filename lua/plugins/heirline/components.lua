@@ -577,6 +577,7 @@ M.breadcrumbs = {
       end
       table.insert(children, child)
     end
+    table.insert(children, 1, space)
     self.child = self:new(children, 1)
   end,
   provider = function(self)
