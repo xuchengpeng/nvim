@@ -81,7 +81,7 @@ M.vi_mode = {
 
 local file_name_block = {
   init = function(self)
-    self.filename = vim.api.nvim_buf_get_name(0)
+    self.filename = vim.api.nvim_buf_get_name(self and self.bufnr or 0)
   end,
 }
 
@@ -99,7 +99,7 @@ local file_icon = {
   end,
 }
 
-M.file_name = {
+local file_name = {
   provider = function(self)
     local filename = vim.fn.fnamemodify(self.filename, ":.")
     if filename == "" then
@@ -142,7 +142,7 @@ local file_name_modifer = {
 M.file_name_block = utils.insert(
   file_name_block,
   file_icon,
-  utils.insert(file_name_modifer, M.file_name),
+  utils.insert(file_name_modifer, file_name),
   file_flags,
   { provider = "%<" } -- this means that the statusline is cut here when there's not enough space
 )
@@ -171,7 +171,6 @@ M.file_format = {
 
 M.file_size = {
   provider = function()
-    -- stackoverflow, compute human readable file size
     local suffix = { "b", "k", "M", "G", "T", "P", "E" }
     local fsize = vim.fn.getfsize(vim.api.nvim_buf_get_name(0))
     fsize = (fsize < 0 and 0) or fsize
@@ -192,21 +191,24 @@ M.file_last_modified = {
 
 M.git = {
   condition = conditions.is_git_repo,
-
   init = function(self)
     self.status_dict = vim.b.gitsigns_status_dict
     self.has_changes = self.status_dict.added ~= 0 or self.status_dict.removed ~= 0 or self.status_dict.changed ~= 0
   end,
-
   hl = { fg = "orange" },
+  on_click = {
+    name = "lazygit",
+    callback = function()
+      require("plugins.toggleterm").toggle_term_cmd("lazygit")
+    end,
+  },
 
-  { -- git branch name
+  {
     provider = function(self)
       return icons.git.Branch .. " " .. self.status_dict.head
     end,
     hl = { bold = true },
   },
-  -- You could handle delimiters, icons and counts similar to Diagnostics
   {
     condition = function(self)
       return self.has_changes
@@ -222,17 +224,17 @@ M.git = {
   },
   {
     provider = function(self)
-      local count = self.status_dict.removed or 0
-      return count > 0 and ("-" .. count)
-    end,
-    hl = { fg = "git_del" },
-  },
-  {
-    provider = function(self)
       local count = self.status_dict.changed or 0
       return count > 0 and ("~" .. count)
     end,
     hl = { fg = "git_change" },
+  },
+  {
+    provider = function(self)
+      local count = self.status_dict.removed or 0
+      return count > 0 and ("-" .. count)
+    end,
+    hl = { fg = "git_del" },
   },
   {
     condition = function(self)
@@ -271,7 +273,14 @@ M.scroll_bar = {
 
 M.lsp_active = {
   condition = conditions.lsp_attached,
-  update = { "LspAttach", "LspDetach", "BufEnter" },
+  update = {
+    "LspAttach",
+    "LspDetach",
+    "BufEnter",
+    callback = vim.schedule_wrap(function()
+      vim.cmd.redrawstatus()
+    end),
+  },
   provider = function()
     local names = {}
     for _, server in pairs(vim.lsp.get_active_clients({ bufnr = 0 })) do
@@ -280,6 +289,12 @@ M.lsp_active = {
     return " [" .. table.concat(names, " ") .. "]"
   end,
   hl = { fg = "green", bold = true },
+  on_click = {
+    name = "LspInfo",
+    callback = function()
+      vim.cmd.LspInfo()
+    end,
+  },
 }
 
 M.diagnostics = {
@@ -399,7 +414,11 @@ local tabline_file_name = {
     return filename
   end,
   hl = function(self)
-    return { bold = self.is_active or self.is_visible, italic = true }
+    if self.is_active or self.is_visible then
+      return { bold = true, italic = false }
+    else
+      return { bold = false, italic = true }
+    end
   end,
 }
 
@@ -430,13 +449,6 @@ local tabline_file_flags = {
 local tabline_file_name_block = {
   init = function(self)
     self.filename = vim.api.nvim_buf_get_name(self.bufnr)
-  end,
-  hl = function(self)
-    if self.is_active then
-      return "TabLineSel"
-    else
-      return "TabLine"
-    end
   end,
   on_click = {
     callback = function(_, minwid, _, button)
@@ -484,9 +496,9 @@ local tabline_close_button = {
 
 local tabline_buffer_block = utils.surround({ "", "" }, function(self)
   if self.is_active then
-    return utils.get_highlight("TabLineSel").bg
+    return "blue"
   else
-    return utils.get_highlight("TabLine").bg
+    return "bright_bg"
   end
 end, { { provider = " " }, tabline_file_name_block, tabline_close_button, { provider = " " } })
 
@@ -550,6 +562,34 @@ M.tab_pages = {
   { provider = "%=" },
   utils.make_tablist(tabpage),
   tabpage_close,
+}
+
+M.breadcrumbs = {
+  condition = function()
+    local ok, _ = pcall(require, "aerial")
+    return ok
+  end,
+  init = function(self)
+    local children = {}
+    local separator = "  "
+    local data = require("aerial").get_location(true) or {}
+    for i, d in ipairs(data) do
+      local child = {
+        { provider = d.icon, hl = string.format("Aerial%sIcon", d.kind) },
+        { provider = string.gsub(d.name, "%%", "%%%%"):gsub("%s*->%s*", "") },
+      }
+      if #data > 1 and i < #data then
+        table.insert(child, { provider = separator })
+      end
+      table.insert(children, child)
+    end
+    self.child = self:new(children, 1)
+  end,
+  provider = function(self)
+    return self.child:eval()
+  end,
+  hl = { fg = "gray" },
+  update = { "CursorMoved" },
 }
 
 return M

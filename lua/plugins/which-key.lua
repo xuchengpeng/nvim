@@ -6,10 +6,9 @@ local mappings = {
   z = { "<cmd>ZenMode<cr>", "Zen Mode" },
   b = {
     name = "+Buffer",
-    c = { "<cmd>BufferLinePickClose<cr>", "Close Buffer" },
-    n = { "<cmd>BufferLineCycleNext<cr>", "Next Buffer" },
-    p = { "<cmd>BufferLineCyclePrev<cr>", "Prev Buffer" },
-    s = { "<cmd>BufferLinePick<cr>", "Switch Buffer" },
+    d = { "<cmd>bdelete<cr>", "Delete Buffer" },
+    n = { "<cmd>bnext<cr>", "Next Buffer" },
+    p = { "<cmd>bprevious<cr>", "Prev Buffer" },
   },
   c = {
     name = "+Coding",

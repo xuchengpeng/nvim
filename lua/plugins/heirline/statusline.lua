@@ -28,10 +28,11 @@ local default_statusline = {
 
 local inactive_statusline = {
   condition = conditions.is_not_active,
+  components.file_name_block,
+  align,
   components.file_type,
   space,
-  components.file_name,
-  align,
+  components.ruler,
 }
 
 local special_statusline = {

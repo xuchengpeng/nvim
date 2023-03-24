@@ -50,7 +50,7 @@ return {
   {
     "rebelot/heirline.nvim",
     lazy = true,
-    event = { "User FileOpened" },
+    event = { "BufReadPre", "BufNewFile" },
     config = function()
       require("plugins.heirline").setup()
     end,
