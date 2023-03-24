@@ -48,17 +48,17 @@ M.vi_mode = {
       ["t"] = "TERMINAL",
     },
     mode_colors = {
-      n = "red",
+      n = "blue",
       i = "green",
-      v = "cyan",
-      V = "cyan",
-      ["\22"] = "cyan",
+      v = "purple",
+      V = "purple",
+      ["\22"] = "purple",
       c = "orange",
       s = "purple",
       S = "purple",
       ["\19"] = "purple",
-      R = "orange",
-      r = "orange",
+      R = "red",
+      r = "red",
       ["!"] = "red",
       t = "red",
     },
@@ -110,7 +110,6 @@ local file_name = {
     end
     return filename
   end,
-  hl = { fg = utils.get_highlight("Directory").fg },
 }
 
 local file_flags = {
