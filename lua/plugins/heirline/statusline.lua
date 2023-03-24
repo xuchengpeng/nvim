@@ -47,6 +47,11 @@ local special_statusline = {
   space,
   components.help_file_name,
   align,
+  hl = function()
+    if conditions.is_not_active() then
+      return { fg = "gray", force = true }
+    end
+  end,
 }
 
 local terminal_statusline = {
