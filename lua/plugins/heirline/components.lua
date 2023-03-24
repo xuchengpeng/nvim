@@ -343,9 +343,11 @@ M.diagnostics = {
 }
 
 M.terminal_name = {
+  condition = function()
+    return vim.bo.filetype == "toggleterm"
+  end,
   provider = function()
-    local tname, _ = vim.api.nvim_buf_get_name(0):gsub(".*:", "")
-    return tname
+    return "ToggleTerm #" .. vim.b.toggle_number
   end,
   hl = { fg = "blue", bold = true },
 }

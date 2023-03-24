@@ -53,8 +53,7 @@ local terminal_statusline = {
   condition = function()
     return conditions.buffer_matches({ buftype = { "terminal" } })
   end,
-  hl = { bg = "dark_red" },
-  { provider = "Terminal " },
+  hl = { bg = "bright_bg" },
   components.terminal_name,
 }
 
