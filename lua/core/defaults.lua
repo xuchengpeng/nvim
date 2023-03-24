@@ -23,7 +23,7 @@ function M.load_defaults()
     hlsearch = true, -- highlight all matches on previous search pattern
     ignorecase = true, -- ignore case in search patterns
     incsearch = true,
-    laststatus = 2,
+    laststatus = 3, -- always and only the last window
     mouse = "a", -- allow the mouse to be used in neovim
     number = true, -- set numbered lines
     numberwidth = 2, -- set number column width to 2 {default 4}
