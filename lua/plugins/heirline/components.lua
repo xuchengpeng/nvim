@@ -190,13 +190,22 @@ M.file_last_modified = {
   end,
 }
 
-M.git = {
+M.git_branch = {
+  condition = conditions.is_git_repo,
+  hl = { fg = "orange" },
+  {
+    provider = function()
+      return icons.git.Branch .. " " .. vim.b.gitsigns_head
+    end,
+    hl = { bold = true },
+  },
+}
+
+M.git_diff = {
   condition = conditions.is_git_repo,
   init = function(self)
     self.status_dict = vim.b.gitsigns_status_dict
-    self.has_changes = self.status_dict.added ~= 0 or self.status_dict.removed ~= 0 or self.status_dict.changed ~= 0
   end,
-  hl = { fg = "orange" },
   on_click = {
     name = "lazygit",
     callback = function()
@@ -206,42 +215,24 @@ M.git = {
 
   {
     provider = function(self)
-      return icons.git.Branch .. " " .. self.status_dict.head
-    end,
-    hl = { bold = true },
-  },
-  {
-    condition = function(self)
-      return self.has_changes
-    end,
-    provider = "(",
-  },
-  {
-    provider = function(self)
       local count = self.status_dict.added or 0
-      return count > 0 and ("+" .. count)
+      return count > 0 and (" " .. icons.git.LineAdded .. count)
     end,
     hl = { fg = "git_add" },
   },
   {
     provider = function(self)
       local count = self.status_dict.changed or 0
-      return count > 0 and ("~" .. count)
+      return count > 0 and (" " .. icons.git.LineModified .. count)
     end,
     hl = { fg = "git_change" },
   },
   {
     provider = function(self)
       local count = self.status_dict.removed or 0
-      return count > 0 and ("-" .. count)
+      return count > 0 and (" " .. icons.git.LineRemoved .. count)
     end,
     hl = { fg = "git_del" },
-  },
-  {
-    condition = function(self)
-      return self.has_changes
-    end,
-    provider = ")",
   },
 }
 

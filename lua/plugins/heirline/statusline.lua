@@ -7,9 +7,11 @@ local space = { provider = " " }
 local default_statusline = {
   components.vi_mode,
   space,
+  components.git_branch,
+  space,
   components.file_name_block,
   space,
-  components.git,
+  components.git_diff,
   space,
   components.diagnostics,
   align,
