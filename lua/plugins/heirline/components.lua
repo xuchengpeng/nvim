@@ -4,6 +4,8 @@ local icons = require("utils.icons")
 local utils = require("heirline.utils")
 local conditions = require("heirline.conditions")
 
+local space = { provider = " " }
+
 M.vi_mode = {
   init = function(self)
     self.mode = vim.api.nvim_get_mode().mode
@@ -364,7 +366,7 @@ M.help_file_name = {
 
 M.search_count = {
   condition = function()
-    return vim.v.hlsearch ~= 0 and vim.o.cmdheight == 0
+    return vim.v.hlsearch ~= 0
   end,
   init = function(self)
     local ok, search = pcall(vim.fn.searchcount)
@@ -476,7 +478,7 @@ local tabline_close_button = {
   condition = function(self)
     return not vim.api.nvim_buf_get_option(self.bufnr, "modified")
   end,
-  { provider = " " },
+  space,
   {
     provider = "",
     hl = { fg = "gray" },
@@ -501,7 +503,7 @@ local tabline_buffer_block = utils.surround({ "", "" }, function(self)
   else
     return "bright_bg"
   end
-end, { { provider = " " }, tabline_file_name_block, tabline_close_button, { provider = " " } })
+end, { space, tabline_file_name_block, tabline_close_button, space })
 
 M.buffer_line = utils.make_buflist(
   tabline_buffer_block,
