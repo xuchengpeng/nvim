@@ -7,13 +7,6 @@ return {
     end,
   },
   {
-    "navarasu/onedark.nvim",
-    lazy = true,
-    config = function()
-      require("plugins.theme").load("onedark")
-    end,
-  },
-  {
     "gbprod/nord.nvim",
     lazy = true,
     config = function()

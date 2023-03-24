@@ -10,11 +10,6 @@ local user_themes = {
       },
     })
   end,
-  ["onedark"] = function()
-    require("onedark").setup({
-      style = "dark",
-    })
-  end,
   ["catppuccin"] = function()
     require("catppuccin").setup({
       flavour = "mocha",
