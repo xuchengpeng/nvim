@@ -81,15 +81,9 @@ M.vi_mode = {
   },
 }
 
-local file_name_block = {
+M.file_icon = {
   init = function(self)
-    self.filename = vim.api.nvim_buf_get_name(self and self.bufnr or 0)
-  end,
-}
-
-local file_icon = {
-  init = function(self)
-    local filename = self.filename
+    local filename = vim.api.nvim_buf_get_name(self and self.bufnr or 0)
     local extension = vim.fn.fnamemodify(filename, ":e")
     self.icon, self.icon_color = require("nvim-web-devicons").get_icon_color(filename, extension, { default = true })
   end,
@@ -102,6 +96,9 @@ local file_icon = {
 }
 
 local file_name = {
+  init = function(self)
+    self.filename = vim.api.nvim_buf_get_name(self and self.bufnr or 0)
+  end,
   provider = function(self)
     local filename = vim.fn.fnamemodify(self.filename, ":.")
     if filename == "" then
@@ -140,13 +137,11 @@ local file_name_modifer = {
   end,
 }
 
-M.file_name_block = utils.insert(
-  file_name_block,
-  file_icon,
+M.file_name_block = {
   utils.insert(file_name_modifer, file_name),
   file_flags,
-  { provider = "%<" } -- this means that the statusline is cut here when there's not enough space
-)
+  { provider = "%<" }, -- this means that the statusline is cut here when there's not enough space
+}
 
 M.file_type = {
   provider = function()
@@ -168,6 +163,20 @@ M.file_format = {
     return vim.bo.fileformat
   end,
   hl = { fg = utils.get_highlight("Type").fg },
+}
+
+local misc_separator = {
+  provider = " " .. icons.ui.DividerLeft .. " ",
+  hl = "Comment",
+}
+
+M.file_misc_info = {
+  M.file_encoding,
+  misc_separator,
+  M.file_format,
+  misc_separator,
+  M.file_icon,
+  M.file_type,
 }
 
 M.file_size = {
@@ -446,8 +455,10 @@ function M.buffer_picker(callback)
 end
 
 local tabline_file_name = {
+  init = function(self)
+    self.filename = vim.api.nvim_buf_get_name(self.bufnr)
+  end,
   provider = function(self)
-    -- self.filename will be defined later
     local filename = self.filename
     filename = filename == "" and "Empty" or vim.fn.fnamemodify(filename, ":t")
     return filename
@@ -477,9 +488,6 @@ local tabline_file_flags = {
 }
 
 local tabline_file_name_block = {
-  init = function(self)
-    self.filename = vim.api.nvim_buf_get_name(self.bufnr)
-  end,
   on_click = {
     callback = function(_, minwid, _, button)
       if button == "m" then -- close on mouse middle click
@@ -500,7 +508,7 @@ local tabline_file_name_block = {
     condition = function(self)
       return not self._show_picker
     end,
-    file_icon,
+    M.file_icon,
   },
   tabline_file_name,
   tabline_file_flags,
