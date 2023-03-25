@@ -310,25 +310,25 @@ M.diagnostics = {
   {
     provider = function(self)
       -- 0 is just another output, we can decide to print it or not!
-      return self.errors > 0 and (" " .. icons.diagnostics.Error .. self.errors)
+      return self.errors > 0 and (" " .. icons.diagnostics.BoldError .. self.errors)
     end,
     hl = { fg = "diag_error" },
   },
   {
     provider = function(self)
-      return self.warnings > 0 and (" " .. icons.diagnostics.Warning .. self.warnings)
+      return self.warnings > 0 and (" " .. icons.diagnostics.BoldWarning .. self.warnings)
     end,
     hl = { fg = "diag_warn" },
   },
   {
     provider = function(self)
-      return self.info > 0 and (" " .. icons.diagnostics.Information .. self.info)
+      return self.info > 0 and (" " .. icons.diagnostics.BoldInformation .. self.info)
     end,
     hl = { fg = "diag_info" },
   },
   {
     provider = function(self)
-      return self.hints > 0 and (" " .. icons.diagnostics.Hint .. self.hints)
+      return self.hints > 0 and (" " .. icons.diagnostics.BoldHint .. self.hints)
     end,
     hl = { fg = "diag_hint" },
   },
