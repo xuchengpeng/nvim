@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.7.10](https://github.com/xuchengpeng/nvim/compare/v1.7.9...v1.7.10) (2023-03-25)
+
+
+### Bug Fixes
+
+* **aerial:** display symbols for the current window ([7816073](https://github.com/xuchengpeng/nvim/commit/7816073f52e19b734497f1f45ff5a184c041b177))
+* **heirline:** add tabline picker ([df13646](https://github.com/xuchengpeng/nvim/commit/df13646f9812d0041b7a6b960afb71546ca183fb))
+* **heirline:** customize tabline close button ([6f3b83d](https://github.com/xuchengpeng/nvim/commit/6f3b83db1e4b60615dc2400aee64a735afa0c899))
+* **heirline:** remove bold highlight for lsp,file_type,file_name ([79ef8e9](https://github.com/xuchengpeng/nvim/commit/79ef8e9aacdb4fc4ba86f184f8dbda8b2a63d5d6))
+* **heirline:** remove tabline bufnr ([23fb604](https://github.com/xuchengpeng/nvim/commit/23fb60478c377e280dec2b6d2dab582d472d4027))
+* **heirline:** show search count if cmdheight==0 ([574eb1a](https://github.com/xuchengpeng/nvim/commit/574eb1acba8878ac6b0db902f51d0ea3ed1977a4))
+* **keymaps:** proper description for nohlsearch ([4df4d46](https://github.com/xuchengpeng/nvim/commit/4df4d46cf7273ff8e8efd55f3b49c8622a96a781))
+
 ## [1.7.9](https://github.com/xuchengpeng/nvim/compare/v1.7.8...v1.7.9) (2023-03-24)
 
 
