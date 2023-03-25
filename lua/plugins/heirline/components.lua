@@ -445,13 +445,6 @@ function M.buffer_picker(callback)
   vim.cmd.redrawtabline()
 end
 
-local tabline_bufnr = {
-  provider = function(self)
-    return tostring(self.bufnr) .. ". "
-  end,
-  hl = "Comment",
-}
-
 local tabline_file_name = {
   provider = function(self)
     -- self.filename will be defined later
@@ -511,7 +504,6 @@ local tabline_file_name_block = {
     end,
     name = "heirline_tabline_buffer_callback",
   },
-  tabline_bufnr,
   tabline_picker,
   {
     condition = function(self)
