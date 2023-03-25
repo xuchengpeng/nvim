@@ -1,7 +1,7 @@
 local M = {}
 
 local mappings = {
-  h = { "<cmd>nohlsearch<cr>", "No Highlight" },
+  h = { "<cmd>nohlsearch<cr>", "No Highlight Search" },
   q = { "<cmd>confirm quit<cr>", "Quit" },
   z = { "<cmd>ZenMode<cr>", "Zen Mode" },
   b = {
