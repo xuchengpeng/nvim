@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.7.11](https://github.com/xuchengpeng/nvim/compare/v1.7.10...v1.7.11) (2023-03-25)
+
+
+### Bug Fixes
+
+* **heirline:** add treesitter component ([6e9aee3](https://github.com/xuchengpeng/nvim/commit/6e9aee3abbf4a5a690624b58a39e857646d5d62d))
+* **heirline:** customize file misc info on the right ([952a6d0](https://github.com/xuchengpeng/nvim/commit/952a6d00da555add6d2fff310b9272a2a3d4b41a))
+* **heirline:** set bold diagnostics icons ([07654db](https://github.com/xuchengpeng/nvim/commit/07654dbda451c0b5169d3a141522b2b0a0484070))
+
 ## [1.7.10](https://github.com/xuchengpeng/nvim/compare/v1.7.9...v1.7.10) (2023-03-25)
 
 
