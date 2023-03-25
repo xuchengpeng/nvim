@@ -105,7 +105,7 @@ local file_name = {
   provider = function(self)
     local filename = vim.fn.fnamemodify(self.filename, ":.")
     if filename == "" then
-      return "[No Name]"
+      return "Empty"
     end
     if not conditions.width_percent_below(#filename, 0.25) then
       filename = vim.fn.pathshorten(filename)
@@ -392,6 +392,59 @@ M.macro_rec = {
   },
 }
 
+local tabline_picker = {
+  condition = function(self)
+    return self._show_picker
+  end,
+  init = function(self)
+    local bufname = vim.api.nvim_buf_get_name(self.bufnr)
+    bufname = bufname == "" and "Empty" or vim.fn.fnamemodify(bufname, ":t")
+    local label = bufname:sub(1, 1)
+    local i = 2
+    while self._picker_labels[label] do
+      if i > #bufname then
+        break
+      end
+      label = bufname:sub(i, i)
+      i = i + 1
+    end
+    self._picker_labels[label] = self.bufnr
+    self.label = label
+  end,
+  provider = function(self)
+    return self.label and (self.label .. " ")
+  end,
+  hl = { fg = "red", bold = true, italic = true },
+}
+
+--- Run the buffer picker and execute the callback function on the selected buffer
+-- @param callback function with a single parameter of the buffer number
+function M.buffer_picker(callback)
+  local tabline = require("heirline").tabline
+  local prev_showtabline = vim.opt.showtabline:get()
+  if prev_showtabline ~= 2 then
+    vim.opt.showtabline = 2
+  end
+  vim.cmd.redrawtabline()
+  local buflist = tabline and tabline._buflist and tabline._buflist[1]
+  if buflist then
+    buflist._picker_labels = {}
+    buflist._show_picker = true
+    vim.cmd.redrawtabline()
+    local char = vim.fn.getcharstr()
+    local bufnr = buflist._picker_labels[char]
+    if bufnr then
+      vim.api.nvim_win_set_buf(0, bufnr)
+      callback(bufnr)
+    end
+    buflist._show_picker = false
+  end
+  if prev_showtabline ~= 2 then
+    vim.opt.showtabline = prev_showtabline
+  end
+  vim.cmd.redrawtabline()
+end
+
 local tabline_bufnr = {
   provider = function(self)
     return tostring(self.bufnr) .. ". "
@@ -403,7 +456,7 @@ local tabline_file_name = {
   provider = function(self)
     -- self.filename will be defined later
     local filename = self.filename
-    filename = filename == "" and "[No Name]" or vim.fn.fnamemodify(filename, ":t")
+    filename = filename == "" and "Empty" or vim.fn.fnamemodify(filename, ":t")
     return filename
   end,
   hl = function(self)
@@ -459,7 +512,13 @@ local tabline_file_name_block = {
     name = "heirline_tabline_buffer_callback",
   },
   tabline_bufnr,
-  file_icon,
+  tabline_picker,
+  {
+    condition = function(self)
+      return not self._show_picker
+    end,
+    file_icon,
+  },
   tabline_file_name,
   tabline_file_flags,
 }

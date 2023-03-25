@@ -6,9 +6,10 @@ local mappings = {
   z = { "<cmd>ZenMode<cr>", "Zen Mode" },
   b = {
     name = "+Buffer",
-    d = { "<cmd>bdelete<cr>", "Delete Buffer" },
+    c = { "<cmd>lua require('plugins.heirline').buffer_close()<cr>", "Close Buffer" },
     n = { "<cmd>bnext<cr>", "Next Buffer" },
     p = { "<cmd>bprevious<cr>", "Prev Buffer" },
+    s = { "<cmd>lua require('plugins.heirline').buffer_picker()<cr>", "Switch Buffer" },
   },
   c = {
     name = "+Coding",

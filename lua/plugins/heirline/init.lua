@@ -34,4 +34,16 @@ function M.setup()
   })
 end
 
+function M.buffer_picker()
+  require("plugins.heirline.components").buffer_picker(function(bufnr)
+    vim.api.nvim_win_set_buf(0, bufnr)
+  end)
+end
+
+function M.buffer_close()
+  require("plugins.heirline.components").buffer_picker(function(bufnr)
+    vim.cmd("confirm bd" .. bufnr)
+  end)
+end
+
 return M
