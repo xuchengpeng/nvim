@@ -6,6 +6,7 @@ function M.setup()
     layout = {
       min_width = 25,
     },
+    attach_mode = "global",
     filter_kind = false,
     show_guides = true,
     guides = {
