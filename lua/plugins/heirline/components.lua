@@ -356,7 +356,7 @@ M.help_file_name = {
 
 M.search_count = {
   condition = function()
-    return vim.v.hlsearch ~= 0
+    return vim.v.hlsearch ~= 0 and vim.o.cmdheight == 0
   end,
   init = function(self)
     local ok, search = pcall(vim.fn.searchcount)
