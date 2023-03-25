@@ -4,6 +4,15 @@ local icons = require("utils.icons")
 local utils = require("heirline.utils")
 local conditions = require("heirline.conditions")
 
+--- Add left and/or right padding to a string
+-- @param str the string to add padding to
+-- @param padding a table of the format `{ left = 0, right = 0}` that defines the number of spaces to include to the left and the right of the string
+-- @return the padded string
+function M.pad_string(str, padding)
+  padding = padding or {}
+  return str and str ~= "" and string.rep(" ", padding.left or 0) .. str .. string.rep(" ", padding.right or 0) or ""
+end
+
 local space = { provider = " " }
 
 M.vi_mode = {
@@ -167,7 +176,7 @@ M.file_format = {
 
 local misc_separator = {
   provider = " " .. icons.ui.DividerLeft .. " ",
-  hl = "Comment",
+  hl = { fg = utils.get_highlight("Comment").fg },
 }
 
 M.file_misc_info = {
@@ -401,6 +410,23 @@ M.macro_rec = {
   },
 }
 
+M.treesitter = {
+  condition = function(bufnr)
+    local ok, parsers = pcall(require, "nvim-treesitter.parsers")
+    if not ok then
+      return false
+    end
+    if type(bufnr) == "table" then
+      bufnr = bufnr.bufnr
+    end
+    return parsers.has_parser(parsers.get_buf_lang(bufnr or vim.api.nvim_get_current_buf()))
+  end,
+  provider = function()
+    return "  TS "
+  end,
+  hl = { fg = "green" },
+}
+
 local tabline_picker = {
   condition = function(self)
     return self._show_picker
@@ -576,7 +602,7 @@ M.tabline_offset = {
     local title = self.title
     local width = vim.api.nvim_win_get_width(self.winid)
     local pad = math.ceil((width - #title) / 2)
-    return string.rep(" ", pad) .. title .. string.rep(" ", pad)
+    return M.pad_string(title, { left = pad, right = pad })
   end,
 
   hl = function(self)

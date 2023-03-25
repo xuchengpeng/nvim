@@ -4,28 +4,11 @@ local components = require("plugins.heirline.components")
 local align = { provider = "%=" }
 local space = { provider = " " }
 
+-- stylua: ignore
 local default_statusline = {
-  components.vi_mode,
-  space,
-  components.git_branch,
-  space,
-  components.file_name_block,
-  space,
-  components.git_diff,
-  space,
-  components.diagnostics,
-  align,
-  components.macro_rec,
-  space,
-  components.search_count,
-  align,
-  components.lsp_active,
-  space,
-  components.file_misc_info,
-  space,
-  components.ruler,
-  space,
-  components.scroll_bar,
+  components.vi_mode, space, components.git_branch, space, components.file_name_block, space, components.git_diff, space, components.diagnostics, align,
+  components.macro_rec, space, components.search_count, align,
+  components.lsp_active, space, components.treesitter, space, components.file_misc_info, space, space, components.ruler, space, components.scroll_bar,
 }
 
 local inactive_statusline = {
