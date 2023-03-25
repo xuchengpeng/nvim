@@ -135,7 +135,7 @@ local file_name_modifer = {
   hl = function()
     if vim.bo.modified then
       -- use `force` because we need to override the child's hl foreground
-      return { fg = "cyan", bold = true, force = true }
+      return { fg = "cyan", force = true }
     end
   end,
 }
@@ -152,7 +152,7 @@ M.file_type = {
   provider = function()
     return vim.bo.filetype
   end,
-  hl = { fg = utils.get_highlight("Type").fg, bold = true },
+  hl = { fg = utils.get_highlight("Type").fg },
 }
 
 M.file_encoding = {
@@ -280,7 +280,6 @@ M.lsp_active = {
     end
     return " [" .. table.concat(names, " ") .. "]"
   end,
-  hl = { fg = "green", bold = true },
   on_click = {
     name = "LspInfo",
     callback = function()
