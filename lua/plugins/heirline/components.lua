@@ -462,27 +462,18 @@ local tabline_file_name = {
 }
 
 local tabline_file_flags = {
-  {
-    condition = function(self)
-      return vim.api.nvim_buf_get_option(self.bufnr, "modified")
-    end,
-    provider = "[+]",
-    hl = { fg = "green" },
-  },
-  {
-    condition = function(self)
-      return not vim.api.nvim_buf_get_option(self.bufnr, "modifiable")
-        or vim.api.nvim_buf_get_option(self.bufnr, "readonly")
-    end,
-    provider = function(self)
-      if vim.api.nvim_buf_get_option(self.bufnr, "buftype") == "terminal" then
-        return "  "
-      else
-        return ""
-      end
-    end,
-    hl = { fg = "orange" },
-  },
+  condition = function(self)
+    return not vim.api.nvim_buf_get_option(self.bufnr, "modifiable")
+      or vim.api.nvim_buf_get_option(self.bufnr, "readonly")
+  end,
+  provider = function(self)
+    if vim.api.nvim_buf_get_option(self.bufnr, "buftype") == "terminal" then
+      return "  "
+    else
+      return ""
+    end
+  end,
+  hl = { fg = "orange" },
 }
 
 local tabline_file_name_block = {
@@ -516,24 +507,33 @@ local tabline_file_name_block = {
 }
 
 local tabline_close_button = {
-  condition = function(self)
-    return not vim.api.nvim_buf_get_option(self.bufnr, "modified")
-  end,
-  space,
   {
-    provider = "",
-    hl = { fg = "gray" },
-    on_click = {
-      callback = function(_, minwid)
-        vim.schedule(function()
-          vim.api.nvim_buf_delete(minwid, { force = false })
-        end)
-        vim.cmd.redrawtabline()
-      end,
-      minwid = function(self)
-        return self.bufnr
-      end,
-      name = "heirline_tabline_close_buffer_callback",
+    condition = function(self)
+      return vim.api.nvim_buf_get_option(self.bufnr, "modified")
+    end,
+    space,
+    { provider = icons.ui.Circle, hl = { fg = "green" } },
+  },
+  {
+    condition = function(self)
+      return not vim.api.nvim_buf_get_option(self.bufnr, "modified")
+    end,
+    space,
+    {
+      provider = icons.ui.Close,
+      hl = { fg = "gray" },
+      on_click = {
+        callback = function(_, minwid)
+          vim.schedule(function()
+            vim.api.nvim_buf_delete(minwid, { force = false })
+          end)
+          vim.cmd.redrawtabline()
+        end,
+        minwid = function(self)
+          return self.bufnr
+        end,
+        name = "heirline_tabline_close_buffer_callback",
+      },
     },
   },
 }
