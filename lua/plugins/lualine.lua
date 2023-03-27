@@ -16,6 +16,9 @@ local function lsp_client_names()
       table.insert(buf_client_names, client.name)
     end
   end
+  if #buf_client_names == 0 then
+    return ""
+  end
   return "[" .. table.concat(buf_client_names, ", ") .. "]"
 end
 
