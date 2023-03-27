@@ -56,6 +56,7 @@ local default_options = {
   g = {
     mapleader = " ",
     encoding = "UTF-8",
+    statusline_style = "heirline", -- lualine, heirline
   },
 }
 

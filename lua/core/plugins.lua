@@ -42,6 +42,7 @@ return {
   },
   {
     "akinsho/bufferline.nvim",
+    enabled = vim.g.statusline_style == "lualine",
     lazy = true,
     event = { "User FileOpened" },
     config = function()
@@ -50,6 +51,7 @@ return {
   },
   {
     "nvim-lualine/lualine.nvim",
+    enabled = vim.g.statusline_style == "lualine",
     lazy = true,
     event = { "User FileOpened" },
     config = function()
@@ -58,7 +60,7 @@ return {
   },
   {
     "rebelot/heirline.nvim",
-    enabled = false,
+    enabled = vim.g.statusline_style == "heirline",
     lazy = true,
     event = { "BufReadPre", "BufNewFile" },
     config = function()

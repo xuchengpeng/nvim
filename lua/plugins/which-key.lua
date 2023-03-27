@@ -6,10 +6,10 @@ local mappings = {
   z = { "<cmd>ZenMode<cr>", "Zen Mode" },
   b = {
     name = "+Buffer",
-    c = { "<cmd>BufferLinePickClose<cr>", "Close Buffer" },
-    n = { "<cmd>BufferLineCycleNext<cr>", "Next Buffer" },
-    p = { "<cmd>BufferLineCyclePrev<cr>", "Prev Buffer" },
-    s = { "<cmd>BufferLinePick<cr>", "Switch Buffer" },
+    c = { "<cmd>lua require('utils.buffer').close()<cr>", "Close Buffer" },
+    n = { "<cmd>lua require('utils.buffer').next()<cr>", "Next Buffer" },
+    p = { "<cmd>lua require('utils.buffer').prev()<cr>", "Prev Buffer" },
+    s = { "<cmd>lua require('utils.buffer').pick()<cr>", "Switch Buffer" },
   },
   c = {
     name = "+Coding",
