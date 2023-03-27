@@ -1,10 +1,7 @@
 local M = {}
 
-function M.load_defaults()
-  vim.g.mapleader = " "
-  vim.g.encoding = "UTF-8"
-
-  local default_options = {
+local default_options = {
+  opt = {
     autoindent = true,
     autoread = true,
     backup = false, -- creates a backup file
@@ -18,12 +15,13 @@ function M.load_defaults()
     fileformats = "unix,dos,mac",
     foldmethod = "manual", -- folding, set to "expr" for treesitter based folding
     foldexpr = "", -- set to "nvim_treesitter#foldexpr()" for treesitter based folding
+    grepprg = "rg --vimgrep",
     guifont = "monospace:h17", -- the font used in graphical neovim applications
     hidden = true, -- required to keep multiple buffers and open multiple buffers
     hlsearch = true, -- highlight all matches on previous search pattern
     ignorecase = true, -- ignore case in search patterns
     incsearch = true,
-    laststatus = 3, -- always and only the last window
+    laststatus = 3, -- always
     mouse = "a", -- allow the mouse to be used in neovim
     number = true, -- set numbered lines
     numberwidth = 2, -- set number column width to 2 {default 4}
@@ -54,10 +52,18 @@ function M.load_defaults()
     virtualedit = "block", -- allow going past end of line in visual block mode
     wrap = false, -- display lines as one long line
     writebackup = false, -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
-  }
+  },
+  g = {
+    mapleader = " ",
+    encoding = "UTF-8",
+  },
+}
 
-  for k, v in pairs(default_options) do
-    vim.opt[k] = v
+function M.load_defaults()
+  for scope, val_tbl in pairs(default_options) do
+    for setting, value in pairs(val_tbl) do
+      vim[scope][setting] = value
+    end
   end
 
   vim.opt.shortmess:append("cI")
