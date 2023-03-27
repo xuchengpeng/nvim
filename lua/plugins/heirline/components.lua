@@ -480,6 +480,17 @@ function M.buffer_picker(callback)
   vim.cmd.redrawtabline()
 end
 
+local tabline_separator = {
+  provider = icons.ui.BoldLineLeft,
+  hl = function(self)
+    if self.is_active then
+      return { fg = "blue" }
+    else
+      return { fg = utils.get_highlight("Normal").bg }
+    end
+  end,
+}
+
 local tabline_file_name = {
   init = function(self)
     self.filename = vim.api.nvim_buf_get_name(self.bufnr)
@@ -574,11 +585,11 @@ local tabline_close_button = {
 
 local tabline_buffer_block = utils.surround({ "", "" }, function(self)
   if self.is_active then
-    return "blue"
-  else
     return "bright_bg"
+  else
+    return "bg"
   end
-end, { space, tabline_file_name_block, tabline_close_button, space })
+end, { tabline_separator, tabline_file_name_block, tabline_close_button, space })
 
 M.buffer_line = utils.make_buflist(
   tabline_buffer_block,
