@@ -491,9 +491,9 @@ local tabline_file_name = {
   end,
   hl = function(self)
     if self.is_active or self.is_visible then
-      return { bold = true, italic = false }
+      return { bold = true, italic = true }
     else
-      return { bold = false, italic = true }
+      return { bold = false, italic = false }
     end
   end,
 }
@@ -546,7 +546,7 @@ local tabline_close_button = {
       return vim.api.nvim_buf_get_option(self.bufnr, "modified")
     end,
     space,
-    { provider = icons.ui.Circle, hl = { fg = "green" } },
+    { provider = "●", hl = { fg = "green" } },
   },
   {
     condition = function(self)
