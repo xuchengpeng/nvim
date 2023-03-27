@@ -32,16 +32,17 @@ function M.setup()
       { name = "path", priority = 250 },
     },
     formatting = {
+      fields = { "abbr", "kind", "menu" },
       format = function(entry, vim_item)
         vim_item.kind = string.format("%s %s", kind_icons[vim_item.kind], vim_item.kind)
         vim_item.menu = ({
-          nvim_lsp = "[LSP]",
-          buffer = "[Buffer]",
-          path = "[Path]",
-          luasnip = "[Snippet]",
-          emoji = "[Emoji]",
-          vsnip = "[Snippet]",
-          treesitter = "[TreeSitter]",
+          nvim_lsp = "(LSP)",
+          buffer = "(Buffer)",
+          path = "(Path)",
+          luasnip = "(Snippet)",
+          emoji = "(Emoji)",
+          vsnip = "(Snippet)",
+          treesitter = "(TreeSitter)",
         })[entry.source.name]
         vim_item.dup = ({
           nvim_lsp = 1,
