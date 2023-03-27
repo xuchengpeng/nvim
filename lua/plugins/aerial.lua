@@ -4,6 +4,7 @@ function M.setup()
   require("aerial").setup({
     backends = { "lsp", "treesitter", "markdown", "man" },
     layout = {
+      max_width = { 30, 0.2 },
       min_width = 25,
     },
     attach_mode = "global",
