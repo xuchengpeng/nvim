@@ -234,21 +234,21 @@ M.git_diff = {
   {
     provider = function(self)
       local count = self.status_dict.added or 0
-      return count > 0 and (" " .. icons.git.LineAdded .. count)
+      return count > 0 and (" " .. icons.git.LineAdded .. " " .. count)
     end,
     hl = { fg = "git_add" },
   },
   {
     provider = function(self)
       local count = self.status_dict.changed or 0
-      return count > 0 and (" " .. icons.git.LineModified .. count)
+      return count > 0 and (" " .. icons.git.LineModified .. " " .. count)
     end,
     hl = { fg = "git_change" },
   },
   {
     provider = function(self)
       local count = self.status_dict.removed or 0
-      return count > 0 and (" " .. icons.git.LineRemoved .. count)
+      return count > 0 and (" " .. icons.git.LineRemoved .. " " .. count)
     end,
     hl = { fg = "git_del" },
   },
@@ -296,7 +296,7 @@ M.lsp_active = {
     for _, server in pairs(vim.lsp.get_active_clients({ bufnr = 0 })) do
       table.insert(names, server.name)
     end
-    return " [" .. table.concat(names, " ") .. "]"
+    return " [" .. table.concat(names, " ") .. "]"
   end,
   on_click = {
     name = "LspInfo",
@@ -319,25 +319,25 @@ M.diagnostics = {
   {
     provider = function(self)
       -- 0 is just another output, we can decide to print it or not!
-      return self.errors > 0 and (" " .. icons.diagnostics.BoldError .. self.errors)
+      return self.errors > 0 and (" " .. icons.diagnostics.BoldError .. " " .. self.errors)
     end,
     hl = { fg = "diag_error" },
   },
   {
     provider = function(self)
-      return self.warnings > 0 and (" " .. icons.diagnostics.BoldWarning .. self.warnings)
+      return self.warnings > 0 and (" " .. icons.diagnostics.BoldWarning .. " " .. self.warnings)
     end,
     hl = { fg = "diag_warn" },
   },
   {
     provider = function(self)
-      return self.info > 0 and (" " .. icons.diagnostics.BoldInformation .. self.info)
+      return self.info > 0 and (" " .. icons.diagnostics.BoldInformation .. " " .. self.info)
     end,
     hl = { fg = "diag_info" },
   },
   {
     provider = function(self)
-      return self.hints > 0 and (" " .. icons.diagnostics.BoldHint .. self.hints)
+      return self.hints > 0 and (" " .. icons.diagnostics.BoldHint .. " " .. self.hints)
     end,
     hl = { fg = "diag_hint" },
   },
