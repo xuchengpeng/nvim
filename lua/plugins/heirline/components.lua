@@ -653,6 +653,23 @@ M.tab_pages = {
   tabpage_close,
 }
 
+--- Encode a position to a single value that can be decoded later
+-- @param line line number of position
+-- @param col column number of position
+-- @param winnr a window number
+-- @return the encoded position
+local function encode_pos(line, col, winnr)
+  return bit.bor(bit.lshift(line, 16), bit.lshift(col, 6), winnr)
+end
+
+--- Decode a previously encoded position to it's sub parts
+-- @param c the encoded position
+-- @return line number, column number, window id
+local function decode_pos(c)
+  -- line: 16 bit (65535); col: 10 bit (1023); winnr: 6 bit (63)
+  return bit.rshift(c, 16), bit.band(bit.rshift(c, 6), 1023), bit.band(c, 63)
+end
+
 M.breadcrumbs = {
   condition = function()
     local ok, _ = pcall(require, "aerial")
@@ -666,6 +683,14 @@ M.breadcrumbs = {
       local child = {
         { provider = d.icon, hl = string.format("Aerial%sIcon", d.kind) },
         { provider = string.gsub(d.name, "%%", "%%%%"):gsub("%s*->%s*", "") },
+        on_click = {
+          minwid = encode_pos(d.lnum, d.col, self.winnr),
+          callback = function(_, minwid)
+            local lnum, col, winnr = decode_pos(minwid)
+            vim.api.nvim_win_set_cursor(vim.fn.win_getid(winnr), { lnum, col })
+          end,
+          name = "heirline_breadcrumbs",
+        },
       }
       if #data > 1 and i < #data then
         table.insert(child, { provider = separator })
