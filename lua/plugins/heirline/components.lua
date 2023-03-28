@@ -552,6 +552,7 @@ local tabline_file_name_block = {
 }
 
 local tabline_close_button = {
+  fallthrough = false,
   {
     condition = function(self)
       return vim.api.nvim_buf_get_option(self.bufnr, "modified")
@@ -560,9 +561,6 @@ local tabline_close_button = {
     { provider = "●", hl = { fg = "green" } },
   },
   {
-    condition = function(self)
-      return not vim.api.nvim_buf_get_option(self.bufnr, "modified")
-    end,
     space,
     {
       provider = icons.ui.Close,
