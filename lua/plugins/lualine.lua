@@ -6,7 +6,7 @@ local function lsp_client_names()
     if client.name == "null-ls" then
       local sources = {}
       for _, type in ipairs({ "FORMATTING", "DIAGNOSTICS" }) do
-        for _, source in ipairs(require("plugins.lsp.utils").null_ls_sources(vim.bo.filetype, type)) do
+        for _, source in ipairs(require("plugins.lsp.null-ls").null_ls_sources(vim.bo.filetype, type)) do
           sources[source] = true
         end
       end

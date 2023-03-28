@@ -4,7 +4,7 @@ local defaults = {
   {
     name = "ToggleFormatOnSave",
     callback = function()
-      require("plugins.lsp.utils").toggle_format_on_save()
+      require("plugins.lsp.format").toggle_format_on_save()
     end,
   },
 }
