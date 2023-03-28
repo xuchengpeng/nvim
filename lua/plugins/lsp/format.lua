@@ -42,12 +42,10 @@ function M.enable_format_on_save()
       },
     },
   })
-  utils.notify("enabled format-on-save")
 end
 
 function M.disable_format_on_save()
   require("core.autocmds").clear_autocmds("_lsp_format_on_save")
-  utils.notify("disabled format-on-save")
 end
 
 function M.toggle_format_on_save()
@@ -57,8 +55,10 @@ function M.toggle_format_on_save()
   })
   if not exists or #autocmd == 0 then
     M.enable_format_on_save()
+    utils.notify("Enabled format-on-save")
   else
     M.disable_format_on_save()
+    utils.notify("Disabled format-on-save")
   end
 end
 
