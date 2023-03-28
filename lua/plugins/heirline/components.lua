@@ -156,7 +156,7 @@ M.file_type = {
   provider = function()
     return vim.bo.filetype
   end,
-  hl = { fg = utils.get_highlight("Type").fg },
+  hl = { fg = "type" },
 }
 
 M.file_encoding = {
@@ -164,19 +164,19 @@ M.file_encoding = {
     local enc = (vim.bo.fileencoding ~= "" and vim.bo.fileencoding) or vim.o.encoding
     return enc
   end,
-  hl = { fg = utils.get_highlight("Type").fg },
+  hl = { fg = "type" },
 }
 
 M.file_format = {
   provider = function()
     return vim.bo.fileformat
   end,
-  hl = { fg = utils.get_highlight("Type").fg },
+  hl = { fg = "type" },
 }
 
 local misc_separator = {
   provider = " " .. icons.ui.DividerLeft .. " ",
-  hl = { fg = utils.get_highlight("Comment").fg },
+  hl = { fg = "comment" },
 }
 
 M.file_misc_info = {
@@ -486,7 +486,7 @@ local tabline_separator = {
     if self.is_active then
       return { fg = "blue" }
     else
-      return { fg = utils.get_highlight("Normal").bg }
+      return { fg = "normal_bg" }
     end
   end,
 }
@@ -587,7 +587,7 @@ local tabline_buffer_block = utils.surround({ "", "" }, function(self)
   if self.is_active then
     return "bright_bg"
   else
-    return "bg"
+    return "stl_bg"
   end
 end, { tabline_separator, tabline_file_name_block, tabline_close_button, space })
 
@@ -681,7 +681,7 @@ M.breadcrumbs = {
   provider = function(self)
     return self.child:eval()
   end,
-  hl = { fg = utils.get_highlight("StatusLine").fg },
+  hl = { fg = "stl_fg" },
   update = { "CursorMoved" },
 }
 

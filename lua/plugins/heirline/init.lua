@@ -4,6 +4,7 @@ local utils = require("heirline.utils")
 
 local function setup_colors()
   return {
+    normal_bg = utils.get_highlight("Normal").bg,
     bright_bg = utils.get_highlight("Folded").bg,
     bright_fg = utils.get_highlight("Folded").fg,
     red = utils.get_highlight("Error").fg,
@@ -20,6 +21,10 @@ local function setup_colors()
     git_add = utils.get_highlight("diffAdded").fg,
     git_change = utils.get_highlight("diffChanged").fg,
     git_del = utils.get_highlight("diffRemoved").fg,
+    stl_bg = utils.get_highlight("StatusLine").bg,
+    stl_fg = utils.get_highlight("StatusLine").fg,
+    type = utils.get_highlight("Type").fg,
+    comment = utils.get_highlight("Comment").fg,
   }
 end
 
