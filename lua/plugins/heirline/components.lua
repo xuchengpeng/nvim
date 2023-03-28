@@ -675,7 +675,7 @@ M.breadcrumbs = {
   end,
   init = function(self)
     local children = {}
-    local separator = "  "
+    local separator = " " .. icons.ui.ChevronRight .. " "
     local data = require("aerial").get_location(true) or {}
     for i, d in ipairs(data) do
       local child = {
