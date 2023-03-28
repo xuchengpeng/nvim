@@ -20,7 +20,7 @@ function M.setup()
   local opts = {
     root = utils.join_paths(utils.get_data_dir(), "lazy"),
     lockfile = utils.join_paths(utils.get_config_dir(), "lazy-lock.json"),
-    install = { colorscheme = { "tokyonight", "habamax" } },
+    install = { colorscheme = { lvim.colorscheme, "habamax" } },
   }
 
   require("lazy").setup(plugins, opts)
