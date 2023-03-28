@@ -1,5 +1,30 @@
 # Changelog
 
+## [1.7.12](https://github.com/xuchengpeng/nvim/compare/v1.7.11...v1.7.12) (2023-03-28)
+
+
+### Bug Fixes
+
+* add settings ([54a1eee](https://github.com/xuchengpeng/nvim/commit/54a1eee7977fff9c0022d5452cb5890a7f6d1147))
+* **aerial:** customize max width ([e6f9fc3](https://github.com/xuchengpeng/nvim/commit/e6f9fc3c3820f6d19c7a24af568722a44ca4283b))
+* **cmp:** customize formatting style ([fdc36cb](https://github.com/xuchengpeng/nvim/commit/fdc36cb1d430c6743a5990192adf016184f5051f))
+* **heirline:** add space after icons ([45039f3](https://github.com/xuchengpeng/nvim/commit/45039f3e09fb2447aa66886e982ce37454db2f5d))
+* **heirline:** add terminal icon ([3c69777](https://github.com/xuchengpeng/nvim/commit/3c6977770fefc741081db49cf7aff2573a9609fc))
+* **heirline:** customize breadcrumbs on_click ([aaaf426](https://github.com/xuchengpeng/nvim/commit/aaaf42676ce2e0be6da6233a701e74bf68acccc3))
+* **heirline:** customize breadcrumbs separator ([caf6be4](https://github.com/xuchengpeng/nvim/commit/caf6be483f5e1be0065954d709d4e969f7f4ea3c))
+* **heirline:** customize highlight with colorscheme ([fb85141](https://github.com/xuchengpeng/nvim/commit/fb85141dd23430d300de1abe4e76d7dd44dce327))
+* **heirline:** customize tabline modified icon ([a305956](https://github.com/xuchengpeng/nvim/commit/a305956f1f89fba95345e350dbf4579a54158918))
+* **heirline:** customize tabline separator ([c509b80](https://github.com/xuchengpeng/nvim/commit/c509b80ce387df88fc6a9d79db190a7dedad27aa))
+* **heirline:** do not show treesitter by default ([0898828](https://github.com/xuchengpeng/nvim/commit/089882828671f4dd53167ed6d6cd6233c0cbcb55))
+* **heirline:** padding 1 space left ([d1362c7](https://github.com/xuchengpeng/nvim/commit/d1362c7c9103f33ccbea041b47d70b3b3a597b29))
+* **heirline:** show file icon on winbar ([bd69b38](https://github.com/xuchengpeng/nvim/commit/bd69b3883a8f824d7683060453b26e4d0341518a))
+* **heirline:** show file name block on breadcrumbs if there is no symbols ([992a636](https://github.com/xuchengpeng/nvim/commit/992a636a699bd6244341470d695ae61c73ced34f))
+* **heirline:** simply tabline close button display conditions ([966b249](https://github.com/xuchengpeng/nvim/commit/966b249782c5ad6d289cf16485e55d8995179d9f))
+* **icons:** remove useless icons ([d86d618](https://github.com/xuchengpeng/nvim/commit/d86d61864bcdbb09fe9a3d739316002749f2379a))
+* **lualine:** do not show lsp when there is no active client ([1ec90b3](https://github.com/xuchengpeng/nvim/commit/1ec90b32f7e0aa7375567e85d7ce62750c487471))
+* **lualine:** set lualine as default statusline ([7f8d63a](https://github.com/xuchengpeng/nvim/commit/7f8d63a9fc47f7aba055de5ff52e86035a0b9c3f))
+* **statusline:** add style configuration ([f0611f8](https://github.com/xuchengpeng/nvim/commit/f0611f8d4eb0f52c0e2be15ca8bffff715924e1d))
+
 ## [1.7.11](https://github.com/xuchengpeng/nvim/compare/v1.7.10...v1.7.11) (2023-03-25)
 
 
