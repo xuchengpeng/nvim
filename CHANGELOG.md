@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.7.13](https://github.com/xuchengpeng/nvim/compare/v1.7.12...v1.7.13) (2023-03-28)
+
+
+### Bug Fixes
+
+* **lazy:** set install colorscheme with global settings ([99dec2b](https://github.com/xuchengpeng/nvim/commit/99dec2bba9b845f89ab3d8ed38a986320f01b324))
+* **lsp:** add format_on_save settings ([bb1ea50](https://github.com/xuchengpeng/nvim/commit/bb1ea500e40496284ee664e5cca36a8c2b83f348))
+* **lsp:** customize providers ([cf1a862](https://github.com/xuchengpeng/nvim/commit/cf1a8623aef33a6caa7158e76a82a5c169cb1d91))
+
 ## [1.7.12](https://github.com/xuchengpeng/nvim/compare/v1.7.11...v1.7.12) (2023-03-28)
 
 
