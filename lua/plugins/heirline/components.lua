@@ -698,6 +698,7 @@ M.breadcrumbs = {
       table.insert(children, child)
     end
     if #children == 0 then
+      table.insert(children, M.file_icon)
       table.insert(children, M.file_name_block)
     end
     table.insert(children, 1, space) -- padding 1 space left
