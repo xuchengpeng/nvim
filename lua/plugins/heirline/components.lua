@@ -672,13 +672,16 @@ M.breadcrumbs = {
       end
       table.insert(children, child)
     end
-    table.insert(children, 1, space)
+    if #children == 0 then
+      table.insert(children, M.file_name_block)
+    end
+    table.insert(children, 1, space) -- padding 1 space left
     self.child = self:new(children, 1)
   end,
   provider = function(self)
     return self.child:eval()
   end,
-  hl = { fg = "gray" },
+  hl = { fg = utils.get_highlight("StatusLine").fg },
   update = { "CursorMoved" },
 }
 
