@@ -1,21 +1,21 @@
 return {
   {
     "folke/tokyonight.nvim",
-    lazy = false,
+    lazy = lvim.colorscheme ~= "tokyonight",
     config = function()
       require("plugins.theme").load("tokyonight")
     end,
   },
   {
     "gbprod/nord.nvim",
-    lazy = true,
+    lazy = lvim.colorscheme ~= "nord",
     config = function()
       require("plugins.theme").load("nord")
     end,
   },
   {
     "catppuccin/nvim",
-    lazy = true,
+    lazy = lvim.colorscheme ~= "catppuccin",
     name = "catppuccin.nvim",
     config = function()
       require("plugins.theme").load("catppuccin")
@@ -42,7 +42,7 @@ return {
   },
   {
     "akinsho/bufferline.nvim",
-    enabled = vim.g.statusline_style == "lualine",
+    enabled = lvim.statusline == "lualine",
     lazy = true,
     event = { "User FileOpened" },
     config = function()
@@ -51,7 +51,7 @@ return {
   },
   {
     "nvim-lualine/lualine.nvim",
-    enabled = vim.g.statusline_style == "lualine",
+    enabled = lvim.statusline == "lualine",
     lazy = true,
     event = { "User FileOpened" },
     config = function()
@@ -60,7 +60,7 @@ return {
   },
   {
     "rebelot/heirline.nvim",
-    enabled = vim.g.statusline_style == "heirline",
+    enabled = lvim.statusline == "heirline",
     lazy = true,
     event = { "BufReadPre", "BufNewFile" },
     config = function()
