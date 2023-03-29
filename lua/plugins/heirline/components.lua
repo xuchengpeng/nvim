@@ -356,7 +356,7 @@ M.terminal_name = {
     return vim.bo.filetype == "toggleterm"
   end,
   provider = function()
-    return " " .. "ToggleTerm #" .. vim.b.toggle_number
+    return " " .. "ToggleTerm #" .. vim.b.toggle_number
   end,
   hl = { fg = "blue", bold = true },
 }
