@@ -355,10 +355,19 @@ M.terminal_name = {
   condition = function()
     return vim.bo.filetype == "toggleterm"
   end,
-  provider = function()
-    return " " .. "ToggleTerm #" .. vim.b.toggle_number
-  end,
-  hl = { fg = "blue", bold = true },
+  {
+    provider = function()
+      local str = icons.ui.Console .. " ToggleTerm #" .. vim.b.toggle_number
+      return M.pad_string(str, { left = 1, right = 1 })
+    end,
+    hl = { fg = "bright_fg", bg = "bright_bg", bold = true },
+  },
+  {
+    provider = function()
+      return icons.ui.BoldDividerRight
+    end,
+    hl = { fg = "bright_bg" },
+  },
 }
 
 M.help_file_name = {
