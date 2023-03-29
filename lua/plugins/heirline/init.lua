@@ -1,6 +1,6 @@
 local M = {}
 
-local utils = require("heirline.utils")
+local utils = require("utils")
 
 local function setup_colors()
   return {
