@@ -90,7 +90,7 @@ M.vi_mode = {
   },
 }
 
-M.file_icon = {
+local file_icon = {
   init = function(self)
     local filename = vim.api.nvim_buf_get_name(self and self.bufnr or 0)
     local extension = vim.fn.fnamemodify(filename, ":e")
@@ -132,7 +132,7 @@ local file_flags = {
     condition = function()
       return not vim.bo.modifiable or vim.bo.readonly
     end,
-    provider = "",
+    provider = icons.ui.Lock,
     hl = { fg = "orange" },
   },
 }
@@ -147,6 +147,7 @@ local file_name_modifer = {
 }
 
 M.file_name_block = {
+  file_icon,
   utils.insert(file_name_modifer, file_name),
   file_flags,
   { provider = "%<" }, -- this means that the statusline is cut here when there's not enough space
@@ -156,7 +157,6 @@ M.file_type = {
   provider = function()
     return vim.bo.filetype
   end,
-  hl = { fg = "type" },
 }
 
 M.file_encoding = {
@@ -164,28 +164,22 @@ M.file_encoding = {
     local enc = (vim.bo.fileencoding ~= "" and vim.bo.fileencoding) or vim.o.encoding
     return enc
   end,
-  hl = { fg = "type" },
 }
 
 M.file_format = {
   provider = function()
     return vim.bo.fileformat
   end,
-  hl = { fg = "type" },
-}
-
-local misc_separator = {
-  provider = " " .. icons.ui.DividerLeft .. " ",
-  hl = { fg = "comment" },
 }
 
 M.file_misc_info = {
+  space,
   M.file_encoding,
-  misc_separator,
+  space,
   M.file_format,
-  misc_separator,
-  M.file_icon,
+  space,
   M.file_type,
+  space,
 }
 
 M.file_size = {
@@ -296,8 +290,9 @@ M.lsp_active = {
     for _, server in pairs(vim.lsp.get_active_clients({ bufnr = 0 })) do
       table.insert(names, server.name)
     end
-    return " [" .. table.concat(names, " ") .. "]"
+    return icons.ui.Gears .. " [" .. table.concat(names, " ") .. "]"
   end,
+  hl = { fg = "blue" },
   on_click = {
     name = "LspInfo",
     callback = function()
@@ -319,25 +314,25 @@ M.diagnostics = {
   {
     provider = function(self)
       -- 0 is just another output, we can decide to print it or not!
-      return self.errors > 0 and (" " .. icons.diagnostics.BoldError .. " " .. self.errors)
+      return self.errors > 0 and (" " .. icons.diagnostics.Error .. " " .. self.errors)
     end,
     hl = { fg = "diag_error" },
   },
   {
     provider = function(self)
-      return self.warnings > 0 and (" " .. icons.diagnostics.BoldWarning .. " " .. self.warnings)
+      return self.warnings > 0 and (" " .. icons.diagnostics.Warning .. " " .. self.warnings)
     end,
     hl = { fg = "diag_warn" },
   },
   {
     provider = function(self)
-      return self.info > 0 and (" " .. icons.diagnostics.BoldInformation .. " " .. self.info)
+      return self.info > 0 and (" " .. icons.diagnostics.Information .. " " .. self.info)
     end,
     hl = { fg = "diag_info" },
   },
   {
     provider = function(self)
-      return self.hints > 0 and (" " .. icons.diagnostics.BoldHint .. " " .. self.hints)
+      return self.hints > 0 and (" " .. icons.diagnostics.Hint .. " " .. self.hints)
     end,
     hl = { fg = "diag_hint" },
   },
@@ -401,7 +396,7 @@ M.macro_rec = {
   condition = function()
     return vim.fn.reg_recording() ~= "" and vim.o.cmdheight == 0
   end,
-  provider = " ",
+  provider = icons.ui.Record .. " ",
   hl = { fg = "orange", bold = true },
   utils.surround({ "[", "]" }, nil, {
     provider = function()
@@ -417,23 +412,6 @@ M.macro_rec = {
       vim.cmd.redrawstatus()
     end),
   },
-}
-
-M.treesitter = {
-  condition = function(bufnr)
-    local ok, parsers = pcall(require, "nvim-treesitter.parsers")
-    if not ok then
-      return false
-    end
-    if type(bufnr) == "table" then
-      bufnr = bufnr.bufnr
-    end
-    return parsers.has_parser(parsers.get_buf_lang(bufnr or vim.api.nvim_get_current_buf()))
-  end,
-  provider = function()
-    return "  TS "
-  end,
-  hl = { fg = "green" },
 }
 
 local tabline_picker = {
@@ -525,9 +503,9 @@ local tabline_file_flags = {
   end,
   provider = function(self)
     if vim.api.nvim_buf_get_option(self.bufnr, "buftype") == "terminal" then
-      return "  "
+      return icons.ui.Console
     else
-      return ""
+      return icons.ui.Lock
     end
   end,
   hl = { fg = "orange" },
@@ -554,7 +532,7 @@ local tabline_file_name_block = {
     condition = function(self)
       return not self._show_picker
     end,
-    M.file_icon,
+    file_icon,
   },
   tabline_file_name,
   tabline_file_flags,
@@ -567,7 +545,7 @@ local tabline_close_button = {
       return vim.api.nvim_buf_get_option(self.bufnr, "modified")
     end,
     space,
-    { provider = "●", hl = { fg = "green" } },
+    { provider = icons.ui.FileModified, hl = { fg = "green" } },
   },
   {
     space,
@@ -600,8 +578,8 @@ end, { tabline_separator, tabline_file_name_block, tabline_close_button, space }
 
 M.buffer_line = utils.make_buflist(
   tabline_buffer_block,
-  { provider = " ", hl = { fg = "gray" } }, -- left truncation, optional (defaults to "<")
-  { provider = " ", hl = { fg = "gray" } } -- right trunctation, also optional (defaults to ...... yep, ">")
+  { provider = icons.ui.ChevronBoldLeft .. " ", hl = { fg = "gray" } }, -- left truncation, optional (defaults to "<")
+  { provider = icons.ui.ChevronBoldRight .. " ", hl = { fg = "gray" } } -- right trunctation, also optional (defaults to ...... yep, ">")
 )
 
 M.tabline_offset = {
@@ -705,7 +683,6 @@ M.breadcrumbs = {
       table.insert(children, child)
     end
     if #children == 0 then
-      table.insert(children, M.file_icon)
       table.insert(children, M.file_name_block)
     end
     table.insert(children, 1, space) -- padding 1 space left
