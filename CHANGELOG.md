@@ -1,5 +1,16 @@
 # Changelog
 
+## [1.7.14](https://github.com/xuchengpeng/nvim/compare/v1.7.13...v1.7.14) (2023-03-30)
+
+
+### Bug Fixes
+
+* **heirline:** customize style like lualine ([48a70a4](https://github.com/xuchengpeng/nvim/commit/48a70a4a567a13d78f63ba5c3a470b13093b1448))
+* **heirline:** customize terminal statusline highlight ([387f7fd](https://github.com/xuchengpeng/nvim/commit/387f7fdddc524c42732820e62782234dc72f9b82))
+* **icons:** customize icons ([a886fee](https://github.com/xuchengpeng/nvim/commit/a886fee1951ada8f2151b6d66c5cf740fb15984e))
+* **icons:** unify ui icons ([5e29375](https://github.com/xuchengpeng/nvim/commit/5e293757fe7cea5864aa046c2feecab87a57fb40))
+* **utils:** use new nvim_get_hl api for neovim 0.9 ([acce4e1](https://github.com/xuchengpeng/nvim/commit/acce4e1fb1b86bc2e1d1b2af52fd96fc750795f4))
+
 ## [1.7.13](https://github.com/xuchengpeng/nvim/compare/v1.7.12...v1.7.13) (2023-03-28)
 
 
