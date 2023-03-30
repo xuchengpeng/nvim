@@ -28,6 +28,7 @@ local function setup_colors()
     bright_bg = Folded.bg,
     bright_fg = Folded.fg,
     red = Error.fg,
+    dark_red = diffRemoved.fg,
     green = String.fg,
     blue = Function.fg,
     gray = NonText.fg,

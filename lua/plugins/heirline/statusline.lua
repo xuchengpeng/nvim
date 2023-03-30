@@ -6,19 +6,16 @@ local space = { provider = " " }
 
 -- stylua: ignore
 local default_statusline = {
-  components.vi_mode, space, components.file_name_block, space, components.git_branch, components.git_diff, space, components.diagnostics, align,
-  components.macro_rec, space, components.search_count, align,
-  components.lsp_active, space, components.file_misc_info, space, components.ruler, space, components.scroll_bar,
+  components.section_a, components.section_b, components.section_c, align,
+  components.section_d, align,
+  components.section_x, components.section_y, components.section_z,
 }
 
 local inactive_statusline = {
   condition = conditions.is_not_active,
-  components.file_name_block,
+  components.section_c,
   align,
-  components.file_type,
-  space,
-  components.ruler,
-  hl = { fg = "gray", force = true },
+  components.section_x,
 }
 
 local special_statusline = {
@@ -34,7 +31,9 @@ local special_statusline = {
   align,
   hl = function()
     if conditions.is_not_active() then
-      return { fg = "gray", force = true }
+      return { fg = "normal_fg", force = true }
+    else
+      return { fg = "blue", force = true }
     end
   end,
 }

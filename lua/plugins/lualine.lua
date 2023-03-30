@@ -1,21 +1,7 @@
 local M = {}
 
 local function lsp_client_names()
-  local buf_client_names = {}
-  for _, client in pairs(vim.lsp.get_active_clients({ bufnr = 0 })) do
-    if client.name == "null-ls" then
-      local sources = {}
-      for _, type in ipairs({ "FORMATTING", "DIAGNOSTICS" }) do
-        for _, source in ipairs(require("plugins.lsp.null-ls").null_ls_sources(vim.bo.filetype, type)) do
-          sources[source] = true
-        end
-      end
-      local sources_name = vim.tbl_keys(sources)
-      vim.list_extend(buf_client_names, sources_name, 1, #sources_name)
-    else
-      table.insert(buf_client_names, client.name)
-    end
-  end
+  local buf_client_names = require("plugins.lsp").get_active_client_names()
   if #buf_client_names == 0 then
     return ""
   end
@@ -51,8 +37,8 @@ function M.setup()
       lualine_a = { "mode" },
       lualine_b = { "branch", "diff" },
       lualine_c = { { "filename", path = 1, separator = "" }, "diagnostics" },
-      lualine_x = { lsp_client_names },
-      lualine_y = { "encoding", { "fileformat", symbols = { unix = "unix", dos = "dos", mac = "mac" } }, "filetype" },
+      lualine_x = { "encoding", { "fileformat", symbols = { unix = "unix", dos = "dos", mac = "mac" } }, "filetype" },
+      lualine_y = { lsp_client_names },
       lualine_z = {
         { "location", separator = " ", padding = { left = 1, right = 0 } },
         { "progress", padding = { left = 0, right = 1 } },

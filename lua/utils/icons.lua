@@ -46,7 +46,7 @@ return {
     FileUnmerged = "",
     FileUnstaged = "",
     FileUntracked = "U",
-    Branch = "",
+    Branch = "",
   },
   ui = {
     ArrowCircleDown = "",

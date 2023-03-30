@@ -15,9 +15,11 @@ end
 
 local space = { provider = " " }
 
-M.vi_mode = {
+local mode = {
   init = function(self)
     self.mode = vim.api.nvim_get_mode().mode
+    local m = self.mode:sub(1, 1) -- get only the first mode character
+    self.mode_color = self.mode_colors[m]
   end,
   static = {
     mode_names = {
@@ -68,25 +70,81 @@ M.vi_mode = {
       s = "purple",
       S = "purple",
       ["\19"] = "purple",
-      R = "red",
-      r = "red",
-      ["!"] = "red",
-      t = "red",
+      R = "dark_red",
+      r = "dark_red",
+      ["!"] = "dark_red",
+      t = "dark_red",
     },
   },
+}
+
+local vi_mode = {
   provider = function(self)
-    return "█ %2(" .. self.mode_names[self.mode] .. "%)"
+    return " %2(" .. self.mode_names[self.mode] .. "%) "
   end,
-  hl = function(self)
-    local mode = self.mode:sub(1, 1) -- get only the first mode character
-    return { fg = self.mode_colors[mode], bold = true }
-  end,
+  hl = { fg = "normal_bg", bold = true },
   update = {
     "ModeChanged",
     pattern = "*:*",
     callback = vim.schedule_wrap(function()
       vim.cmd.redrawstatus()
     end),
+  },
+}
+
+local git_branch = {
+  condition = conditions.is_git_repo,
+  hl = function(self)
+    return { fg = self.mode_color }
+  end,
+  {
+    provider = function()
+      return " " .. icons.git.Branch .. " " .. vim.b.gitsigns_head .. " "
+    end,
+    hl = { bold = true },
+  },
+}
+
+local git_diff = {
+  condition = conditions.is_git_repo,
+  init = function(self)
+    self.status_dict = vim.b.gitsigns_status_dict
+  end,
+  on_click = {
+    name = "lazygit",
+    callback = function()
+      require("plugins.toggleterm").toggle_term_cmd("lazygit")
+    end,
+  },
+  {
+    provider = function(self)
+      local sum = (self.status_dict.added or 0) + (self.status_dict.changed or 0) + (self.status_dict.removed or 0)
+      return sum > 0 and icons.ui.DividerRight .. " "
+    end,
+    hl = function(self)
+      return { fg = self.mode_color }
+    end,
+  },
+  {
+    provider = function(self)
+      local count = self.status_dict.added or 0
+      return count > 0 and ("+" .. count .. " ")
+    end,
+    hl = { fg = "git_add" },
+  },
+  {
+    provider = function(self)
+      local count = self.status_dict.changed or 0
+      return count > 0 and ("~" .. count .. " ")
+    end,
+    hl = { fg = "git_change" },
+  },
+  {
+    provider = function(self)
+      local count = self.status_dict.removed or 0
+      return count > 0 and ("-" .. count .. " ")
+    end,
+    hl = { fg = "git_del" },
   },
 }
 
@@ -159,27 +217,17 @@ M.file_type = {
   end,
 }
 
-M.file_encoding = {
+local file_encoding = {
   provider = function()
     local enc = (vim.bo.fileencoding ~= "" and vim.bo.fileencoding) or vim.o.encoding
     return enc
   end,
 }
 
-M.file_format = {
+local file_format = {
   provider = function()
     return vim.bo.fileformat
   end,
-}
-
-M.file_misc_info = {
-  space,
-  M.file_encoding,
-  space,
-  M.file_format,
-  space,
-  M.file_type,
-  space,
 }
 
 M.file_size = {
@@ -202,106 +250,7 @@ M.file_last_modified = {
   end,
 }
 
-M.git_branch = {
-  condition = conditions.is_git_repo,
-  hl = { fg = "orange" },
-  {
-    provider = function()
-      return icons.git.Branch .. " " .. vim.b.gitsigns_head
-    end,
-    hl = { bold = true },
-  },
-}
-
-M.git_diff = {
-  condition = conditions.is_git_repo,
-  init = function(self)
-    self.status_dict = vim.b.gitsigns_status_dict
-  end,
-  on_click = {
-    name = "lazygit",
-    callback = function()
-      require("plugins.toggleterm").toggle_term_cmd("lazygit")
-    end,
-  },
-
-  {
-    provider = function(self)
-      local count = self.status_dict.added or 0
-      return count > 0 and (" " .. icons.git.LineAdded .. " " .. count)
-    end,
-    hl = { fg = "git_add" },
-  },
-  {
-    provider = function(self)
-      local count = self.status_dict.changed or 0
-      return count > 0 and (" " .. icons.git.LineModified .. " " .. count)
-    end,
-    hl = { fg = "git_change" },
-  },
-  {
-    provider = function(self)
-      local count = self.status_dict.removed or 0
-      return count > 0 and (" " .. icons.git.LineRemoved .. " " .. count)
-    end,
-    hl = { fg = "git_del" },
-  },
-}
-
-M.ruler = {
-  provider = function()
-    local line = vim.fn.line(".")
-    local char = vim.fn.virtcol(".")
-    local text = "%p%%"
-    if line == 1 then
-      text = "Top"
-    elseif line == vim.fn.line("$") then
-      text = "Bot"
-    end
-    return line .. ":" .. char .. " " .. text
-  end,
-}
-
-M.scroll_bar = {
-  provider = function()
-    local sbar = { "▁", "▂", "▃", "▄", "▅", "▆", "▇", "█" }
-    local curr_line = vim.api.nvim_win_get_cursor(0)[1]
-    local lines = vim.api.nvim_buf_line_count(0)
-    local i = math.floor((curr_line - 1) / lines * #sbar) + 1
-    if sbar[i] then
-      return string.rep(sbar[i], 2)
-    end
-  end,
-  hl = { fg = "blue", bg = "bright_bg" },
-}
-
-M.lsp_active = {
-  condition = conditions.lsp_attached,
-  update = {
-    "LspAttach",
-    "LspDetach",
-    "BufEnter",
-    callback = vim.schedule_wrap(function()
-      vim.cmd.redrawstatus()
-    end),
-  },
-  provider = function()
-    local names = {}
-    for _, server in pairs(vim.lsp.get_active_clients({ bufnr = 0 })) do
-      table.insert(names, server.name)
-    end
-    return icons.ui.Gears .. " [" .. table.concat(names, " ") .. "]"
-  end,
-  hl = { fg = "blue" },
-  on_click = {
-    name = "LspInfo",
-    callback = function()
-      vim.cmd.LspInfo()
-    end,
-  },
-}
-
-M.diagnostics = {
+local diagnostics = {
   condition = conditions.has_diagnostics,
   init = function(self)
     self.errors = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.ERROR })
@@ -346,6 +295,62 @@ M.diagnostics = {
   },
 }
 
+local ruler = {
+  provider = function()
+    local line = vim.fn.line(".")
+    local char = vim.fn.virtcol(".")
+    local text = "%p%%"
+    if line == 1 then
+      text = "Top"
+    elseif line == vim.fn.line("$") then
+      text = "Bot"
+    end
+    return " " .. line .. ":" .. char .. " " .. text .. " "
+  end,
+  hl = { fg = "normal_bg" },
+}
+
+M.scroll_bar = {
+  provider = function()
+    local sbar = { "▁", "▂", "▃", "▄", "▅", "▆", "▇", "█" }
+    local curr_line = vim.api.nvim_win_get_cursor(0)[1]
+    local lines = vim.api.nvim_buf_line_count(0)
+    local i = math.floor((curr_line - 1) / lines * #sbar) + 1
+    if sbar[i] then
+      return string.rep(sbar[i], 2)
+    end
+  end,
+}
+
+local lsp_active = {
+  condition = conditions.lsp_attached,
+  update = {
+    "LspAttach",
+    "LspDetach",
+    "BufEnter",
+    "ModeChanged",
+    callback = vim.schedule_wrap(function()
+      vim.cmd.redrawstatus()
+    end),
+  },
+  provider = function()
+    local names = require("plugins.lsp").get_active_client_names()
+    if #names == 0 then
+      return ""
+    end
+    return " [" .. table.concat(names, ", ") .. "] "
+  end,
+  hl = function(self)
+    return { fg = self.mode_color }
+  end,
+  on_click = {
+    name = "LspInfo",
+    callback = function()
+      vim.cmd.LspInfo()
+    end,
+  },
+}
+
 M.terminal_name = {
   condition = function()
     return vim.bo.filetype == "toggleterm"
@@ -355,13 +360,13 @@ M.terminal_name = {
       local str = icons.ui.Console .. " ToggleTerm #" .. vim.b.toggle_number
       return M.pad_string(str, { left = 1, right = 1 })
     end,
-    hl = { fg = "bright_fg", bg = "bright_bg", bold = true },
+    hl = { fg = "normal_bg", bg = "dark_red", bold = true },
   },
   {
     provider = function()
       return icons.ui.BoldDividerRight
     end,
-    hl = { fg = "bright_bg" },
+    hl = { fg = "dark_red" },
   },
 }
 
@@ -376,7 +381,7 @@ M.help_file_name = {
   hl = { fg = "blue" },
 }
 
-M.search_count = {
+local search_count = {
   condition = function()
     return vim.v.hlsearch ~= 0 and vim.o.cmdheight == 0
   end,
@@ -388,11 +393,11 @@ M.search_count = {
   end,
   provider = function(self)
     local search = self.search
-    return string.format("[%d/%d]", search.current, math.min(search.total, search.maxcount))
+    return string.format(" [%d/%d] ", search.current, math.min(search.total, search.maxcount))
   end,
 }
 
-M.macro_rec = {
+local macro_rec = {
   condition = function()
     return vim.fn.reg_recording() ~= "" and vim.o.cmdheight == 0
   end,
@@ -413,6 +418,76 @@ M.macro_rec = {
     end),
   },
 }
+
+M.section_a = utils.insert(
+  mode,
+  utils.insert({
+    hl = function(self)
+      return { bg = self.mode_color }
+    end,
+  }, vi_mode),
+  {
+    provider = icons.ui.BoldDividerRight,
+    hl = function(self)
+      return { fg = self.mode_color, bg = "bright_bg" }
+    end,
+  }
+)
+
+M.section_b = {
+  utils.insert(
+    mode,
+    utils.insert({
+      hl = { bg = "bright_bg" },
+    }, git_branch, git_diff)
+  ),
+  { provider = icons.ui.BoldDividerRight, hl = { fg = "bright_bg" } },
+}
+
+M.section_c = {
+  space,
+  M.file_name_block,
+  space,
+  diagnostics,
+}
+
+M.section_d = { search_count, macro_rec }
+
+M.section_x = {
+  space,
+  file_encoding,
+  { provider = " " .. icons.ui.DividerLeft .. " " },
+  file_format,
+  { provider = " " .. icons.ui.DividerLeft .. " " },
+  file_icon,
+  M.file_type,
+  space,
+}
+
+M.section_y = {
+  { provider = icons.ui.BoldDividerLeft, hl = { fg = "bright_bg" } },
+  utils.insert(
+    mode,
+    utils.insert({
+      hl = { bg = "bright_bg" },
+    }, lsp_active)
+  ),
+}
+
+M.section_z = utils.insert(
+  mode,
+  {
+    provider = icons.ui.BoldDividerLeft,
+    hl = function(self)
+      return { fg = self.mode_color, bg = "bright_bg" }
+    end,
+  },
+  utils.insert({
+    hl = function(self)
+      return { bg = self.mode_color }
+    end,
+  }, ruler)
+)
 
 local tabline_picker = {
   condition = function(self)
