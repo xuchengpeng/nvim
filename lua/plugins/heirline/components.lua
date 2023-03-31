@@ -425,24 +425,22 @@ M.section_a = utils.insert(
     hl = function(self)
       return { bg = self.mode_color }
     end,
-  }, vi_mode),
+  }, vi_mode)
+)
+
+M.section_b = utils.insert(
+  mode,
   {
     provider = icons.ui.BoldDividerRight,
     hl = function(self)
       return { fg = self.mode_color, bg = "bright_bg" }
     end,
-  }
+  },
+  utils.insert({
+    hl = { bg = "bright_bg" },
+  }, git_branch, git_diff),
+  { provider = icons.ui.BoldDividerRight, hl = { fg = "bright_bg", bg = "stl_bg" } }
 )
-
-M.section_b = {
-  utils.insert(
-    mode,
-    utils.insert({
-      hl = { bg = "bright_bg" },
-    }, git_branch, git_diff)
-  ),
-  { provider = icons.ui.BoldDividerRight, hl = { fg = "bright_bg" } },
-}
 
 M.section_c = {
   space,
@@ -464,24 +462,22 @@ M.section_x = {
   space,
 }
 
-M.section_y = {
-  { provider = icons.ui.BoldDividerLeft, hl = { fg = "bright_bg" } },
-  utils.insert(
-    mode,
-    utils.insert({
-      hl = { bg = "bright_bg" },
-    }, lsp_active)
-  ),
-}
-
-M.section_z = utils.insert(
+M.section_y = utils.insert(
   mode,
+  { provider = icons.ui.BoldDividerLeft, hl = { fg = "bright_bg", bg = "stl_bg" } },
+  utils.insert({
+    hl = { bg = "bright_bg" },
+  }, lsp_active),
   {
     provider = icons.ui.BoldDividerLeft,
     hl = function(self)
       return { fg = self.mode_color, bg = "bright_bg" }
     end,
-  },
+  }
+)
+
+M.section_z = utils.insert(
+  mode,
   utils.insert({
     hl = function(self)
       return { bg = self.mode_color }
