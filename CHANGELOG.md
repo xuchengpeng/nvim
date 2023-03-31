@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.7.15](https://github.com/xuchengpeng/nvim/compare/v1.7.14...v1.7.15) (2023-03-31)
+
+
+### Bug Fixes
+
+* **heirline:** customize separator highlight ([c78716a](https://github.com/xuchengpeng/nvim/commit/c78716a35190d7d33fcddc4c09b5e675929bab11))
+* **winbar:** customize file name without modified flags ([cb2c8c8](https://github.com/xuchengpeng/nvim/commit/cb2c8c8c477bcab1437d0096e89168cf83d0b964))
+
 ## [1.7.14](https://github.com/xuchengpeng/nvim/compare/v1.7.13...v1.7.14) (2023-03-30)
 
 
