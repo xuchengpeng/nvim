@@ -6,7 +6,7 @@ return {
   {
     condition = conditions.is_not_active,
     { provider = " " },
-    components.file_name_block,
+    components.winbar_filename,
     hl = { fg = "gray", force = true },
   },
   components.breadcrumbs,

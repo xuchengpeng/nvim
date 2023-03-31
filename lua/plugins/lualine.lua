@@ -1,11 +1,13 @@
 local M = {}
 
+local icons = require("utils.icons")
+
 local function lsp_client_names()
   local buf_client_names = require("plugins.lsp").get_active_client_names()
   if #buf_client_names == 0 then
     return ""
   end
-  return "[" .. table.concat(buf_client_names, ", ") .. "]"
+  return icons.ui.Gears .. " [" .. table.concat(buf_client_names, ", ") .. "]"
 end
 
 function M.setup()
@@ -36,9 +38,9 @@ function M.setup()
     sections = {
       lualine_a = { "mode" },
       lualine_b = { "branch", "diff" },
-      lualine_c = { { "filename", path = 1, separator = "" }, "diagnostics" },
-      lualine_x = { "encoding", { "fileformat", symbols = { unix = "unix", dos = "dos", mac = "mac" } }, "filetype" },
-      lualine_y = { lsp_client_names },
+      lualine_c = { "diagnostics", { "filename", path = 1 } },
+      lualine_x = { lsp_client_names },
+      lualine_y = { "encoding", { "fileformat", symbols = { unix = "unix", dos = "dos", mac = "mac" } }, "filetype" },
       lualine_z = {
         { "location", separator = " ", padding = { left = 1, right = 0 } },
         { "progress", padding = { left = 0, right = 1 } },

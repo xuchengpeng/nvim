@@ -92,35 +92,25 @@ local vi_mode = {
   },
 }
 
-local git_branch = {
-  condition = conditions.is_git_repo,
-  hl = function(self)
-    return { fg = self.mode_color }
-  end,
-  {
-    provider = function()
-      return " " .. icons.git.Branch .. " " .. vim.b.gitsigns_head .. " "
-    end,
-    hl = { bold = true },
-  },
-}
-
-local git_diff = {
+local git = {
   condition = conditions.is_git_repo,
   init = function(self)
     self.status_dict = vim.b.gitsigns_status_dict
+    self.has_changes = self.status_dict.added ~= 0 or self.status_dict.removed ~= 0 or self.status_dict.changed ~= 0
   end,
-  on_click = {
-    name = "lazygit",
-    callback = function()
-      require("plugins.toggleterm").toggle_term_cmd("lazygit")
+  {
+    provider = function(self)
+      return " " .. icons.git.Branch .. " " .. self.status_dict.head .. " "
+    end,
+    hl = function(self)
+      return { fg = self.mode_color, bold = true }
     end,
   },
   {
-    provider = function(self)
-      local sum = (self.status_dict.added or 0) + (self.status_dict.changed or 0) + (self.status_dict.removed or 0)
-      return sum > 0 and icons.ui.DividerRight .. " "
+    condition = function(self)
+      return self.has_changes
     end,
+    provider = icons.ui.DividerRight,
     hl = function(self)
       return { fg = self.mode_color }
     end,
@@ -128,23 +118,35 @@ local git_diff = {
   {
     provider = function(self)
       local count = self.status_dict.added or 0
-      return count > 0 and ("+" .. count .. " ")
+      return count > 0 and (" " .. icons.git.LineAdded .. " " .. count)
     end,
     hl = { fg = "git_add" },
   },
   {
     provider = function(self)
       local count = self.status_dict.changed or 0
-      return count > 0 and ("~" .. count .. " ")
+      return count > 0 and (" " .. icons.git.LineModified .. " " .. count)
     end,
     hl = { fg = "git_change" },
   },
   {
     provider = function(self)
       local count = self.status_dict.removed or 0
-      return count > 0 and ("-" .. count .. " ")
+      return count > 0 and (" " .. icons.git.LineRemoved .. " " .. count)
     end,
     hl = { fg = "git_del" },
+  },
+  {
+    condition = function(self)
+      return self.has_changes
+    end,
+    provider = " ",
+  },
+  on_click = {
+    name = "lazygit",
+    callback = function()
+      require("plugins.toggleterm").toggle_term_cmd("lazygit")
+    end,
   },
 }
 
@@ -162,7 +164,7 @@ local file_icon = {
   end,
 }
 
-local file_name = {
+local file_pathshorten_name = {
   init = function(self)
     self.filename = vim.api.nvim_buf_get_name(self and self.bufnr or 0)
   end,
@@ -184,31 +186,13 @@ local file_flags = {
       return vim.bo.modified
     end,
     provider = "[+]",
-    hl = { fg = "green" },
   },
   {
     condition = function()
       return not vim.bo.modifiable or vim.bo.readonly
     end,
-    provider = icons.ui.Lock,
-    hl = { fg = "orange" },
+    provider = "[-]",
   },
-}
-
-local file_name_modifer = {
-  hl = function()
-    if vim.bo.modified then
-      -- use `force` because we need to override the child's hl foreground
-      return { fg = "cyan", force = true }
-    end
-  end,
-}
-
-M.file_name_block = {
-  file_icon,
-  utils.insert(file_name_modifer, file_name),
-  file_flags,
-  { provider = "%<" }, -- this means that the statusline is cut here when there's not enough space
 }
 
 M.file_type = {
@@ -230,7 +214,7 @@ local file_format = {
   end,
 }
 
-M.file_size = {
+local file_size = {
   provider = function()
     local suffix = { "b", "k", "M", "G", "T", "P", "E" }
     local fsize = vim.fn.getfsize(vim.api.nvim_buf_get_name(0))
@@ -250,6 +234,15 @@ M.file_last_modified = {
   end,
 }
 
+local file_name_block = {
+  space,
+  file_pathshorten_name,
+  file_flags,
+  space,
+  file_size,
+  { provider = "%<" }, -- this means that the statusline is cut here when there's not enough space
+}
+
 local diagnostics = {
   condition = conditions.has_diagnostics,
   init = function(self)
@@ -257,41 +250,49 @@ local diagnostics = {
     self.warnings = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.WARN })
     self.hints = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.HINT })
     self.info = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.INFO })
+    self.has_diagnostics = self.errors > 0 or self.warnings > 0 or self.info > 0 or self.hints > 0
   end,
   update = { "DiagnosticChanged", "BufEnter" },
-
   {
-    provider = function(self)
-      -- 0 is just another output, we can decide to print it or not!
-      return self.errors > 0 and (" " .. icons.diagnostics.Error .. " " .. self.errors)
-    end,
-    hl = { fg = "diag_error" },
+    {
+      provider = function(self)
+        -- 0 is just another output, we can decide to print it or not!
+        return self.errors > 0 and (" " .. icons.diagnostics.Error .. " " .. self.errors)
+      end,
+      hl = { fg = "diag_error" },
+    },
+    {
+      provider = function(self)
+        return self.warnings > 0 and (" " .. icons.diagnostics.Warning .. " " .. self.warnings)
+      end,
+      hl = { fg = "diag_warn" },
+    },
+    {
+      provider = function(self)
+        return self.info > 0 and (" " .. icons.diagnostics.Information .. " " .. self.info)
+      end,
+      hl = { fg = "diag_info" },
+    },
+    {
+      provider = function(self)
+        return self.hints > 0 and (" " .. icons.diagnostics.Hint .. " " .. self.hints)
+      end,
+      hl = { fg = "diag_hint" },
+    },
+    on_click = {
+      name = "heirline_diagnostic",
+      callback = function()
+        vim.schedule(function()
+          require("telescope.builtin").diagnostics()
+        end)
+      end,
+    },
   },
   {
-    provider = function(self)
-      return self.warnings > 0 and (" " .. icons.diagnostics.Warning .. " " .. self.warnings)
+    condition = function(self)
+      return self.has_diagnostics
     end,
-    hl = { fg = "diag_warn" },
-  },
-  {
-    provider = function(self)
-      return self.info > 0 and (" " .. icons.diagnostics.Information .. " " .. self.info)
-    end,
-    hl = { fg = "diag_info" },
-  },
-  {
-    provider = function(self)
-      return self.hints > 0 and (" " .. icons.diagnostics.Hint .. " " .. self.hints)
-    end,
-    hl = { fg = "diag_hint" },
-  },
-  on_click = {
-    name = "heirline_diagnostic",
-    callback = function()
-      vim.schedule(function()
-        require("telescope.builtin").diagnostics()
-      end)
-    end,
+    provider = " " .. icons.ui.DividerRight,
   },
 }
 
@@ -328,7 +329,6 @@ local lsp_active = {
     "LspAttach",
     "LspDetach",
     "BufEnter",
-    "ModeChanged",
     callback = vim.schedule_wrap(function()
       vim.cmd.redrawstatus()
     end),
@@ -338,10 +338,7 @@ local lsp_active = {
     if #names == 0 then
       return ""
     end
-    return " [" .. table.concat(names, ", ") .. "] "
-  end,
-  hl = function(self)
-    return { fg = self.mode_color }
+    return icons.ui.Gears .. " [" .. table.concat(names, ", ") .. "] "
   end,
   on_click = {
     name = "LspInfo",
@@ -438,36 +435,37 @@ M.section_b = utils.insert(
   },
   utils.insert({
     hl = { bg = "bright_bg" },
-  }, git_branch, git_diff),
+  }, git),
   { provider = icons.ui.BoldDividerRight, hl = { fg = "bright_bg", bg = "stl_bg" } }
 )
 
 M.section_c = {
-  space,
-  M.file_name_block,
-  space,
   diagnostics,
+  file_name_block,
 }
 
 M.section_d = { search_count, macro_rec }
 
-M.section_x = {
-  space,
-  file_encoding,
-  { provider = " " .. icons.ui.DividerLeft .. " " },
-  file_format,
-  { provider = " " .. icons.ui.DividerLeft .. " " },
-  file_icon,
-  M.file_type,
-  space,
-}
+M.section_x = { lsp_active }
 
 M.section_y = utils.insert(
   mode,
   { provider = icons.ui.BoldDividerLeft, hl = { fg = "bright_bg", bg = "stl_bg" } },
-  utils.insert({
-    hl = { bg = "bright_bg" },
-  }, lsp_active),
+  utils.insert(
+    {
+      hl = function(self)
+        return { fg = self.mode_color, bg = "bright_bg" }
+      end,
+    },
+    space,
+    file_encoding,
+    { provider = " " .. icons.ui.DividerLeft .. " " },
+    file_format,
+    { provider = " " .. icons.ui.DividerLeft .. " " },
+    file_icon,
+    M.file_type,
+    space
+  ),
   {
     provider = icons.ui.BoldDividerLeft,
     hl = function(self)
@@ -726,6 +724,11 @@ local function decode_pos(c)
   return bit.rshift(c, 16), bit.band(bit.rshift(c, 6), 1023), bit.band(c, 63)
 end
 
+M.winbar_filename = {
+  file_icon,
+  file_pathshorten_name,
+}
+
 M.breadcrumbs = {
   condition = function()
     local ok, _ = pcall(require, "aerial")
@@ -754,7 +757,7 @@ M.breadcrumbs = {
       table.insert(children, child)
     end
     if #children == 0 then
-      table.insert(children, M.file_name_block)
+      table.insert(children, M.winbar_filename)
     end
     table.insert(children, 1, space) -- padding 1 space left
     self.child = self:new(children, 1)
