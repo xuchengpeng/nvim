@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.7.16](https://github.com/xuchengpeng/nvim/compare/v1.7.15...v1.7.16) (2023-03-31)
+
+
+### Bug Fixes
+
+* **statusline:** put diagnostics component in section x ([b8c16a3](https://github.com/xuchengpeng/nvim/commit/b8c16a38a270d35936428a32ca73c7e3659a7715))
+
 ## [1.7.15](https://github.com/xuchengpeng/nvim/compare/v1.7.14...v1.7.15) (2023-03-31)
 
 
