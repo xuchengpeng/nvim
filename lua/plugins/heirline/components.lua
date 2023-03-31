@@ -118,21 +118,21 @@ local git = {
   {
     provider = function(self)
       local count = self.status_dict.added or 0
-      return count > 0 and (" " .. icons.git.LineAdded .. " " .. count)
+      return count > 0 and (" +" .. count)
     end,
     hl = { fg = "git_add" },
   },
   {
     provider = function(self)
       local count = self.status_dict.changed or 0
-      return count > 0 and (" " .. icons.git.LineModified .. " " .. count)
+      return count > 0 and (" ~" .. count)
     end,
     hl = { fg = "git_change" },
   },
   {
     provider = function(self)
       local count = self.status_dict.removed or 0
-      return count > 0 and (" " .. icons.git.LineRemoved .. " " .. count)
+      return count > 0 and (" -" .. count)
     end,
     hl = { fg = "git_del" },
   },
@@ -254,45 +254,43 @@ local diagnostics = {
   end,
   update = { "DiagnosticChanged", "BufEnter" },
   {
-    {
-      provider = function(self)
-        -- 0 is just another output, we can decide to print it or not!
-        return self.errors > 0 and (" " .. icons.diagnostics.Error .. " " .. self.errors)
-      end,
-      hl = { fg = "diag_error" },
-    },
-    {
-      provider = function(self)
-        return self.warnings > 0 and (" " .. icons.diagnostics.Warning .. " " .. self.warnings)
-      end,
-      hl = { fg = "diag_warn" },
-    },
-    {
-      provider = function(self)
-        return self.info > 0 and (" " .. icons.diagnostics.Information .. " " .. self.info)
-      end,
-      hl = { fg = "diag_info" },
-    },
-    {
-      provider = function(self)
-        return self.hints > 0 and (" " .. icons.diagnostics.Hint .. " " .. self.hints)
-      end,
-      hl = { fg = "diag_hint" },
-    },
-    on_click = {
-      name = "heirline_diagnostic",
-      callback = function()
-        vim.schedule(function()
-          require("telescope.builtin").diagnostics()
-        end)
-      end,
-    },
+    provider = function(self)
+      -- 0 is just another output, we can decide to print it or not!
+      return self.errors > 0 and (" " .. icons.diagnostics.Error .. " " .. self.errors)
+    end,
+    hl = { fg = "diag_error" },
+  },
+  {
+    provider = function(self)
+      return self.warnings > 0 and (" " .. icons.diagnostics.Warning .. " " .. self.warnings)
+    end,
+    hl = { fg = "diag_warn" },
+  },
+  {
+    provider = function(self)
+      return self.info > 0 and (" " .. icons.diagnostics.Information .. " " .. self.info)
+    end,
+    hl = { fg = "diag_info" },
+  },
+  {
+    provider = function(self)
+      return self.hints > 0 and (" " .. icons.diagnostics.Hint .. " " .. self.hints)
+    end,
+    hl = { fg = "diag_hint" },
   },
   {
     condition = function(self)
       return self.has_diagnostics
     end,
-    provider = " " .. icons.ui.DividerRight,
+    provider = "  ",
+  },
+  on_click = {
+    name = "heirline_diagnostic",
+    callback = function()
+      vim.schedule(function()
+        require("telescope.builtin").diagnostics()
+      end)
+    end,
   },
 }
 
@@ -439,14 +437,11 @@ M.section_b = utils.insert(
   { provider = icons.ui.BoldDividerRight, hl = { fg = "bright_bg", bg = "stl_bg" } }
 )
 
-M.section_c = {
-  diagnostics,
-  file_name_block,
-}
+M.section_c = { file_name_block }
 
 M.section_d = { search_count, macro_rec }
 
-M.section_x = { lsp_active }
+M.section_x = { diagnostics, lsp_active }
 
 M.section_y = utils.insert(
   mode,

@@ -38,8 +38,8 @@ function M.setup()
     sections = {
       lualine_a = { "mode" },
       lualine_b = { "branch", "diff" },
-      lualine_c = { "diagnostics", { "filename", path = 1 } },
-      lualine_x = { lsp_client_names },
+      lualine_c = { { "filename", path = 1 } },
+      lualine_x = { { "diagnostics", separator = "" }, lsp_client_names },
       lualine_y = { "encoding", { "fileformat", symbols = { unix = "unix", dos = "dos", mac = "mac" } }, "filetype" },
       lualine_z = {
         { "location", separator = " ", padding = { left = 1, right = 0 } },
