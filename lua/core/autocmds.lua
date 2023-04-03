@@ -35,6 +35,7 @@ local defaults = {
     {
       group = "_close_with_q",
       pattern = {
+        "aerial-nav",
         "dap-float",
         "floaterm",
         "help",
