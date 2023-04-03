@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.8.1](https://github.com/xuchengpeng/nvim/compare/v1.8.0...v1.8.1) (2023-04-03)
+
+
+### Bug Fixes
+
+* **colorscheme:** remove nord ([f9eed0d](https://github.com/xuchengpeng/nvim/commit/f9eed0db459336f9463cc10a514e82114cfa7f94))
+
 ## [1.8.0](https://github.com/xuchengpeng/nvim/compare/v1.7.16...v1.8.0) (2023-04-03)
 
 
