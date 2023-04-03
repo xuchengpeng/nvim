@@ -1,5 +1,19 @@
 # Changelog
 
+## [1.8.0](https://github.com/xuchengpeng/nvim/compare/v1.7.16...v1.8.0) (2023-04-03)
+
+
+### Features
+
+* **autocmds:** use q to close aerial navigation window ([a293a2e](https://github.com/xuchengpeng/nvim/commit/a293a2ec5ae2a0156dd7bc11ea4346df2c9abbb3))
+
+
+### Bug Fixes
+
+* **heirline:** customize highlight bg of tabline ([0b0a9cc](https://github.com/xuchengpeng/nvim/commit/0b0a9cc2227bc963f76fe366dafa5717ad7b4308))
+* **lualine:** added lazy extension ([254c5cc](https://github.com/xuchengpeng/nvim/commit/254c5ccc3b1089eb3406a3b55662258b63346a3d))
+* **treesitter:** enable treesitter indentation ([d06a715](https://github.com/xuchengpeng/nvim/commit/d06a715a404974985a04b9395f2498207f16edd0))
+
 ## [1.7.16](https://github.com/xuchengpeng/nvim/compare/v1.7.15...v1.7.16) (2023-03-31)
 
 
