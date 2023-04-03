@@ -7,13 +7,6 @@ return {
     end,
   },
   {
-    "gbprod/nord.nvim",
-    lazy = lvim.colorscheme ~= "nord",
-    config = function()
-      require("plugins.theme").load("nord")
-    end,
-  },
-  {
     "catppuccin/nvim",
     lazy = lvim.colorscheme ~= "catppuccin",
     name = "catppuccin.nvim",

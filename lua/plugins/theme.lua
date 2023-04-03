@@ -19,9 +19,6 @@ local user_themes = {
       },
     })
   end,
-  ["nord"] = function()
-    require("nord").setup()
-  end,
 }
 
 function M.load(theme_name)

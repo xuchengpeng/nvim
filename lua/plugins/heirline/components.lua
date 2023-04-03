@@ -254,6 +254,12 @@ local diagnostics = {
   end,
   update = { "DiagnosticChanged", "BufEnter" },
   {
+    condition = function(self)
+      return self.has_diagnostics
+    end,
+    provider = " ",
+  },
+  {
     provider = function(self)
       -- 0 is just another output, we can decide to print it or not!
       return self.errors > 0 and (" " .. icons.diagnostics.Error .. " " .. self.errors)
@@ -282,7 +288,7 @@ local diagnostics = {
     condition = function(self)
       return self.has_diagnostics
     end,
-    provider = "  ",
+    provider = " ",
   },
   on_click = {
     name = "heirline_diagnostic",
@@ -439,11 +445,11 @@ M.section_b = utils.insert(
   { provider = icons.ui.BoldDividerRight, hl = { fg = "bright_bg", bg = "stl_bg" } }
 )
 
-M.section_c = { file_name_block }
+M.section_c = { file_name_block, diagnostics }
 
 M.section_d = { search_count, macro_rec }
 
-M.section_x = { diagnostics, lsp_active }
+M.section_x = { lsp_active }
 
 M.section_y = utils.insert(
   mode,
