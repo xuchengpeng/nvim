@@ -15,7 +15,7 @@ function M.setup()
     options = {
       globalstatus = true,
       disabled_filetypes = {
-        statusline = { "alpha", "lazy", "lspinfo" },
+        statusline = { "alpha", "lspinfo" },
         winbar = {
           "aerial",
           "alpha",
@@ -70,6 +70,7 @@ function M.setup()
     extensions = {
       "aerial",
       "fzf",
+      "lazy",
       "man",
       "neo-tree",
       "nvim-dap-ui",
