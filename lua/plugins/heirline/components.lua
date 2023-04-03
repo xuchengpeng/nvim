@@ -408,8 +408,10 @@ local macro_rec = {
     "RecordingEnter",
     "RecordingLeave",
     -- redraw the statusline on recording events
+    -- Note: this is only required for Neovim < 0.9.0. Newer versions of
+    -- Neovim ensure `statusline` is redrawn on those events.
     callback = vim.schedule_wrap(function()
-      vim.cmd.redrawstatus()
+      vim.cmd("redrawstatus")
     end),
   },
 }
@@ -553,9 +555,9 @@ local tabline_file_name = {
   end,
   hl = function(self)
     if self.is_active or self.is_visible then
-      return { bold = true, italic = true }
+      return { fg = "normal_fg", bold = true, italic = true }
     else
-      return { bold = false, italic = false }
+      return { fg = "comment", bold = false, italic = false }
     end
   end,
 }
@@ -632,13 +634,11 @@ local tabline_close_button = {
   },
 }
 
-local tabline_buffer_block = utils.surround({ "", "" }, function(self)
-  if self.is_active then
-    return "bright_bg"
-  else
-    return "stl_bg"
-  end
-end, { tabline_separator, tabline_file_name_block, tabline_close_button, space })
+local tabline_buffer_block = utils.surround(
+  { "", "" },
+  "stl_bg",
+  { tabline_separator, tabline_file_name_block, tabline_close_button, space }
+)
 
 M.buffer_line = utils.make_buflist(
   tabline_buffer_block,
