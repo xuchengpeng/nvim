@@ -1,38 +1,34 @@
 local M = {}
 
 function M.close()
-  local ok, _ = pcall(require, "bufferline")
-  if ok then
-    vim.cmd.BufferLinePickClose()
-  else
+  if lvim.statusline == "heirline" then
     require("plugins.heirline").buffer_close()
+  else
+    vim.cmd.BufferLinePickClose()
   end
 end
 
 function M.pick()
-  local ok, _ = pcall(require, "bufferline")
-  if ok then
-    vim.cmd.BufferLinePick()
-  else
+  if lvim.statusline == "heirline" then
     require("plugins.heirline").buffer_picker()
+  else
+    vim.cmd.BufferLinePick()
   end
 end
 
 function M.next()
-  local ok, _ = pcall(require, "bufferline")
-  if ok then
-    vim.cmd.BufferLineCycleNext()
-  else
+  if lvim.statusline == "heirline" then
     vim.cmd.bnext()
+  else
+    vim.cmd.BufferLineCycleNext()
   end
 end
 
 function M.prev()
-  local ok, _ = pcall(require, "bufferline")
-  if ok then
-    vim.cmd.BufferLineCyclePrev()
-  else
+  if lvim.statusline == "heirline" then
     vim.cmd.bprevious()
+  else
+    vim.cmd.BufferLineCyclePrev()
   end
 end
 
