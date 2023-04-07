@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.8.2](https://github.com/xuchengpeng/nvim/compare/v1.8.1...v1.8.2) (2023-04-07)
+
+
+### Bug Fixes
+
+* **buffer:** fix conditions ([c8e1de1](https://github.com/xuchengpeng/nvim/commit/c8e1de112a27d1c181d35167455fe9210c597382))
+
 ## [1.8.1](https://github.com/xuchengpeng/nvim/compare/v1.8.0...v1.8.1) (2023-04-03)
 
 
