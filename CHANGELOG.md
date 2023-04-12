@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.8.3](https://github.com/xuchengpeng/nvim/compare/v1.8.2...v1.8.3) (2023-04-12)
+
+
+### Bug Fixes
+
+* **statusline:** buffer_matches accepts bufnr argument ([ee85907](https://github.com/xuchengpeng/nvim/commit/ee85907cc89b2ce8b12018aeff52506cff9cd4aa))
+
 ## [1.8.2](https://github.com/xuchengpeng/nvim/compare/v1.8.1...v1.8.2) (2023-04-07)
 
 
