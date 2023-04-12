@@ -61,11 +61,11 @@ function M.setup()
     opts = {
       colors = setup_colors(),
       disable_winbar_cb = function(args)
-        local buf = args.buf
-        local buftype = vim.tbl_contains({ "terminal", "prompt", "nofile", "help", "quickfix" }, vim.bo[buf].buftype)
-        local filetype =
-          vim.tbl_contains({ "neo%-tree", "aerial", "lazy", "lspinfo", "toggleterm" }, vim.bo[buf].filetype)
-        return buftype or filetype
+        local conditions = require("heirline.conditions")
+        return conditions.buffer_matches({
+          buftype = { "terminal", "prompt", "nofile", "help", "quickfix" },
+          filetype = { "neo%-tree", "aerial", "lazy", "lspinfo", "toggleterm" },
+        }, args.buf)
       end,
     },
   })
