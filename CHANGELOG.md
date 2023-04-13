@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.8.4](https://github.com/xuchengpeng/nvim/compare/v1.8.3...v1.8.4) (2023-04-13)
+
+
+### Bug Fixes
+
+* **treesitter:** rename help with vimdoc ([2991c89](https://github.com/xuchengpeng/nvim/commit/2991c89bfb90d8e632a75c78fc42b941405b7424))
+
 ## [1.8.3](https://github.com/xuchengpeng/nvim/compare/v1.8.2...v1.8.3) (2023-04-12)
 
 
