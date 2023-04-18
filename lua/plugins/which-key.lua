@@ -71,7 +71,7 @@ local mappings = {
     R = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
     t = { "<cmd>Telescope lsp_type_definitions<cr>", "Goto Type Definition" },
     s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
-    S = { "<cmd>Telescope lsp_workspace_symbols<cr>", "Workspace Symbols" },
+    S = { "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", "Workspace Symbols" },
     n = { "<cmd>lua vim.diagnostic.goto_next()<cr>", "Next Diagnostic" },
     p = { "<cmd>lua vim.diagnostic.goto_prev()<cr>", "Prev Diagnostic" },
   },
