@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.8.5](https://github.com/xuchengpeng/nvim/compare/v1.8.4...v1.8.5) (2023-04-18)
+
+
+### Bug Fixes
+
+* **autocmds:** add checkhealth filetype to close_with_q list ([cf7f032](https://github.com/xuchengpeng/nvim/commit/cf7f032aecc35738f70c508f9c7a0e5cdc693e50))
+* **autocmds:** don't auto create dirs for urls ([426d30d](https://github.com/xuchengpeng/nvim/commit/426d30dea35203f41330a13b5d3232ecf4225382))
+* **telescope:** use the new dynamic workspace symbols ([043f72f](https://github.com/xuchengpeng/nvim/commit/043f72f3be95b50533c722e674447f4250283d07))
+
 ## [1.8.4](https://github.com/xuchengpeng/nvim/compare/v1.8.3...v1.8.4) (2023-04-13)
 
 
