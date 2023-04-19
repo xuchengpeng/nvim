@@ -413,12 +413,6 @@ local macro_rec = {
   update = {
     "RecordingEnter",
     "RecordingLeave",
-    -- redraw the statusline on recording events
-    -- Note: this is only required for Neovim < 0.9.0. Newer versions of
-    -- Neovim ensure `statusline` is redrawn on those events.
-    callback = vim.schedule_wrap(function()
-      vim.cmd("redrawstatus")
-    end),
   },
 }
 
