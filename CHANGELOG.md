@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.8.6](https://github.com/xuchengpeng/nvim/compare/v1.8.5...v1.8.6) (2023-04-19)
+
+
+### Bug Fixes
+
+* **heirline:** remove workarounds for nvim &lt; 0.9 ([a03535b](https://github.com/xuchengpeng/nvim/commit/a03535bb6180fe2308459e0ad5ce657181b9830a))
+
 ## [1.8.5](https://github.com/xuchengpeng/nvim/compare/v1.8.4...v1.8.5) (2023-04-18)
 
 
