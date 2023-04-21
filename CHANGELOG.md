@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.8.7](https://github.com/xuchengpeng/nvim/compare/v1.8.6...v1.8.7) (2023-04-21)
+
+
+### Bug Fixes
+
+* **heirline:** fix redrawtabline on TablineCloseButton ([66f559e](https://github.com/xuchengpeng/nvim/commit/66f559e43853e8bf91a9e5f765a94a5c163046de))
+
 ## [1.8.6](https://github.com/xuchengpeng/nvim/compare/v1.8.5...v1.8.6) (2023-04-19)
 
 
