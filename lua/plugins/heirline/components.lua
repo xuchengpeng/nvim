@@ -634,16 +634,18 @@ local tabline_close_button = {
   },
 }
 
-local tabline_buffer_block = utils.surround(
-  { "", "" },
-  "stl_bg",
-  { tabline_separator, tabline_file_name_block, tabline_close_button, space }
-)
+local tabline_buffer_block = utils.surround({ "", "" }, function(self)
+  if self.is_active then
+    return "normal_bg"
+  else
+    return "stl_bg"
+  end
+end, { tabline_separator, tabline_file_name_block, tabline_close_button, space })
 
 M.buffer_line = utils.make_buflist(
   tabline_buffer_block,
-  { provider = icons.ui.ChevronBoldLeft .. " ", hl = { fg = "gray" } }, -- left truncation, optional (defaults to "<")
-  { provider = icons.ui.ChevronBoldRight .. " ", hl = { fg = "gray" } } -- right trunctation, also optional (defaults to ...... yep, ">")
+  { provider = icons.ui.ChevronBoldLeft, hl = { fg = "gray" } }, -- left truncation, optional (defaults to "<")
+  { provider = icons.ui.ChevronBoldRight, hl = { fg = "gray" } } -- right trunctation, also optional (defaults to ...... yep, ">")
 )
 
 M.tabline_offset = {

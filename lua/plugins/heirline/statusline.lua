@@ -15,7 +15,6 @@ local inactive_statusline = {
   condition = conditions.is_not_active,
   components.section_c,
   align,
-  components.section_y,
 }
 
 local special_statusline = {
@@ -25,6 +24,7 @@ local special_statusline = {
       filetype = { "^git.*", "fugitive" },
     })
   end,
+  space,
   components.file_type,
   space,
   components.help_file_name,
