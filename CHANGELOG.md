@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.8.8](https://github.com/xuchengpeng/nvim/compare/v1.8.7...v1.8.8) (2023-04-24)
+
+
+### Bug Fixes
+
+* **heirline:** customize active tabline with normal_bg ([fde18a8](https://github.com/xuchengpeng/nvim/commit/fde18a8ebe66bf76fe5a36980656c9511fbbaf4b))
+
 ## [1.8.7](https://github.com/xuchengpeng/nvim/compare/v1.8.6...v1.8.7) (2023-04-21)
 
 
