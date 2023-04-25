@@ -91,7 +91,7 @@ end
 
 function M.buffer_close()
   require("plugins.heirline.components").buffer_picker(function(bufnr)
-    vim.cmd("confirm bd" .. bufnr)
+    vim.cmd("confirm bd" .. (bufnr == nil and "" or bufnr))
   end)
 end
 
