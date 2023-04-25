@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.8.9](https://github.com/xuchengpeng/nvim/compare/v1.8.8...v1.8.9) (2023-04-25)
+
+
+### Bug Fixes
+
+* **heirline:** close with bd ([376daf1](https://github.com/xuchengpeng/nvim/commit/376daf19c2f7a6abc71ab50067014e3c2f74c545))
+* **treesitter:** disable for large files ([165e44a](https://github.com/xuchengpeng/nvim/commit/165e44a3da38498e0fb7115abc38ef3c57942286))
+
 ## [1.8.8](https://github.com/xuchengpeng/nvim/compare/v1.8.7...v1.8.8) (2023-04-24)
 
 
