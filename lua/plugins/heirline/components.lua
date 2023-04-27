@@ -352,6 +352,21 @@ local lsp_active = {
   },
 }
 
+local treesitter = {
+  condition = function(self)
+    local ok, _ = pcall(require, "nvim-treesitter")
+    if not ok then
+      return false
+    end
+    local parsers = require("nvim-treesitter.parsers")
+    return parsers.has_parser(parsers.get_buf_lang(self.bufnr or vim.api.nvim_get_current_buf()))
+  end,
+  provider = function()
+    return "  TS "
+  end,
+  hl = { fg = "green" },
+}
+
 M.terminal_name = {
   condition = function()
     return vim.bo.filetype == "toggleterm"
@@ -482,7 +497,7 @@ M.section_c = { file_name_block, diagnostics }
 
 M.section_d = { search_count, macro_rec }
 
-M.section_x = { lsp_active }
+M.section_x = { lsp_active, treesitter }
 
 M.section_y = utils.insert(
   mode,

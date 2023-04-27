@@ -57,6 +57,7 @@ return {
     BoldArrowLeft = "",
     BoldArrowRight = "",
     BoldArrowUp = "",
+    BoldCheck = "",
     BoldClose = "",
     BoldDividerLeft = "",
     BoldDividerRight = "",
