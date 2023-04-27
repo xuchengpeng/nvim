@@ -361,13 +361,52 @@ M.terminal_name = {
       local str = icons.ui.Console .. " ToggleTerm #" .. vim.b.toggle_number
       return M.pad_string(str, { left = 1, right = 1 })
     end,
-    hl = { fg = "normal_bg", bg = "dark_red", bold = true },
+    hl = function()
+      if conditions.is_active() then
+        return { fg = "normal_bg", bg = "dark_red", bold = true }
+      else
+        return { fg = "normal_fg", bg = "bright_bg" }
+      end
+    end,
   },
   {
     provider = function()
       return icons.ui.BoldDividerRight
     end,
-    hl = { fg = "dark_red" },
+    hl = function()
+      if conditions.is_active() then
+        return { fg = "dark_red" }
+      else
+        return { fg = "bright_bg" }
+      end
+    end,
+  },
+}
+
+M.sidebar_name = {
+  {
+    space,
+    M.file_type,
+    space,
+    hl = function()
+      if conditions.is_active() then
+        return { fg = "normal_bg", bg = "blue", bold = true }
+      else
+        return { fg = "normal_fg", bg = "bright_bg" }
+      end
+    end,
+  },
+  {
+    provider = function()
+      return icons.ui.BoldDividerRight
+    end,
+    hl = function()
+      if conditions.is_active() then
+        return { fg = "blue" }
+      else
+        return { fg = "bright_bg" }
+      end
+    end,
   },
 }
 
@@ -669,9 +708,9 @@ M.tabline_offset = {
 
   hl = function(self)
     if vim.api.nvim_get_current_win() == self.winid then
-      return "TablineSel"
+      return { fg = "blue", bold = true }
     else
-      return "Tabline"
+      return { fg = "normal_fg" }
     end
   end,
 }

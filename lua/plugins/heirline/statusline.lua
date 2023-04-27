@@ -47,6 +47,14 @@ local terminal_statusline = {
   align,
 }
 
+local sidebar_statusline = {
+  condition = function()
+    return conditions.buffer_matches({ filetype = { "neo%-tree", "aerial" } })
+  end,
+  components.sidebar_name,
+  align,
+}
+
 return {
   hl = function()
     if conditions.is_active() then
@@ -58,6 +66,7 @@ return {
 
   fallthrough = false,
 
+  sidebar_statusline,
   special_statusline,
   terminal_statusline,
   inactive_statusline,
