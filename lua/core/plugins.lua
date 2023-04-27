@@ -22,7 +22,7 @@ return {
     lazy = true,
     event = "VimEnter",
     config = function()
-      vim.notify = require("notify")
+      require("plugins.notify").setup()
     end,
   },
   {
@@ -218,6 +218,9 @@ return {
     lazy = true,
     init = function()
       require("plugins.dressing").init()
+    end,
+    config = function()
+      require("plugins.dressing").setup()
     end,
   },
   {
