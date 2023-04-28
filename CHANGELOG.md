@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.8.10](https://github.com/xuchengpeng/nvim/compare/v1.8.9...v1.8.10) (2023-04-28)
+
+
+### Bug Fixes
+
+* **heirline:** customize sidebar with special statusline ([be14aee](https://github.com/xuchengpeng/nvim/commit/be14aee4327dcd7258086048ed634c7f2caf833f))
+* **heirline:** customize sidebar,terminal name ([938083a](https://github.com/xuchengpeng/nvim/commit/938083a4af7c89f3b1ba91dd018bf97b75791495))
+* **heirline:** show treesitter status in section_x ([791def1](https://github.com/xuchengpeng/nvim/commit/791def12c12e201c8497c86aac3a1ae05b2a208a))
+* **ui:** customize border with single style ([afd7e08](https://github.com/xuchengpeng/nvim/commit/afd7e08547a8eacae8a1502886ed638c8bf11d64))
+
 ## [1.8.9](https://github.com/xuchengpeng/nvim/compare/v1.8.8...v1.8.9) (2023-04-25)
 
 
