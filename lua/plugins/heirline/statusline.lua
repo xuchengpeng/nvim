@@ -24,18 +24,10 @@ local special_statusline = {
       filetype = { "^git.*", "fugitive" },
     })
   end,
-  space,
-  components.file_type,
+  components.special_file_type,
   space,
   components.help_file_name,
   align,
-  hl = function()
-    if conditions.is_not_active() then
-      return { fg = "normal_fg", force = true }
-    else
-      return { fg = "blue", force = true }
-    end
-  end,
 }
 
 local terminal_statusline = {
@@ -44,14 +36,6 @@ local terminal_statusline = {
   end,
   hl = { bg = "stl_bg" },
   components.terminal_name,
-  align,
-}
-
-local sidebar_statusline = {
-  condition = function()
-    return conditions.buffer_matches({ filetype = { "neo%-tree", "aerial" } })
-  end,
-  components.sidebar_name,
   align,
 }
 
@@ -66,7 +50,6 @@ return {
 
   fallthrough = false,
 
-  sidebar_statusline,
   special_statusline,
   terminal_statusline,
   inactive_statusline,

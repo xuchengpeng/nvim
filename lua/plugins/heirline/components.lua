@@ -398,7 +398,7 @@ M.terminal_name = {
   },
 }
 
-M.sidebar_name = {
+M.special_file_type = {
   {
     space,
     M.file_type,
@@ -433,7 +433,13 @@ M.help_file_name = {
     local filename = vim.api.nvim_buf_get_name(0)
     return vim.fn.fnamemodify(filename, ":t")
   end,
-  hl = { fg = "blue" },
+  hl = function()
+    if conditions.is_active() then
+      return { fg = "blue" }
+    else
+      return { fg = "stl_fg" }
+    end
+  end,
 }
 
 local search_count = {
