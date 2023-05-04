@@ -40,6 +40,7 @@ function M.setup()
             {
               "BufUnload",
               {
+                group = "_alpha",
                 pattern = "<buffer>",
                 callback = function()
                   vim.opt.laststatus = prev_status
