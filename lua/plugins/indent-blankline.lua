@@ -9,6 +9,7 @@ function M.setup()
       "lazy",
       "lspinfo",
       "man",
+      "mason",
       "neo-tree",
       "Trouble",
       "text",

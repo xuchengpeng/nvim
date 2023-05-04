@@ -15,6 +15,7 @@ function M.setup()
       "help",
       "lazy",
       "lspinfo",
+      "mason",
       "neo-tree",
       "Outline",
       "spectre_panel",
