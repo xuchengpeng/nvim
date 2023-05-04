@@ -65,7 +65,7 @@ function M.setup()
   }
 
   dashboard.section.buttons.val = {
-    dashboard.button("f", ui.FindFile .. "  > Find File", "<cmd>Telescope find_files<CR>"),
+    dashboard.button("f", ui.Search .. "  > Find File", "<cmd>Telescope find_files<CR>"),
     dashboard.button("n", ui.NewFile .. "  > New File", "<cmd>enew<CR>"),
     dashboard.button("r", ui.History .. "  > Recent Files", "<cmd>Telescope oldfiles<CR>"),
     dashboard.button("t", ui.FindText .. "  > Find Text", "<cmd>Telescope live_grep<CR>"),

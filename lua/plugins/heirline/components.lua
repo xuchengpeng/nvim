@@ -750,7 +750,7 @@ local tabpage = {
 }
 
 local tabpage_close = {
-  provider = "%999X  %X",
+  provider = "%999X  %X",
   hl = "TabLine",
 }
 
