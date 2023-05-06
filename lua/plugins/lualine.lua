@@ -76,6 +76,7 @@ function M.setup()
       "nvim-dap-ui",
       "quickfix",
       "toggleterm",
+      "trouble",
     },
   })
 end
