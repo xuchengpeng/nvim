@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.8.11](https://github.com/xuchengpeng/nvim/compare/v1.8.10...v1.8.11) (2023-05-06)
+
+
+### Bug Fixes
+
+* **autocmds:** add missing information for autocmd ([983e28c](https://github.com/xuchengpeng/nvim/commit/983e28ccc3afec24f9bf265c0bee542569327eed))
+* **icons:** update obsolete icons ([8f06c3d](https://github.com/xuchengpeng/nvim/commit/8f06c3d7e16ff89d14e5522efb9c7535b689b399))
+* **mason:** exclude filetype mason in indent-blankline and illuminate ([7cff183](https://github.com/xuchengpeng/nvim/commit/7cff18363ad8ef4d9154a42f4545b16041c77dd0))
+
 ## [1.8.10](https://github.com/xuchengpeng/nvim/compare/v1.8.9...v1.8.10) (2023-04-28)
 
 
