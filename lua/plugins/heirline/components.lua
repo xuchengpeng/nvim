@@ -549,7 +549,7 @@ local tabline_picker = {
     bufname = bufname == "" and "Empty" or vim.fn.fnamemodify(bufname, ":t")
     local label = bufname:sub(1, 1)
     local i = 2
-    while self._picker_labels[label] do
+    while string.match(label, "%w") == nil or self._picker_labels[label] do
       if i > #bufname then
         break
       end
@@ -582,7 +582,6 @@ function M.buffer_picker(callback)
     local char = vim.fn.getcharstr()
     local bufnr = buflist._picker_labels[char]
     if bufnr then
-      vim.api.nvim_win_set_buf(0, bufnr)
       callback(bufnr)
     end
     buflist._show_picker = false
