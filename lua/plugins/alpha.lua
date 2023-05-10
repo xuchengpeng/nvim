@@ -9,9 +9,10 @@ function M.setup()
   local autocmds = require("core.autocmds")
   autocmds.create_autocmds({
     {
-      "UIEnter",
+      "User",
       {
         group = "_alpha",
+        pattern = "LazyVimStarted",
         callback = function()
           local stats = require("lazy").stats()
           local ms = math.floor(stats.startuptime * 100 + 0.5) / 100
@@ -22,6 +23,7 @@ function M.setup()
             "⚡ Neovim loaded " .. stats.count .. " plugins in " .. ms .. "ms",
             nvim_version,
           }, 0.5)
+          pcall(vim.cmd.AlphaRedraw)
         end,
       },
     },
@@ -31,11 +33,9 @@ function M.setup()
         group = "_alpha",
         pattern = "AlphaReady",
         callback = function()
-          local prev_showtabline = vim.opt.showtabline
-          local prev_status = vim.opt.laststatus
+          vim.g.before_alpha = { showtabline = vim.opt.showtabline:get(), laststatus = vim.opt.laststatus:get() }
           vim.opt.laststatus = 0
           vim.opt.showtabline = 0
-          vim.opt_local.winbar = nil
           autocmds.create_autocmds({
             {
               "BufUnload",
@@ -43,8 +43,9 @@ function M.setup()
                 group = "_alpha",
                 pattern = "<buffer>",
                 callback = function()
-                  vim.opt.laststatus = prev_status
-                  vim.opt.showtabline = prev_showtabline
+                  vim.opt.laststatus = vim.g.before_alpha.laststatus
+                  vim.opt.showtabline = vim.g.before_alpha.showtabline
+                  vim.g.before_alpha = nil
                 end,
               },
             },
