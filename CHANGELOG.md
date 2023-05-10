@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.8.12](https://github.com/xuchengpeng/nvim/compare/v1.8.11...v1.8.12) (2023-05-10)
+
+
+### Bug Fixes
+
+* **alpha:** redrawing after footer update ([4201be6](https://github.com/xuchengpeng/nvim/commit/4201be6b25f3807f4fe1d071ce51ac2a1af4d3d5))
+* **heirline:** use alphanumeric characters as buffer picker ([3f3447a](https://github.com/xuchengpeng/nvim/commit/3f3447a47a620a6e5b10d6bfa2605bb2b9d24123))
+* **lualine:** add trouble extension ([a0b711a](https://github.com/xuchengpeng/nvim/commit/a0b711a332dda94a7772bf7fe9bb92dab2c49adc))
+
 ## [1.8.11](https://github.com/xuchengpeng/nvim/compare/v1.8.10...v1.8.11) (2023-05-06)
 
 
