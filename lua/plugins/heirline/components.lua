@@ -569,11 +569,6 @@ local tabline_picker = {
 -- @param callback function with a single parameter of the buffer number
 function M.buffer_picker(callback)
   local tabline = require("heirline").tabline
-  local prev_showtabline = vim.opt.showtabline:get()
-  if prev_showtabline ~= 2 then
-    vim.opt.showtabline = 2
-  end
-  vim.cmd.redrawtabline()
   local buflist = tabline and tabline._buflist and tabline._buflist[1]
   if buflist then
     buflist._picker_labels = {}
@@ -585,11 +580,8 @@ function M.buffer_picker(callback)
       callback(bufnr)
     end
     buflist._show_picker = false
+    vim.cmd.redrawtabline()
   end
-  if prev_showtabline ~= 2 then
-    vim.opt.showtabline = prev_showtabline
-  end
-  vim.cmd.redrawtabline()
 end
 
 local tabline_separator = {

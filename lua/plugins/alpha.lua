@@ -28,28 +28,29 @@ function M.setup()
       },
     },
     {
-      "User",
+      { "User", "BufEnter" },
       {
         group = "_alpha",
-        pattern = "AlphaReady",
-        callback = function()
-          vim.g.before_alpha = { showtabline = vim.opt.showtabline:get(), laststatus = vim.opt.laststatus:get() }
-          vim.opt.laststatus = 0
-          vim.opt.showtabline = 0
-          autocmds.create_autocmds({
-            {
-              "BufUnload",
-              {
-                group = "_alpha",
-                pattern = "<buffer>",
-                callback = function()
-                  vim.opt.laststatus = vim.g.before_alpha.laststatus
-                  vim.opt.showtabline = vim.g.before_alpha.showtabline
-                  vim.g.before_alpha = nil
-                end,
-              },
-            },
-          })
+        callback = function(event)
+          if
+            (
+              (event.event == "User" and event.file == "AlphaReady")
+              or (
+                event.event == "BufEnter"
+                and vim.api.nvim_get_option_value("filetype", { buf = event.buf }) == "alpha"
+              )
+            ) and not vim.g.before_alpha
+          then
+            vim.g.before_alpha = { showtabline = vim.opt.showtabline:get(), laststatus = vim.opt.laststatus:get() }
+            vim.opt.showtabline, vim.opt.laststatus = 0, 0
+          elseif
+            vim.g.before_alpha
+            and event.event == "BufEnter"
+            and vim.api.nvim_get_option_value("buftype", { buf = event.buf }) ~= "nofile"
+          then
+            vim.opt.laststatus, vim.opt.showtabline = vim.g.before_alpha.laststatus, vim.g.before_alpha.showtabline
+            vim.g.before_alpha = nil
+          end
         end,
       },
     },
