@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.8.13](https://github.com/xuchengpeng/nvim/compare/v1.8.12...v1.8.13) (2023-05-12)
+
+
+### Bug Fixes
+
+* **heirline:** show tabline after leaving alpha ([ff53b26](https://github.com/xuchengpeng/nvim/commit/ff53b26caa11598e1deaa7e2a061875807f5334e))
+
 ## [1.8.12](https://github.com/xuchengpeng/nvim/compare/v1.8.11...v1.8.12) (2023-05-10)
 
 
