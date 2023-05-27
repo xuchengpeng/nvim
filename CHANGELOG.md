@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.8.14](https://github.com/xuchengpeng/nvim/compare/v1.8.13...v1.8.14) (2023-05-27)
+
+
+### Bug Fixes
+
+* **defaults:** add menu to completeopt ([3934af5](https://github.com/xuchengpeng/nvim/commit/3934af5a722863b7a675157c3cac713f84ff2700))
+
 ## [1.8.13](https://github.com/xuchengpeng/nvim/compare/v1.8.12...v1.8.13) (2023-05-12)
 
 
