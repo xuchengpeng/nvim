@@ -17,6 +17,7 @@ function M.setup()
       "lspinfo",
       "mason",
       "neo-tree",
+      "notify",
       "Outline",
       "spectre_panel",
       "toggleterm",
