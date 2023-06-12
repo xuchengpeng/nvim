@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.8.15](https://github.com/xuchengpeng/nvim/compare/v1.8.14...v1.8.15) (2023-06-12)
+
+
+### Bug Fixes
+
+* **illuminate:** no highlighting for notify ([97853d9](https://github.com/xuchengpeng/nvim/commit/97853d9f4209b1e901d30b6f2dd4f27dafd056b8))
+* **treesitter:** prefer git instead of curl for downloading the parsers ([78fe58e](https://github.com/xuchengpeng/nvim/commit/78fe58ed07ed511731c94cca5d1de984c92fbef3))
+
 ## [1.8.14](https://github.com/xuchengpeng/nvim/compare/v1.8.13...v1.8.14) (2023-05-27)
 
 
