@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.8.16](https://github.com/xuchengpeng/nvim/compare/v1.8.15...v1.8.16) (2023-10-07)
+
+
+### Bug Fixes
+
+* **alpha:** move alpha settings to BufWinEnter event ([1a366b8](https://github.com/xuchengpeng/nvim/commit/1a366b86a03aefd817ca863b0f833544ee3587d1))
+* **indent-blankline:** update to indent blankline v3 ([489de5a](https://github.com/xuchengpeng/nvim/commit/489de5a2971a0d3ea318ac848c3eb492d08b6d4f))
+* **options:** use default scrolloff ([558ac75](https://github.com/xuchengpeng/nvim/commit/558ac752f3cefddfbbd66f379605eb755f6ac090))
+
 ## [1.8.15](https://github.com/xuchengpeng/nvim/compare/v1.8.14...v1.8.15) (2023-06-12)
 
 
