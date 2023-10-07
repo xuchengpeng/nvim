@@ -172,6 +172,7 @@ return {
     "lukas-reineke/indent-blankline.nvim",
     lazy = true,
     event = { "User FileOpened" },
+    main = "ibl",
     config = function()
       require("plugins.indent-blankline").setup()
     end,
