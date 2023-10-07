@@ -28,27 +28,32 @@ function M.setup()
       },
     },
     {
-      { "User", "BufEnter" },
+      { "User", "BufWinEnter" },
       {
         group = "_alpha",
-        callback = function(event)
+        callback = function(args)
           if
             (
-              (event.event == "User" and event.file == "AlphaReady")
+              (args.event == "User" and args.file == "AlphaReady")
               or (
-                event.event == "BufEnter"
-                and vim.api.nvim_get_option_value("filetype", { buf = event.buf }) == "alpha"
+                args.event == "BufWinEnter"
+                and vim.api.nvim_get_option_value("filetype", { buf = args.buf }) == "alpha"
               )
             ) and not vim.g.before_alpha
           then
-            vim.g.before_alpha = { showtabline = vim.opt.showtabline:get(), laststatus = vim.opt.laststatus:get() }
-            vim.opt.showtabline, vim.opt.laststatus = 0, 0
+            vim.g.before_alpha = {
+              showtabline = vim.opt.showtabline:get(),
+              laststatus = vim.opt.laststatus:get(),
+              cmdheight = vim.opt.cmdheight:get(),
+            }
+            vim.opt.showtabline, vim.opt.laststatus, vim.opt.cmdheight = 0, 0, 0
           elseif
             vim.g.before_alpha
-            and event.event == "BufEnter"
-            and vim.api.nvim_get_option_value("buftype", { buf = event.buf }) ~= "nofile"
+            and args.event == "BufWinEnter"
+            and vim.api.nvim_get_option_value("buftype", { buf = args.buf }) ~= "nofile"
           then
-            vim.opt.laststatus, vim.opt.showtabline = vim.g.before_alpha.laststatus, vim.g.before_alpha.showtabline
+            vim.opt.laststatus, vim.opt.showtabline, vim.opt.cmdheight =
+              vim.g.before_alpha.laststatus, vim.g.before_alpha.showtabline, vim.g.before_alpha.cmdheight
             vim.g.before_alpha = nil
           end
         end,
