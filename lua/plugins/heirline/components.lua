@@ -15,7 +15,7 @@ end
 
 local space = { provider = " " }
 
-local mode = {
+local vi_mode = {
   init = function(self)
     self.mode = vim.api.nvim_get_mode().mode
     local m = self.mode:sub(1, 1) -- get only the first mode character
@@ -76,13 +76,12 @@ local mode = {
       t = "dark_red",
     },
   },
-}
-
-local vi_mode = {
   provider = function(self)
-    return " %2(" .. self.mode_names[self.mode] .. "%) "
+    return "█ %2(" .. self.mode_names[self.mode] .. "%) "
   end,
-  hl = { fg = "normal_bg", bold = true },
+  hl = function(self)
+    return { fg = self.mode_color, bold = true }
+  end,
   update = {
     "ModeChanged",
     pattern = "*:*",
@@ -102,45 +101,30 @@ local git = {
     provider = function(self)
       return " " .. icons.git.Branch .. " " .. self.status_dict.head .. " "
     end,
-    hl = function(self)
-      return { fg = self.mode_color, bold = true }
-    end,
-  },
-  {
-    condition = function(self)
-      return self.has_changes
-    end,
-    provider = icons.ui.DividerRight,
-    hl = function(self)
-      return { fg = self.mode_color }
+    hl = function()
+      return { fg = "purple", bold = true }
     end,
   },
   {
     provider = function(self)
       local count = self.status_dict.added or 0
-      return count > 0 and (" +" .. count)
+      return count > 0 and (icons.git.LineAdded .. " " .. count .. " ")
     end,
     hl = { fg = "git_add" },
   },
   {
     provider = function(self)
       local count = self.status_dict.changed or 0
-      return count > 0 and (" ~" .. count)
+      return count > 0 and (icons.git.LineModified .. " " .. count .. " ")
     end,
     hl = { fg = "git_change" },
   },
   {
     provider = function(self)
       local count = self.status_dict.removed or 0
-      return count > 0 and (" -" .. count)
+      return count > 0 and (icons.git.LineRemoved .. " " .. count .. " ")
     end,
     hl = { fg = "git_del" },
-  },
-  {
-    condition = function(self)
-      return self.has_changes
-    end,
-    provider = " ",
   },
   on_click = {
     name = "lazygit",
@@ -236,10 +220,12 @@ M.file_last_modified = {
 
 local file_name_block = {
   space,
+  file_icon,
   file_pathshorten_name,
   file_flags,
   space,
   file_size,
+  space,
   { provider = "%<" }, -- this means that the statusline is cut here when there's not enough space
 }
 
@@ -312,10 +298,10 @@ local ruler = {
     end
     return " " .. line .. ":" .. char .. " " .. text .. " "
   end,
-  hl = { fg = "normal_bg" },
+  -- hl = { fg = "normal_fg" },
 }
 
-M.scroll_bar = {
+local scroll_bar = {
   provider = function()
     local sbar = { "▁", "▂", "▃", "▄", "▅", "▆", "▇", "█" }
     local curr_line = vim.api.nvim_win_get_cursor(0)[1]
@@ -325,6 +311,7 @@ M.scroll_bar = {
       return string.rep(sbar[i], 2)
     end
   end,
+  hl = { fg = "blue" },
 }
 
 local lsp_active = {
@@ -476,69 +463,27 @@ local macro_rec = {
   },
 }
 
-M.section_a = utils.insert(
-  mode,
-  utils.insert({
-    hl = function(self)
-      return { bg = self.mode_color }
-    end,
-  }, vi_mode)
-)
+M.section_a = { vi_mode }
 
-M.section_b = utils.insert(
-  mode,
-  {
-    provider = icons.ui.BoldDividerRight,
-    hl = function(self)
-      return { fg = self.mode_color, bg = "bright_bg" }
-    end,
-  },
-  utils.insert({
-    hl = { bg = "bright_bg" },
-  }, git),
-  { provider = icons.ui.BoldDividerRight, hl = { fg = "bright_bg", bg = "stl_bg" } }
-)
+M.section_b = { file_name_block }
 
-M.section_c = { file_name_block, diagnostics }
+M.section_c = { git, diagnostics }
 
 M.section_d = { search_count, macro_rec }
 
 M.section_x = { lsp_active, treesitter }
 
-M.section_y = utils.insert(
-  mode,
-  { provider = icons.ui.BoldDividerLeft, hl = { fg = "bright_bg", bg = "stl_bg" } },
-  utils.insert(
-    {
-      hl = function(self)
-        return { fg = self.mode_color, bg = "bright_bg" }
-      end,
-    },
-    space,
-    file_encoding,
-    { provider = " " .. icons.ui.DividerLeft .. " " },
-    file_format,
-    { provider = " " .. icons.ui.DividerLeft .. " " },
-    file_icon,
-    M.file_type,
-    space
-  ),
-  {
-    provider = icons.ui.BoldDividerLeft,
-    hl = function(self)
-      return { fg = self.mode_color, bg = "bright_bg" }
-    end,
-  }
-)
+M.section_y = {
+  space,
+  file_encoding,
+  space,
+  file_format,
+  space,
+  M.file_type,
+  space,
+}
 
-M.section_z = utils.insert(
-  mode,
-  utils.insert({
-    hl = function(self)
-      return { bg = self.mode_color }
-    end,
-  }, ruler)
-)
+M.section_z = { ruler, scroll_bar }
 
 local tabline_picker = {
   condition = function(self)
