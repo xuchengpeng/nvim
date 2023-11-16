@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.8.17](https://github.com/xuchengpeng/nvim/compare/v1.8.16...v1.8.17) (2023-11-16)
+
+
+### Bug Fixes
+
+* **heirline:** customize new style ([a4e1fa9](https://github.com/xuchengpeng/nvim/commit/a4e1fa9922a070dd8b093cdbcd592729be836c45))
+* **indent-blankline:** do not show underline of the scope ([d217431](https://github.com/xuchengpeng/nvim/commit/d2174312dc7ebfc1e3c6fa5f53fba76d085ec7e0))
+* **treesitter:** make treesitter queries available at startup ([378f165](https://github.com/xuchengpeng/nvim/commit/378f165bf4ec24dc60b19258365025f57cc6be0a))
+
 ## [1.8.16](https://github.com/xuchengpeng/nvim/compare/v1.8.15...v1.8.16) (2023-10-07)
 
 
