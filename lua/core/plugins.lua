@@ -125,7 +125,7 @@ return {
       require("plugins.lsp").setup()
     end,
   },
-  { "jose-elias-alvarez/null-ls.nvim", lazy = true },
+  { "nvimtools/none-ls.nvim", lazy = true, main = "null-ls" },
   {
     "nvim-treesitter/nvim-treesitter",
     lazy = true,
