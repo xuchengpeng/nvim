@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.8.18](https://github.com/xuchengpeng/nvim/compare/v1.8.17...v1.8.18) (2023-12-04)
+
+
+### Bug Fixes
+
+* **null-ls:** migrate from null-ls to none-ls ([cc7185d](https://github.com/xuchengpeng/nvim/commit/cc7185db2a13dc629cb17f9638c6e6db6bd514d7))
+
 ## [1.8.17](https://github.com/xuchengpeng/nvim/compare/v1.8.16...v1.8.17) (2023-11-16)
 
 
