@@ -13,7 +13,7 @@ local mappings = {
   },
   c = {
     name = "+Coding",
-    e = { "<cmd>Neotree filesystem reveal left toggle<cr>", "Explorer" },
+    e = { "<cmd>Neotree toggle<cr>", "Explorer" },
     j = { "<cmd>TSJJoin<cr>", "Join" },
     s = { "<cmd>TSJSplit<cr>", "Split" },
     o = { "<cmd>AerialToggle<cr>", "Outline" },
