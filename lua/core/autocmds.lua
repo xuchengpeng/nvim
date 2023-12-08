@@ -107,8 +107,7 @@ local defaults = {
     {
       group = "_file_user_events",
       callback = function(args)
-        local buftype = vim.api.nvim_get_option_value("buftype", { buf = args.buf })
-        if not (vim.fn.expand("%") == "" or buftype == "nofile") then
+        if not (vim.fn.expand("%") == "" or vim.bo[args.buf].buftype == "nofile") then
           require("utils").event("FileOpened")
         end
       end,
