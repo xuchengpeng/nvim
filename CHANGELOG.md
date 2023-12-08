@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.8.19](https://github.com/xuchengpeng/nvim/compare/v1.8.18...v1.8.19) (2023-12-08)
+
+
+### Bug Fixes
+
+* **ci:** upgrade actions ([876914a](https://github.com/xuchengpeng/nvim/commit/876914af611c0779a096967ef126e3cec25cdaad))
+* **core:** refactoring ([40da92a](https://github.com/xuchengpeng/nvim/commit/40da92a12b291f1f90846ebf44d5749c11f19876))
+* **keymaps:** Neotree toggle ([c4e6875](https://github.com/xuchengpeng/nvim/commit/c4e6875d41f66661444e59be6d08eec8d4f0335d))
+* move from nvim_get_option_value to table indexing ([5b769c4](https://github.com/xuchengpeng/nvim/commit/5b769c429cf65b8902546c4496ed70eb5317fed8))
+* **neo-tree:** fix follow_current_file options ([6d4bddc](https://github.com/xuchengpeng/nvim/commit/6d4bddc8891b88faa84154f8c236970c9e4341a1))
+* **notify:** add timeout,max_width options ([689d808](https://github.com/xuchengpeng/nvim/commit/689d808b2ac2cb907951e5cd2bc2162e2fe4f892))
+
 ## [1.8.18](https://github.com/xuchengpeng/nvim/compare/v1.8.17...v1.8.18) (2023-12-04)
 
 
