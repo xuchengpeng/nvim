@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.8.20](https://github.com/xuchengpeng/nvim/compare/v1.8.19...v1.8.20) (2024-01-23)
+
+
+### Bug Fixes
+
+* **cmp:** only jump through snippet locally ([8ec4d41](https://github.com/xuchengpeng/nvim/commit/8ec4d41c63d2f53d84c1db6a2593af5eda2b290c))
+* **license:** update copyright ([3461b07](https://github.com/xuchengpeng/nvim/commit/3461b07bef96202781d5a02200a8528b5273204a))
+
 ## [1.8.19](https://github.com/xuchengpeng/nvim/compare/v1.8.18...v1.8.19) (2023-12-08)
 
 
