@@ -560,11 +560,11 @@ local tabline_file_name = {
 
 local tabline_file_flags = {
   condition = function(self)
-    return not vim.api.nvim_buf_get_option(self.bufnr, "modifiable")
-      or vim.api.nvim_buf_get_option(self.bufnr, "readonly")
+    return not vim.api.nvim_get_option_value("modifiable", { buf = self.bufnr })
+      or vim.api.nvim_get_option_value("readonly", { buf = self.bufnr })
   end,
   provider = function(self)
-    if vim.api.nvim_buf_get_option(self.bufnr, "buftype") == "terminal" then
+    if vim.api.nvim_get_option_value("buftype", { buf = self.bufnr }) == "terminal" then
       return icons.ui.Console
     else
       return icons.ui.Lock
@@ -604,7 +604,7 @@ local tabline_close_button = {
   fallthrough = false,
   {
     condition = function(self)
-      return vim.api.nvim_buf_get_option(self.bufnr, "modified")
+      return vim.api.nvim_get_option_value("modified", { buf = self.bufnr })
     end,
     space,
     { provider = icons.ui.FileModified, hl = { fg = "green" } },
