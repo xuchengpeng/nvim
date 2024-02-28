@@ -7,7 +7,7 @@ local function lsp_client_names()
   if #buf_client_names == 0 then
     return ""
   end
-  return icons.ui.Gears .. " [" .. table.concat(buf_client_names, ", ") .. "]"
+  return icons.ui.Gears .. " [" .. table.concat(buf_client_names, " ") .. "]"
 end
 
 function M.setup()

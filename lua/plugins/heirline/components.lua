@@ -162,6 +162,7 @@ local file_pathshorten_name = {
     end
     return filename
   end,
+  hl = { fg = utils.get_highlight("Directory").fg },
 }
 
 local file_flags = {
@@ -170,12 +171,14 @@ local file_flags = {
       return vim.bo.modified
     end,
     provider = "[+]",
+    hl = { fg = "green" },
   },
   {
     condition = function()
       return not vim.bo.modifiable or vim.bo.readonly
     end,
     provider = "[-]",
+    hl = { fg = "orange" },
   },
 }
 
@@ -329,7 +332,7 @@ local lsp_active = {
     if #names == 0 then
       return ""
     end
-    return icons.ui.Gears .. " [" .. table.concat(names, ", ") .. "] "
+    return icons.ui.Gears .. " [" .. table.concat(names, " ") .. "] "
   end,
   on_click = {
     name = "LspInfo",
