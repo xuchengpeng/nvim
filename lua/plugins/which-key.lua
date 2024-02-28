@@ -87,7 +87,7 @@ local mappings = {
   },
   t = {
     name = "+Terminal",
-    t = { "<cmd>ToggleTerm direction=horizontal<cr>", "Terminal" },
+    t = { "<cmd>ToggleTerm<cr>", "Terminal" },
     b = { "<cmd>lua require('plugins.toggleterm').toggle_term_cmd('btm')<cr>", "Bottom" },
     d = { "<cmd>lua require('plugins.toggleterm').toggle_term_cmd('gdu')<cr>", "Disk Usage" },
     g = { "<cmd>lua require('plugins.toggleterm').toggle_term_cmd('glow')<cr>", "Glow" },

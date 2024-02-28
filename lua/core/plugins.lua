@@ -37,7 +37,7 @@ return {
     "akinsho/bufferline.nvim",
     enabled = lvim.statusline == "lualine",
     lazy = true,
-    event = { "User FileOpened" },
+    event = { "VimEnter" },
     config = function()
       require("plugins.bufferline").setup()
     end,
@@ -46,7 +46,7 @@ return {
     "nvim-lualine/lualine.nvim",
     enabled = lvim.statusline == "lualine",
     lazy = true,
-    event = { "User FileOpened" },
+    event = { "VimEnter" },
     config = function()
       require("plugins.lualine").setup()
     end,
@@ -55,7 +55,7 @@ return {
     "rebelot/heirline.nvim",
     enabled = lvim.statusline == "heirline",
     lazy = true,
-    event = { "BufReadPre", "BufNewFile" },
+    event = { "VimEnter" },
     config = function()
       require("plugins.heirline").setup()
     end,
