@@ -5,13 +5,6 @@ function M.setup()
     formatters_by_ft = {
       lua = { "stylua" },
       python = { "black" },
-      javascript = { "prettier" },
-      typescript = { "prettier" },
-      css = { "prettier" },
-      scss = { "prettier" },
-      html = { "prettier" },
-      json = { "prettier" },
-      jsonc = { "prettier" },
       markdown = { "prettier" },
       yaml = { "prettier" },
       sh = { "shfmt" },

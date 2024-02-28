@@ -6,7 +6,7 @@ function M.setup()
     -- ensure_installed = { "clangd", "lua_ls", "pyright", "vimls" }
   })
 
-  local server_list = { "lua_ls", "clangd", "pyright", "vimls", "bashls" }
+  local server_list = { "lua_ls", "clangd", "pyright", "vimls", "bashls", "cssls", "html", "jsonls", "tsserver" }
   for _, server_name in pairs(server_list) do
     local ok, opts = pcall(require, "plugins.lsp.providers." .. server_name)
     if not ok then
