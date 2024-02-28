@@ -14,9 +14,9 @@ return {
       require("plugins.theme").load("catppuccin")
     end,
   },
-  { "nvim-lua/plenary.nvim",       lazy = true },
+  { "nvim-lua/plenary.nvim", lazy = true },
   { "nvim-tree/nvim-web-devicons", lazy = true },
-  { "MunifTanjim/nui.nvim",        lazy = true },
+  { "MunifTanjim/nui.nvim", lazy = true },
   {
     "rcarriga/nvim-notify",
     lazy = true,
@@ -187,6 +187,17 @@ return {
     main = "ibl",
     config = function()
       require("plugins.indent-blankline").setup()
+    end,
+  },
+  {
+    "NvChad/nvim-colorizer.lua",
+    lazy = true,
+    event = { "User FileOpened" },
+    config = function()
+      require("colorizer").setup()
+      vim.defer_fn(function()
+        require("colorizer").attach_to_buffer(0)
+      end, 0)
     end,
   },
   {
