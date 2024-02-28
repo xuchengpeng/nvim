@@ -14,9 +14,9 @@ return {
       require("plugins.theme").load("catppuccin")
     end,
   },
-  { "nvim-lua/plenary.nvim", lazy = true },
+  { "nvim-lua/plenary.nvim",       lazy = true },
   { "nvim-tree/nvim-web-devicons", lazy = true },
-  { "MunifTanjim/nui.nvim", lazy = true },
+  { "MunifTanjim/nui.nvim",        lazy = true },
   {
     "rcarriga/nvim-notify",
     lazy = true,
@@ -125,7 +125,10 @@ return {
       require("plugins.lsp").setup()
     end,
   },
-  { "nvimtools/none-ls.nvim", lazy = true, main = "null-ls" },
+  {
+    "stevearc/conform.nvim",
+    lazy = true,
+  },
   {
     "nvim-treesitter/nvim-treesitter",
     lazy = true,
