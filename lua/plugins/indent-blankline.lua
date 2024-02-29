@@ -5,7 +5,7 @@ function M.setup()
     scope = { show_start = false, show_end = false },
     exclude = {
       buftypes = { "terminal", "nofile", "quickfix", "prompt" },
-      filetypes = { "checkhealth", "help", "lazy", "lspinfo", "man", "mason", "neo-tree", "Trouble", "text" },
+      filetypes = { "checkhealth", "help", "lazy", "lspinfo", "man", "mason", "NvimTree", "Trouble", "text" },
     },
   })
 end

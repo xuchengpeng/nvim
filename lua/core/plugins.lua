@@ -61,11 +61,13 @@ return {
     end,
   },
   {
-    "nvim-neo-tree/neo-tree.nvim",
+    "nvim-tree/nvim-tree.lua",
     lazy = true,
-    cmd = { "Neotree" },
+    cmd = { "NvimTreeOpen" },
     config = function()
-      require("plugins.neo-tree").setup()
+      vim.g.loaded_netrw = 1
+      vim.g.loaded_netrwPlugin = 1
+      require("nvim-tree").setup()
     end,
   },
   {

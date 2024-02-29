@@ -16,7 +16,7 @@ function M.setup()
       "lazy",
       "lspinfo",
       "mason",
-      "neo-tree",
+      "NvimTree",
       "notify",
       "Outline",
       "spectre_panel",

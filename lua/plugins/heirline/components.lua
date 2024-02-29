@@ -653,7 +653,7 @@ M.tabline_offset = {
     local bufnr = vim.api.nvim_win_get_buf(win)
     self.winid = win
 
-    if vim.bo[bufnr].filetype == "neo-tree" then
+    if vim.bo[bufnr].filetype == "NvimTree" then
       self.title = "Explorer"
       return true
     end
