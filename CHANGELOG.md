@@ -1,5 +1,22 @@
 # Changelog
 
+## [1.8.21](https://github.com/xuchengpeng/nvim/compare/v1.8.20...v1.8.21) (2024-02-29)
+
+
+### Bug Fixes
+
+* **colorizer:** disable names color ([c2b216c](https://github.com/xuchengpeng/nvim/commit/c2b216c69182a6ea2860b0c5dea79e3f3ddd866d))
+* **colorizer:** enable after file opened ([78b735e](https://github.com/xuchengpeng/nvim/commit/78b735eab23363ddef2f64f309ffd047676115b3))
+* **format:** replace none-ls with conform ([c795077](https://github.com/xuchengpeng/nvim/commit/c795077fa9c5ff18c9ef87f9001494ba8c1f14ee))
+* **heirline:** import appearance ([22e4aca](https://github.com/xuchengpeng/nvim/commit/22e4aca246ab405504e4077ff4d1841c68384952))
+* **heirline:** use nvim_get_option_value instead of nvim_buf_get_option ([4371f1d](https://github.com/xuchengpeng/nvim/commit/4371f1d6a63fc76e0af3c1b34e4c00733dfde4a9))
+* **lspconfig:** add more server for web development ([b003209](https://github.com/xuchengpeng/nvim/commit/b0032098da10d84a2e5dff97e30bd96f5e2e3db9))
+* **none-ls:** delete deprecated builtins ([c5c4d5f](https://github.com/xuchengpeng/nvim/commit/c5c4d5f97dbc0cafcfc40ecfb5170f4607f40dd3))
+* **nvim-tree:** replace neo-tree ([7ba380e](https://github.com/xuchengpeng/nvim/commit/7ba380e0e243b1e92cb51180fd15c8291ae7b2cd))
+* **readme:** update badge style ([7113261](https://github.com/xuchengpeng/nvim/commit/7113261ad8145187971eccab1e31326e7070d844))
+* **toggleterm:** open float terminal ([e6cb0b6](https://github.com/xuchengpeng/nvim/commit/e6cb0b60b8559d7717247bed11d00ec392c715c7))
+* **treesitter:** add more parsers for web development ([7dc126a](https://github.com/xuchengpeng/nvim/commit/7dc126a46f8e1a202189ab5e4445ece269df5589))
+
 ## [1.8.20](https://github.com/xuchengpeng/nvim/compare/v1.8.19...v1.8.20) (2024-01-23)
 
 
