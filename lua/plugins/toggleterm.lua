@@ -26,7 +26,7 @@ function M.toggle_term_cmd(opts)
   user_terminals[opts.cmd][num]:toggle()
 end
 
-function M.setup()
+function M.init()
   if vim.loop.os_uname().version:match("Windows") then
     vim.opt.shell = vim.fn.executable("pwsh") == 1 and "pwsh" or "powershell"
     vim.opt.shellcmdflag =
@@ -36,7 +36,9 @@ function M.setup()
     vim.opt.shellquote = ""
     vim.opt.shellxquote = ""
   end
+end
 
+function M.setup()
   require("toggleterm").setup({
     size = 15,
     open_mapping = [[<c-\>]],
