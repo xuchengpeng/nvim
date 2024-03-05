@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.8.22](https://github.com/xuchengpeng/nvim/compare/v1.8.21...v1.8.22) (2024-03-05)
+
+
+### Bug Fixes
+
+* **alpha:** open configuration with nvim-tree ([44d74d0](https://github.com/xuchengpeng/nvim/commit/44d74d09981222435604f97915f5a628269729b1))
+* **toggleterm:** customize shell at startup ([f564586](https://github.com/xuchengpeng/nvim/commit/f5645863818ef18b0891ef8cac09291b401931ca))
+
 ## [1.8.21](https://github.com/xuchengpeng/nvim/compare/v1.8.20...v1.8.21) (2024-02-29)
 
 
