@@ -70,7 +70,7 @@ function M.setup()
     dashboard.button("n", ui.NewFile .. "  > New File", "<cmd>enew<CR>"),
     dashboard.button("r", ui.History .. "  > Recent Files", "<cmd>Telescope oldfiles<CR>"),
     dashboard.button("t", ui.FindText .. "  > Find Text", "<cmd>Telescope live_grep<CR>"),
-    dashboard.button("c", ui.Gear .. "  > Configuration", "<cmd>Neotree " .. config_dir .. "<CR>"),
+    dashboard.button("c", ui.Gear .. "  > Configuration", "<cmd>NvimTreeOpen " .. config_dir .. "<CR>"),
     dashboard.button("u", ui.CloudDownload .. "  > Update Plugins", "<cmd>Lazy update<CR>"),
     dashboard.button("q", ui.SignOut .. "  > Quit NVIM", "<cmd>quit<CR>"),
   }
