@@ -10,8 +10,8 @@ function M.setup()
       sh = { "shfmt" },
     },
     formatters = {
-      black = {
-        prepend_args = { "-l", "120" },
+      shfmt = {
+        prepend_args = { "-i", "4" },
       },
     },
   })
