@@ -162,7 +162,7 @@ local file_pathshorten_name = {
     end
     return filename
   end,
-  hl = { fg = utils.get_highlight("Directory").fg },
+  hl = { fg = "blue" },
 }
 
 local file_flags = {
