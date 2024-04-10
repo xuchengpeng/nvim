@@ -20,7 +20,7 @@ function M.setup()
           local nvim_version = require("utils.git").get_nvim_version()
           dashboard.section.footer.val = text.align_center({ width = 0 }, {
             "",
-            "⚡ Neovim loaded " .. stats.count .. " plugins in " .. ms .. "ms",
+            "⚡ Neovim loaded " .. stats.loaded .. "/" .. stats.count .. " plugins in " .. ms .. "ms",
             nvim_version,
           }, 0.5)
           pcall(vim.cmd.AlphaRedraw)
@@ -69,7 +69,7 @@ function M.setup()
     dashboard.button("f", ui.Search .. "  > Find File", "<cmd>Telescope find_files<CR>"),
     dashboard.button("n", ui.NewFile .. "  > New File", "<cmd>enew<CR>"),
     dashboard.button("r", ui.History .. "  > Recent Files", "<cmd>Telescope oldfiles<CR>"),
-    dashboard.button("t", ui.FindText .. "  > Find Text", "<cmd>Telescope live_grep<CR>"),
+    dashboard.button("g", ui.FindText .. "  > Find Text", "<cmd>Telescope live_grep<CR>"),
     dashboard.button("c", ui.Gear .. "  > Configuration", "<cmd>NvimTreeOpen " .. config_dir .. "<CR>"),
     dashboard.button("u", ui.CloudDownload .. "  > Update Plugins", "<cmd>Lazy update<CR>"),
     dashboard.button("q", ui.SignOut .. "  > Quit NVIM", "<cmd>quit<CR>"),
