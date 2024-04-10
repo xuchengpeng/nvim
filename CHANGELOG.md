@@ -1,5 +1,16 @@
 # Changelog
 
+## [1.8.23](https://github.com/xuchengpeng/nvim/compare/v1.8.22...v1.8.23) (2024-04-10)
+
+
+### Bug Fixes
+
+* **alpha:** customize footer ([c956d3a](https://github.com/xuchengpeng/nvim/commit/c956d3a3db80b342cf70680e0233560a6a8bd371))
+* **conform:** shfmt with indent offset ([4b48ccc](https://github.com/xuchengpeng/nvim/commit/4b48ccc88f15d7d09c03b0f0b4d7312c68630c1e))
+* **heirline:** customize foreground of filename ([86a9bbf](https://github.com/xuchengpeng/nvim/commit/86a9bbf81f29f5c4a7f31c5cb9e968f2e0b46652))
+* **heirline:** customize inactive stl ([cf0f9aa](https://github.com/xuchengpeng/nvim/commit/cf0f9aac93cd730e70ccf1608e3755c8b1708318))
+* **lualine:** add filesize ([d7f44fb](https://github.com/xuchengpeng/nvim/commit/d7f44fb005133c403921083b094a6b680216742f))
+
 ## [1.8.22](https://github.com/xuchengpeng/nvim/compare/v1.8.21...v1.8.22) (2024-03-05)
 
 
