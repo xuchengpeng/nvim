@@ -13,8 +13,9 @@ local default_statusline = {
 
 local inactive_statusline = {
   condition = conditions.is_not_active,
-  components.section_c,
+  components.section_b,
   align,
+  components.section_y,
 }
 
 local special_statusline = {
