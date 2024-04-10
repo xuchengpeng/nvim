@@ -1,5 +1,5 @@
 return {
   colorscheme = "tokyonight", -- tokyonight, catppuccin
-  statusline = "heirline", -- lualine, heirline
+  statusline = "lualine", -- lualine, heirline
   format_on_save = false,
 }

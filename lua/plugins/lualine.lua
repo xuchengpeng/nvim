@@ -38,7 +38,7 @@ function M.setup()
     sections = {
       lualine_a = { "mode" },
       lualine_b = { "branch", "diff" },
-      lualine_c = { { "filename", path = 1, separator = "" }, "diagnostics" },
+      lualine_c = { { "filename", path = 1, separator = "" }, { "filesize", separator = "" }, "diagnostics" },
       lualine_x = { lsp_client_names },
       lualine_y = { "encoding", { "fileformat", symbols = { unix = "unix", dos = "dos", mac = "mac" } }, "filetype" },
       lualine_z = {
@@ -55,7 +55,7 @@ function M.setup()
       lualine_z = {},
     },
     winbar = {
-      lualine_c = { "aerial" },
+      lualine_c = { { "filename", file_status = false, newfile_status = false, path = 0 }, "aerial" },
     },
     inactive_winbar = {
       lualine_c = {
