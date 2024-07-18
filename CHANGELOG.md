@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.8.24](https://github.com/xuchengpeng/nvim/compare/v1.8.23...v1.8.24) (2024-07-18)
+
+
+### Bug Fixes
+
+* **which-key:** support new mapping spec ([cb797fb](https://github.com/xuchengpeng/nvim/commit/cb797fb27c33d69ced5ee2c1eb1c2ea3a0af4f50))
+
 ## [1.8.23](https://github.com/xuchengpeng/nvim/compare/v1.8.22...v1.8.23) (2024-04-10)
 
 
