@@ -257,7 +257,7 @@ return {
     "akinsho/toggleterm.nvim",
     lazy = true,
     cmd = { "ToggleTerm" },
-    init = function ()
+    init = function()
       require("plugins.toggleterm").init()
     end,
     config = function()

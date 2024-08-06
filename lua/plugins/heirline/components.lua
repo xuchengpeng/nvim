@@ -214,13 +214,6 @@ local file_size = {
   end,
 }
 
-M.file_last_modified = {
-  provider = function()
-    local ftime = vim.fn.getftime(vim.api.nvim_buf_get_name(0))
-    return (ftime > 0) and os.date("%c", ftime)
-  end,
-}
-
 local file_name_block = {
   space,
   file_icon,
@@ -292,14 +285,14 @@ local diagnostics = {
 local ruler = {
   provider = function()
     local line = vim.fn.line(".")
-    local char = vim.fn.virtcol(".")
-    local text = "%p%%"
+    local char = vim.fn.charcol(".")
+    local progress = "%p%%"
     if line == 1 then
-      text = "Top"
+      progress = "Top"
     elseif line == vim.fn.line("$") then
-      text = "Bot"
+      progress = "Bot"
     end
-    return " " .. line .. ":" .. char .. " " .. text .. " "
+    return " " .. line .. ":" .. char .. " " .. progress .. " "
   end,
   -- hl = { fg = "normal_fg" },
 }
