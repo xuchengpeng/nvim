@@ -15,7 +15,6 @@ end
 
 function M.setup()
   require("dressing").setup({
-    input = { border = "single" },
     select = {
       telescope = {
         sorting_strategy = "ascending",
@@ -29,15 +28,7 @@ function M.setup()
             return math.min(max_lines, 15)
           end,
         },
-        border = true,
-        borderchars = {
-          prompt = { "─", "│", " ", "│", "┌", "┐", "┘", "└" },
-          results = { "─", "│", "─", "│", "├", "┤", "┘", "└" },
-          preview = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
-        },
       },
-      nui = { border = { style = "single" } },
-      builtin = { border = "single" },
     },
   })
 end

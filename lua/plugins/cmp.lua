@@ -4,7 +4,7 @@ function M.setup()
   local utils = require("utils")
   local kind_icons = require("utils.icons").kind
   local border_opts = {
-    border = "single",
+    border = "rounded",
     winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:Visual,Search:None",
   }
   local luasnip = require("luasnip")

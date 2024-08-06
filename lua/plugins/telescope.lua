@@ -5,8 +5,6 @@ function M.setup()
   local actions = require("telescope.actions")
   telescope.setup({
     defaults = {
-      border = true,
-      borderchars = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
       path_display = { "truncate" },
       mappings = {
         i = {

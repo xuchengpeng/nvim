@@ -21,7 +21,7 @@ function M.setup()
     root = utils.join_paths(utils.get_data_dir(), "lazy"),
     lockfile = utils.join_paths(utils.get_config_dir(), "lazy-lock.json"),
     install = { colorscheme = { lvim.colorscheme, "habamax" } },
-    ui = { border = "single" },
+    ui = { border = "rounded" },
   }
 
   require("lazy").setup(plugins, opts)
