@@ -1,1 +1,1 @@
-require("core").load()
+require("config").setup()

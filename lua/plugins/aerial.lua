@@ -1,7 +1,8 @@
-local M = {}
-
-function M.setup()
-  require("aerial").setup({
+return {
+  "stevearc/aerial.nvim",
+  lazy = true,
+  cmd = { "AerialToggle" },
+  opts = {
     backends = { "lsp", "treesitter", "markdown", "man" },
     layout = {
       max_width = { 30, 0.2 },
@@ -16,7 +17,5 @@ function M.setup()
       nested_top = "│ ",
       whitespace = "  ",
     },
-  })
-end
-
-return M
+  },
+}
