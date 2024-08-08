@@ -1,8 +1,3 @@
-if vim.loop.os_uname().version:match("Windows") then
-  vim.o.shell = "C:/Program Files/Git/bin/bash.exe"
-  vim.o.shellcmdflag = "-s"
-end
-
 return {
   "akinsho/toggleterm.nvim",
   lazy = true,
