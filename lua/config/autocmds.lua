@@ -1,7 +1,7 @@
 vim.api.nvim_create_augroup("_general_settings", {})
 
 -- Check if we need to reload the file when it changed
-vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI", "FocusGained", "TermClose", "TermLeave" }, {
+vim.api.nvim_create_autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
   group = "_general_settings",
   command = "checktime",
 })
@@ -77,7 +77,7 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
   group = "_general_settings",
   callback = function(event)
-    if event.match:match("^%w%w+://") then
+    if event.match:match("^%w%w+:[\\/][\\/]") then
       return
     end
     local file = vim.loop.fs_realpath(event.match) or event.match
