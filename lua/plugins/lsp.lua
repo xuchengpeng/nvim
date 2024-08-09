@@ -6,7 +6,6 @@ return {
     dependencies = {
       "williamboman/mason.nvim",
       "neovim/nvim-lspconfig",
-      "folke/neodev.nvim",
     },
     config = function()
       require("mason").setup()
@@ -27,7 +26,6 @@ return {
               library = {
                 vim.fn.expand("$VIMRUNTIME"),
                 vim.fn.stdpath("config"),
-                require("neodev.config").types(),
               },
               maxPreload = 5000,
               preloadFileSize = 10000,
