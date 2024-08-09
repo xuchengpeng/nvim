@@ -82,6 +82,7 @@ return {
         { name = "luasnip", priority = 750 },
         { name = "buffer", priority = 500 },
         { name = "path", priority = 250 },
+        { name = "lazydev", group_index = 0 },
       },
       formatting = {
         fields = { "abbr", "kind", "menu" },
