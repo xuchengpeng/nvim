@@ -1,5 +1,27 @@
 # Changelog
 
+## [1.9.0](https://github.com/xuchengpeng/nvim/compare/v1.8.24...v1.9.0) (2024-08-20)
+
+
+### Features
+
+* **nvim:** refactoring ([9924038](https://github.com/xuchengpeng/nvim/commit/9924038b71055ea8c644377500fb8186c10d362d))
+
+
+### Bug Fixes
+
+* **autocmds:** auto create directory on Windows ([0e67391](https://github.com/xuchengpeng/nvim/commit/0e673913a345568bd9239af4babff376ccbc9db4))
+* **ci:** replace deprecated release action ([1c5bca1](https://github.com/xuchengpeng/nvim/commit/1c5bca142ab858f57384b7ea7c1142af7f3e29ce))
+* **dressing:** move to ui spec ([122233a](https://github.com/xuchengpeng/nvim/commit/122233a13b1d961fb758c237464163cde94b0c79))
+* **editor:** remove colorizer ([f0b5b2a](https://github.com/xuchengpeng/nvim/commit/f0b5b2a28d57500c6ec649bc2fc25205ba94b345))
+* **heirline:** proper column position ([05f7192](https://github.com/xuchengpeng/nvim/commit/05f71925ceb824c68a443aa936f5ea1fb3a5505d))
+* **lsp:** remove neodev.nvim ([edff572](https://github.com/xuchengpeng/nvim/commit/edff57281209d924653051de3bbe44e3862b1449))
+* **lua:** add lazydev.nvim ([19c7475](https://github.com/xuchengpeng/nvim/commit/19c74754ec33d6b4469e6c65fe6c11d8fc419122))
+* **lualine:** add mason extension ([25799e8](https://github.com/xuchengpeng/nvim/commit/25799e82864a014d5cad0694417915dc67a96591))
+* **shell:** use powershell as default shell on Windows ([d6a2eab](https://github.com/xuchengpeng/nvim/commit/d6a2eabcd6233e8b45322c48280251fd37c5c727))
+* **ui:** use rounded border ([42d6911](https://github.com/xuchengpeng/nvim/commit/42d6911c8c543318988afc420be835f0c0db7bb2))
+* **vim.uv:** replace vim.loop with vim.uv ([e120967](https://github.com/xuchengpeng/nvim/commit/e1209672cc6f1839410ceb0a61686ddcee4a08ff))
+
 ## [1.8.24](https://github.com/xuchengpeng/nvim/compare/v1.8.23...v1.8.24) (2024-07-18)
 
 
