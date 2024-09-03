@@ -10,7 +10,7 @@ return {
     config = function()
       require("mason").setup()
       require("mason-lspconfig").setup({
-        -- ensure_installed = { "clangd", "lua_ls", "pyright", "vimls" }
+        -- ensure_installed = { "clangd", "lua_ls", "pyright" }
       })
       local lspconfig = require("lspconfig")
       lspconfig.lua_ls.setup({
@@ -39,8 +39,6 @@ return {
       })
       lspconfig.clangd.setup({})
       lspconfig.pyright.setup({})
-      lspconfig.vimls.setup({})
-      lspconfig.bashls.setup({})
       lspconfig.cssls.setup({})
       lspconfig.html.setup({})
       lspconfig.jsonls.setup({})
