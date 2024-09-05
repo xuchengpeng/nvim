@@ -42,7 +42,7 @@ return {
       lspconfig.cssls.setup({})
       lspconfig.html.setup({})
       lspconfig.jsonls.setup({})
-      lspconfig.tsserver.setup({})
+      lspconfig.ts_ls.setup({})
 
       vim.keymap.set("n", "K", vim.lsp.buf.hover, { noremap = true, silent = true })
       vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
