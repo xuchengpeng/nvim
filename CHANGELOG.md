@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.9.1](https://github.com/xuchengpeng/nvim/compare/v1.9.0...v1.9.1) (2024-09-07)
+
+
+### Bug Fixes
+
+* **lsp:** remove vimls,bashls ([96faed2](https://github.com/xuchengpeng/nvim/commit/96faed20003fafa911995d7b00ce33ff099a915a))
+* **lsp:** rename tsserver to ts_ls ([c26cb39](https://github.com/xuchengpeng/nvim/commit/c26cb390c66f1f18aba905d4d864623accbf5ae6))
+* **vim:** set shellslash ([98da2d3](https://github.com/xuchengpeng/nvim/commit/98da2d3606f518b09cff253f6038aa84d9e91b68))
+
 ## [1.9.0](https://github.com/xuchengpeng/nvim/compare/v1.8.24...v1.9.0) (2024-08-20)
 
 
