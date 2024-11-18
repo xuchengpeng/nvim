@@ -59,5 +59,4 @@ if vim.uv.os_uname().version:match("Windows") then
   vim.opt.shellpipe = "2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode"
   vim.opt.shellquote = ""
   vim.opt.shellxquote = ""
-  vim.opt.shellslash = true
 end
