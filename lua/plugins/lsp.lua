@@ -13,30 +13,7 @@ return {
         -- ensure_installed = { "clangd", "lua_ls", "pyright" }
       })
       local lspconfig = require("lspconfig")
-      lspconfig.lua_ls.setup({
-        settings = {
-          Lua = {
-            runtime = {
-              version = "LuaJIT",
-            },
-            diagnostics = {
-              globals = { "vim" },
-            },
-            workspace = {
-              library = {
-                vim.fn.expand("$VIMRUNTIME"),
-                vim.fn.stdpath("config"),
-              },
-              maxPreload = 5000,
-              preloadFileSize = 10000,
-              checkThirdParty = false,
-            },
-            telemetry = {
-              enable = false,
-            },
-          },
-        },
-      })
+      lspconfig.lua_ls.setup({})
       lspconfig.clangd.setup({})
       lspconfig.pyright.setup({})
       lspconfig.cssls.setup({})
