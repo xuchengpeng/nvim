@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.9.2](https://github.com/xuchengpeng/nvim/compare/v1.9.1...v1.9.2) (2024-11-25)
+
+
+### Bug Fixes
+
+* **lazydev:** use bundled luv library of lua_ls ([189aca0](https://github.com/xuchengpeng/nvim/commit/189aca0dc6119fab3c7fe3ddd5c03dc7fb088eec))
+* **lsp:** setup lua_ls with default settings ([dbd2514](https://github.com/xuchengpeng/nvim/commit/dbd251459851211bce05d37710765774f9df8f60))
+* **vim:** don't set shellslash ([2c4c67d](https://github.com/xuchengpeng/nvim/commit/2c4c67d4d3c04578ed73ca2e394e6910ca79f007))
+
 ## [1.9.1](https://github.com/xuchengpeng/nvim/compare/v1.9.0...v1.9.1) (2024-09-07)
 
 
