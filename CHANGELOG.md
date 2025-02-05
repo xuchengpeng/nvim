@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.9.3](https://github.com/xuchengpeng/nvim/compare/v1.9.2...v1.9.3) (2025-02-05)
+
+
+### Bug Fixes
+
+* **ci:** update download url ([a0b205c](https://github.com/xuchengpeng/nvim/commit/a0b205c2ef352b96b89cad82d35917972f1bc1ca))
+* **license:** update copyright year ([e37dbd1](https://github.com/xuchengpeng/nvim/commit/e37dbd14c327f8adf7d72c38813de9e347c87136))
+
 ## [1.9.2](https://github.com/xuchengpeng/nvim/compare/v1.9.1...v1.9.2) (2024-11-25)
 
 
