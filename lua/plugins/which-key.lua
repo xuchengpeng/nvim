@@ -2,14 +2,11 @@ return {
   "folke/which-key.nvim",
   lazy = true,
   event = "VeryLazy",
-  config = function()
-    local which_key = require("which-key")
-    which_key.setup({
-      icons = {
-        mappings = false,
-      },
-    })
-    which_key.add({
+  opts = {
+    icons = {
+      mappings = false,
+    },
+    spec = {
       { "<leader>b", group = "Buffer" },
       { "<leader>bc", "<cmd>BufferLinePickClose<cr>", desc = "Close Buffer" },
       { "<leader>bn", "<cmd>BufferLineCycleNext<cr>", desc = "Next Buffer" },
@@ -84,6 +81,6 @@ return {
       { "<leader>px", "<cmd>Lazy clean<cr>", desc = "Clean" },
       { "<leader>q", "<cmd>confirm quit<cr>", desc = "Quit" },
       { "<leader>z", "<cmd>ZenMode<cr>", desc = "Zen Mode" },
-    })
-  end,
+    },
+  },
 }
