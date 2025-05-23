@@ -21,11 +21,6 @@ return {
       lspconfig.jsonls.setup({})
       lspconfig.ts_ls.setup({})
 
-      vim.keymap.set("n", "K", vim.lsp.buf.hover, { noremap = true, silent = true })
-      vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
-      vim.lsp.handlers["textDocument/signatureHelp"] =
-        vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" })
-
       if lvim.format_on_save == true then
         vim.api.nvim_create_augroup("_lsp_format_on_save", {})
         vim.api.nvim_create_autocmd("BufWritePre", {
