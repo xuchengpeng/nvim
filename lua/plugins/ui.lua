@@ -71,16 +71,6 @@ return {
     lazy = true,
     event = { "VimEnter" },
     config = function()
-      local function lsp_client_names()
-        local buf_client_names = {}
-        for _, client in pairs(vim.lsp.get_clients({ bufnr = 0 })) do
-          table.insert(buf_client_names, client.name)
-        end
-        if #buf_client_names == 0 then
-          return ""
-        end
-        return " [" .. table.concat(buf_client_names, " ") .. "]"
-      end
       require("lualine").setup({
         options = {
           globalstatus = vim.o.laststatus == 3,
@@ -109,7 +99,7 @@ return {
           lualine_a = { "mode" },
           lualine_b = { "branch", "diff" },
           lualine_c = { { "filename", path = 1, separator = "" }, { "filesize", separator = "" }, "diagnostics" },
-          lualine_x = { lsp_client_names },
+          lualine_x = { { "lsp_status", icon = "" } },
           lualine_y = {
             "encoding",
             { "fileformat", symbols = { unix = "unix", dos = "dos", mac = "mac" } },
