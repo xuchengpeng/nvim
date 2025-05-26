@@ -23,6 +23,7 @@ return {
     end,
     config = function()
       require("nvim-treesitter.install").prefer_git = true
+      ---@diagnostic disable-next-line: missing-fields
       require("nvim-treesitter.configs").setup({
         ensure_installed = {
           "bash",
@@ -47,7 +48,11 @@ return {
         highlight = {
           enable = true,
           disable = function(_, bufnr)
-            return vim.api.nvim_buf_line_count(bufnr) > 10000
+            local max_filesize = 100 * 1024 -- 100 KB
+            local ok, stats = pcall(vim.uv.fs_stat, vim.api.nvim_buf_get_name(bufnr))
+            if ok and stats and stats.size > max_filesize then
+              return true
+            end
           end,
         },
         indent = { enable = true },
