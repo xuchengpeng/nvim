@@ -29,18 +29,6 @@ return {
   { "nvim-tree/nvim-web-devicons", lazy = true },
   { "MunifTanjim/nui.nvim", lazy = true },
   {
-    "rcarriga/nvim-notify",
-    lazy = true,
-    event = "VimEnter",
-    opts = {
-      timeout = 3000,
-      max_width = 80,
-    },
-    init = function()
-      vim.notify = require("notify")
-    end,
-  },
-  {
     "stevearc/dressing.nvim",
     lazy = true,
     init = function()
@@ -75,10 +63,9 @@ return {
         options = {
           globalstatus = vim.o.laststatus == 3,
           disabled_filetypes = {
-            statusline = { "alpha", "lspinfo" },
+            statusline = { "lspinfo", "snacks_dashboard" },
             winbar = {
               "aerial",
-              "alpha",
               "dap-repl",
               "dap-terminal",
               "dapui_console",
@@ -87,8 +74,8 @@ return {
               "help",
               "lazy",
               "NvimTree",
-              "notify",
               "Outline",
+              "snacks_dashboard",
               "spectre_panel",
               "toggleterm",
               "Trouble",
@@ -157,29 +144,47 @@ return {
     },
   },
   {
-    "lukas-reineke/indent-blankline.nvim",
-    lazy = true,
-    event = { "User FileOpened" },
-    main = "ibl",
+    "folke/snacks.nvim",
+    lazy = false,
+    priority = 1000,
     opts = {
-      scope = { show_start = false, show_end = false },
-      exclude = {
-        buftypes = { "terminal", "nofile", "quickfix", "prompt" },
-        filetypes = { "checkhealth", "help", "lazy", "lspinfo", "man", "mason", "NvimTree", "Trouble", "text" },
+      bigfile = { enabled = true },
+      dashboard = {
+        width = 50,
+        preset = {
+          keys = {
+            { key = "f", icon = "", desc = "Find File", action = ":lua Snacks.dashboard.pick('files')" },
+            { key = "n", icon = "", desc = "New File", action = ":enew" },
+            { key = "g", icon = "", desc = "Grep Text", action = ":lua Snacks.dashboard.pick('live_grep')" },
+            { key = "r", icon = "", desc = "Recent Files", action = ":lua Snacks.dashboard.pick('oldfiles')" },
+            {
+              key = "c",
+              icon = "",
+              desc = "Config",
+              action = ":lua Snacks.dashboard.pick('files', {cwd = vim.fn.stdpath('config')})",
+            },
+            { key = "l", icon = "󰒲", desc = "Lazy", action = ":Lazy" },
+            { key = "q", icon = "", desc = "Quit", action = ":qa" },
+          },
+          header = [[
+███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗
+████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║
+██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║
+██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║
+██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║
+╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝]],
+        },
+        sections = {
+          { section = "header" },
+          { section = "keys", gap = 1, padding = 1 },
+          { section = "startup" },
+        },
       },
-    },
-  },
-  {
-    "folke/zen-mode.nvim",
-    lazy = true,
-    cmd = "ZenMode",
-    dependencies = { "folke/twilight.nvim" },
-    opts = {
-      window = {
-        backdrop = 0.95,
-        width = 0.8,
-        height = 1,
-      },
+      indent = { enabled = true },
+      input = { enabled = true },
+      notifier = { enabled = true },
+      picker = { enabled = true },
+      scope = { enabled = true },
     },
   },
 }

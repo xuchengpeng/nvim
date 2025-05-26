@@ -80,7 +80,7 @@ return {
       { "<leader>pu", "<cmd>Lazy update<cr>", desc = "Update" },
       { "<leader>px", "<cmd>Lazy clean<cr>", desc = "Clean" },
       { "<leader>q", "<cmd>confirm quit<cr>", desc = "Quit" },
-      { "<leader>z", "<cmd>ZenMode<cr>", desc = "Zen Mode" },
+      { "<leader>z", "<cmd>lua Snacks.zen()<cr>", desc = "Zen Mode" },
     },
   },
 }

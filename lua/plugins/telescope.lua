@@ -33,9 +33,5 @@ return {
     if aerial_ok then
       telescope.load_extension("aerial")
     end
-    local notify_ok, _ = pcall(require, "notify")
-    if notify_ok then
-      telescope.load_extension("notify")
-    end
   end,
 }

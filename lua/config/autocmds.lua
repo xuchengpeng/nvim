@@ -34,7 +34,6 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
     "lspinfo",
     "lsp-installer",
     "man",
-    "notify",
     "qf",
     "spectre_panel",
     "startuptime",
@@ -59,7 +58,7 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 
 vim.api.nvim_create_autocmd({ "FileType" }, {
   group = "_general_settings",
-  pattern = { "aerial", "alpha", "dap-repl" },
+  pattern = { "aerial", "dap-repl", "snacks_dashboard" },
   command = "set nobuflisted",
 })
 
