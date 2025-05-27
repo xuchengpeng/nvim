@@ -10,7 +10,7 @@ vim.api.nvim_create_autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
 vim.api.nvim_create_autocmd({ "TextYankPost" }, {
   group = "_general_settings",
   callback = function()
-    vim.highlight.on_yank()
+    vim.hl.on_yank()
   end,
 })
 
@@ -42,14 +42,17 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
   },
   callback = function(event)
     vim.bo[event.buf].buflisted = false
-    vim.keymap.set("n", "q", "<cmd>close<cr>", { buffer = event.buf, silent = true })
+    vim.keymap.set("n", "q", function()
+      vim.cmd("close")
+      pcall(vim.api.nvim_buf_delete, event.buf, { force = true })
+    end, { buffer = event.buf, silent = true })
   end,
 })
 
 -- wrap and check for spell in text filetypes
 vim.api.nvim_create_autocmd({ "FileType" }, {
   group = "_general_settings",
-  pattern = { "gitcommit", "markdown" },
+  pattern = { "text", "gitcommit", "markdown" },
   callback = function()
     vim.opt_local.wrap = true
     vim.opt_local.spell = true
@@ -59,7 +62,9 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 vim.api.nvim_create_autocmd({ "FileType" }, {
   group = "_general_settings",
   pattern = { "aerial", "dap-repl", "snacks_dashboard" },
-  command = "set nobuflisted",
+  callback = function(event)
+    vim.bo[event.buf].buflisted = false
+  end,
 })
 
 vim.api.nvim_create_autocmd({ "FileType" }, {
@@ -84,7 +89,7 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
   end,
 })
 
-vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
+vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile", "BufWritePost" }, {
   group = "_general_settings",
   callback = function(args)
     if not (vim.api.nvim_buf_get_name(args.buf) == "" or vim.bo[args.buf].buftype == "nofile") then
@@ -98,9 +103,10 @@ vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
 -- go to last loc when opening a buffer
 vim.api.nvim_create_autocmd({ "BufReadPost" }, {
   group = "_general_settings",
-  callback = function()
-    local mark = vim.api.nvim_buf_get_mark(0, '"')
-    local lcount = vim.api.nvim_buf_line_count(0)
+  callback = function(event)
+    local buf = event.buf
+    local mark = vim.api.nvim_buf_get_mark(buf, '"')
+    local lcount = vim.api.nvim_buf_line_count(buf)
     if mark[1] > 0 and mark[1] <= lcount then
       pcall(vim.api.nvim_win_set_cursor, 0, mark)
     end

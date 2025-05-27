@@ -45,16 +45,7 @@ return {
         },
         sync_install = false,
         auto_install = false,
-        highlight = {
-          enable = true,
-          disable = function(_, bufnr)
-            local max_filesize = 100 * 1024 -- 100 KB
-            local ok, stats = pcall(vim.uv.fs_stat, vim.api.nvim_buf_get_name(bufnr))
-            if ok and stats and stats.size > max_filesize then
-              return true
-            end
-          end,
-        },
+        highlight = { enable = true },
         indent = { enable = true },
       })
     end,
@@ -68,7 +59,7 @@ return {
       dependencies = { "nvim-treesitter/nvim-treesitter" },
       opts = { use_default_keymaps = false },
       keys = {
-        { "<leader>cj", "<cmd>TSJJoin<cr>",  desc = "Join" },
+        { "<leader>cj", "<cmd>TSJJoin<cr>", desc = "Join" },
         { "<leader>cs", "<cmd>TSJSplit<cr>", desc = "Split" },
       },
     },
