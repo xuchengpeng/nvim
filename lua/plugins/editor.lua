@@ -55,7 +55,7 @@ return {
           "lazy",
           "lspinfo",
           "mason",
-          "NvimTree",
+          "neo-tree",
           "Outline",
           "snacks_dashboard",
           "spectre_panel",
