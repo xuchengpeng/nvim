@@ -63,7 +63,7 @@ return {
   {
     "nvim-lualine/lualine.nvim",
     lazy = true,
-    event = { "VimEnter" },
+    event = "VeryLazy",
     config = function()
       require("lualine").setup({
         options = {
@@ -135,7 +135,7 @@ return {
   {
     "akinsho/bufferline.nvim",
     lazy = true,
-    event = { "VimEnter" },
+    event = "VeryLazy",
     opts = {
       options = {
         offsets = {
