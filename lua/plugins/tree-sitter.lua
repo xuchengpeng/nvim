@@ -67,6 +67,10 @@ return {
       cmd = { "TSJToggle", "TSJSplit", "TSJJoin" },
       dependencies = { "nvim-treesitter/nvim-treesitter" },
       opts = { use_default_keymaps = false },
+      keys = {
+        { "<leader>cj", "<cmd>TSJJoin<cr>",  desc = "Join" },
+        { "<leader>cs", "<cmd>TSJSplit<cr>", desc = "Split" },
+      },
     },
   },
 }

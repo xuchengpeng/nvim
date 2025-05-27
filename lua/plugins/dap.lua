@@ -2,6 +2,17 @@ return {
   "rcarriga/nvim-dap-ui",
   lazy = true,
   dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" },
+  keys = {
+    { "<leader>db", "<cmd>lua require('dap').toggle_breakpoint()<cr>",     desc = "Toggle Breakpoint" },
+    { "<leader>dc", "<cmd>lua require('dap').continue()<cr>",              desc = "Continue" },
+    { "<leader>dd", "<cmd>lua require('osv').run_this()<cr>",              desc = "Launch Lua Debugger" },
+    { "<leader>di", "<cmd>lua require('dap').step_into()<cr>",             desc = "Step Into" },
+    { "<leader>do", "<cmd>lua require('dap').step_over()<cr>",             desc = "Step Over" },
+    { "<leader>dr", "<cmd>lua require('dap').repl.open()<cr>",             desc = "Repl" },
+    { "<leader>ds", "<cmd>lua require('osv').launch({ port = 8086 })<cr>", desc = "Launch Lua Debugger Server" },
+    { "<leader>du", "<cmd>lua require('dapui').toggle()<cr>",              desc = "Dap UI" },
+    { "<leader>dw", "<cmd>lua require('dap.ui.widgets').hover()<cr>",      desc = "Widgets" },
+  },
   config = function()
     local dap = require("dap")
     dap.configurations.lua = {

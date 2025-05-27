@@ -18,4 +18,7 @@ return {
       whitespace = "  ",
     },
   },
+  keys = {
+    { "<leader>co", "<cmd>AerialToggle<cr>", desc = "Outline" },
+  },
 }

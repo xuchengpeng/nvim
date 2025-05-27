@@ -142,49 +142,11 @@ return {
         },
       },
     },
-  },
-  {
-    "folke/snacks.nvim",
-    lazy = false,
-    priority = 1000,
-    opts = {
-      bigfile = { enabled = true },
-      dashboard = {
-        width = 50,
-        preset = {
-          keys = {
-            { key = "f", icon = "", desc = "Find File", action = ":lua Snacks.dashboard.pick('files')" },
-            { key = "n", icon = "", desc = "New File", action = ":enew" },
-            { key = "g", icon = "", desc = "Grep Text", action = ":lua Snacks.dashboard.pick('live_grep')" },
-            { key = "r", icon = "", desc = "Recent Files", action = ":lua Snacks.dashboard.pick('oldfiles')" },
-            {
-              key = "c",
-              icon = "",
-              desc = "Config",
-              action = ":lua Snacks.dashboard.pick('files', {cwd = vim.fn.stdpath('config')})",
-            },
-            { key = "l", icon = "󰒲", desc = "Lazy", action = ":Lazy" },
-            { key = "q", icon = "", desc = "Quit", action = ":qa" },
-          },
-          header = [[
-███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗
-████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║
-██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║
-██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║
-██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║
-╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝]],
-        },
-        sections = {
-          { section = "header" },
-          { section = "keys", gap = 1, padding = 1 },
-          { section = "startup" },
-        },
-      },
-      indent = { enabled = true },
-      input = { enabled = true },
-      notifier = { enabled = true },
-      picker = { enabled = true },
-      scope = { enabled = true },
+    keys = {
+      { "<leader>bc", "<cmd>BufferLinePickClose<cr>", desc = "Close Buffer" },
+      { "<leader>bn", "<cmd>BufferLineCycleNext<cr>", desc = "Next Buffer" },
+      { "<leader>bp", "<cmd>BufferLineCyclePrev<cr>", desc = "Prev Buffer" },
+      { "<leader>bs", "<cmd>BufferLinePick<cr>", desc = "Switch Buffer" },
     },
   },
 }
