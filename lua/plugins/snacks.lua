@@ -12,12 +12,8 @@ return {
           { key = "n", icon = "", desc = "New File", action = ":enew" },
           { key = "g", icon = "", desc = "Grep Text", action = ":lua Snacks.dashboard.pick('live_grep')" },
           { key = "r", icon = "", desc = "Recent Files", action = ":lua Snacks.dashboard.pick('oldfiles')" },
-          {
-            key = "c",
-            icon = "",
-            desc = "Config",
-            action = ":lua Snacks.dashboard.pick('files', {cwd = vim.fn.stdpath('config')})",
-          },
+          -- stylua: ignore
+          { key = "c", icon = "", desc = "Config", action = ":lua Snacks.dashboard.pick('files', {cwd = vim.fn.stdpath('config')})" },
           { key = "l", icon = "󰒲", desc = "Lazy", action = ":Lazy" },
           { key = "q", icon = "", desc = "Quit", action = ":qa" },
         },
