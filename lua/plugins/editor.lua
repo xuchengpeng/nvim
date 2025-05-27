@@ -51,7 +51,6 @@ return {
         delay = 200,
         filetypes_denylist = {
           "aerial",
-          "DressingSelect",
           "help",
           "lazy",
           "lspinfo",
@@ -61,7 +60,6 @@ return {
           "snacks_dashboard",
           "spectre_panel",
           "toggleterm",
-          "TelescopePrompt",
           "Trouble",
         },
       })
