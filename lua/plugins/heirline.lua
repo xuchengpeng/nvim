@@ -340,6 +340,7 @@ return {
         end
         return " [" .. table.concat(names, " ") .. "]"
       end,
+      hl = { fg = "green" },
       on_click = {
         name = "LspInfo",
         callback = function()
@@ -417,11 +418,20 @@ return {
       align,
       lsp_active,
       space,
-      file_encoding,
-      space,
-      file_format,
-      space,
-      file_type,
+      {
+        space,
+        file_encoding,
+        space,
+        file_format,
+        space,
+        file_type,
+        space,
+        hl = function()
+          if conditions.is_active() then
+            return { fg = "cyan" }
+          end
+        end,
+      },
       space,
       ruler,
       space,
