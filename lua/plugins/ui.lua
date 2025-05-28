@@ -37,6 +37,14 @@ return {
     opts = {
       sources = { "filesystem", "buffers", "git_status" },
       open_files_do_not_replace_types = { "terminal", "Trouble", "trouble", "qf", "aerial" },
+      window = {
+        width = 30,
+        mappings = {
+          ["h"] = "close_node",
+          ["l"] = "open",
+          ["<space>"] = "none",
+        },
+      },
       filesystem = {
         bind_to_cwd = false,
         follow_current_file = { enabled = true },
