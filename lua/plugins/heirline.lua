@@ -210,6 +210,21 @@ return {
       end,
     }
 
+    local file_misc_block = {
+      space,
+      file_encoding,
+      space,
+      file_format,
+      space,
+      file_type,
+      space,
+      hl = function()
+        if conditions.is_active() then
+          return { fg = "cyan" }
+        end
+      end,
+    }
+
     local git = {
       condition = conditions.is_git_repo,
       init = function(self)
@@ -420,20 +435,7 @@ return {
       align,
       lsp_active,
       space,
-      {
-        space,
-        file_encoding,
-        space,
-        file_format,
-        space,
-        file_type,
-        space,
-        hl = function()
-          if conditions.is_active() then
-            return { fg = "cyan" }
-          end
-        end,
-      },
+      file_misc_block,
       space,
       ruler,
       space,
@@ -475,12 +477,7 @@ return {
       condition = conditions.is_not_active,
       file_name_block,
       align,
-      file_encoding,
-      space,
-      file_format,
-      space,
-      file_type,
-      space,
+      file_misc_block,
     }
 
     local statuslines = {
