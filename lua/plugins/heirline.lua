@@ -418,28 +418,11 @@ return {
       end,
     }
 
+    -- stylua: ignore
     local default_statusline = {
-      vi_mode,
-      space,
-      file_name_block,
-      space,
-      git,
-      space,
-      diagnostics,
-      space,
-      align,
-      search_count,
-      space,
-      macro_rec,
-      space,
-      align,
-      lsp_active,
-      space,
-      file_misc_block,
-      space,
-      ruler,
-      space,
-      scroll_bar,
+      vi_mode, space, file_name_block, space, git, space, diagnostics, space, align,
+      search_count, space, macro_rec, space, align,
+      lsp_active, space, file_misc_block, space, ruler, space, scroll_bar,
     }
 
     local special_statusline = {
