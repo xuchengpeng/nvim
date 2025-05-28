@@ -359,7 +359,7 @@ return {
       on_click = {
         name = "LspInfo",
         callback = function()
-          vim.cmd.LspInfo()
+          Snacks.picker.lsp_config()
         end,
       },
     }
