@@ -81,6 +81,24 @@ return {
     { "<leader>sw", function() Snacks.picker.grep_word() end, desc = "Visual selection or word", mode = { "n", "x" } },
     { '<leader>s"', function() Snacks.picker.registers() end, desc = "Registers" },
     { '<leader>s/', function() Snacks.picker.search_history() end, desc = "Search History" },
-    { "<leader>uz", function() Snacks.zen() end, desc = "Zen Mode" },
+    { "<leader>uc", function() Snacks.picker.colorschemes() end, desc = "Colorschemes" },
   },
+  init = function()
+    vim.api.nvim_create_autocmd("User", {
+      pattern = "VeryLazy",
+      callback = function()
+        Snacks.toggle.animate():map("<leader>ua")
+        Snacks.toggle.option("background", { off = "light", on = "dark", name = "Dark Background" }):map("<leader>ub")
+        Snacks.toggle.diagnostics():map("<leader>ud")
+        Snacks.toggle.inlay_hints():map("<leader>uh")
+        Snacks.toggle.indent():map("<leader>ui")
+        Snacks.toggle.line_number():map("<leader>ul")
+        Snacks.toggle.option("relativenumber", { name = "Relative Number" }):map("<leader>uL")
+        Snacks.toggle.option("spell", { name = "Spelling" }):map("<leader>us")
+        Snacks.toggle.option("wrap", { name = "Wrap" }):map("<leader>uw")
+        Snacks.toggle.treesitter():map("<leader>ut")
+        Snacks.toggle.zen():map("<leader>uz")
+      end,
+    })
+  end,
 }
