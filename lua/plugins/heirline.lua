@@ -8,6 +8,8 @@ return {
 
     local function setup_colors()
       return {
+        fg = utils.get_highlight("StatusLine").fg,
+        bg = utils.get_highlight("StatusLine").bg,
         normal_bg = utils.get_highlight("Normal").bg,
         normal_fg = utils.get_highlight("Normal").fg,
         bright_bg = utils.get_highlight("Folded").bg,
@@ -551,10 +553,10 @@ return {
         return filename
       end,
       hl = function(self)
-        if self.is_active or self.is_visible then
+        if self.is_active then
           return { fg = "normal_fg", bold = true, italic = true }
         else
-          return { fg = utils.get_highlight("StatusLine").fg, bold = false, italic = false }
+          return { fg = "fg", bold = false, italic = false }
         end
       end,
     }
@@ -638,7 +640,7 @@ return {
       if self.is_active then
         return "normal_bg"
       else
-        return utils.get_highlight("StatusLine").bg
+        return "bg"
       end
     end, { tabline_separator, tabline_file_name_block, tabline_close_button, space })
 
@@ -726,17 +728,13 @@ return {
           end
           table.insert(children, child)
         end
-        if #children == 0 then
+        if vim.tbl_isempty(children) then
           table.insert(children, { file_icon, file_pathshorten_name })
         end
-        table.insert(children, 1, space) -- padding 1 space left
         self.child = self:new(children, 1)
       end,
       provider = function(self)
         return self.child:eval()
-      end,
-      hl = function()
-        return { fg = utils.get_highlight("StatusLine").fg }
       end,
       update = { "CursorMoved" },
     }
@@ -751,9 +749,17 @@ return {
         space,
         file_icon,
         file_pathshorten_name,
-        hl = { fg = "gray", force = true },
+        align,
+        space,
+        hl = { fg = "gray", bg = "normal_bg", force = true },
       },
-      breadcrumbs,
+      {
+        space,
+        breadcrumbs,
+        align,
+        space,
+        hl = { fg = "fg", bg = "normal_bg" },
+      },
     }
 
     require("heirline").setup({
