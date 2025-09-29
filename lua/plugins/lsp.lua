@@ -12,14 +12,8 @@ return {
       require("mason-lspconfig").setup({
         -- ensure_installed = { "clangd", "lua_ls", "pyright" }
       })
-      local lspconfig = require("lspconfig")
-      lspconfig.lua_ls.setup({})
-      lspconfig.clangd.setup({})
-      lspconfig.pyright.setup({})
-      lspconfig.cssls.setup({})
-      lspconfig.html.setup({})
-      lspconfig.jsonls.setup({})
-      lspconfig.ts_ls.setup({})
+
+      vim.lsp.enable({"lua_ls", "clangd", "pyright", "cssls", "html", "jsonls", "ts_ls"})
 
       if lvim.format_on_save == true then
         vim.api.nvim_create_augroup("_lsp_format_on_save", {})
