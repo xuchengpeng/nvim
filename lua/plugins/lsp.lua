@@ -1,20 +1,34 @@
 return {
   {
-    "mason-org/mason-lspconfig.nvim",
-    lazy = true,
+    "neovim/nvim-lspconfig",
     event = { "BufReadPre", "BufNewFile" },
-    dependencies = {
-      "mason-org/mason.nvim",
-      "neovim/nvim-lspconfig",
+    init = function()
+      vim.lsp.enable({ "lua_ls", "clangd", "pyright", "cssls", "html", "jsonls", "ts_ls" })
+    end,
+    -- stylua: ignore
+    keys = {
+      { "gd", function() Snacks.picker.lsp_definitions() end, desc = "Goto Definition" },
+      { "gD", function() Snacks.picker.lsp_declarations() end, desc = "Goto Declaration" },
+      { "gr", function() Snacks.picker.lsp_references() end, desc = "References" },
+      { "gI", function() Snacks.picker.lsp_implementations() end, desc = "Goto Implementation" },
+      { "gy", function() Snacks.picker.lsp_type_definitions() end, desc = "Goto T[y]pe Definition" },
+      { "K", function() return vim.lsp.buf.hover() end, desc = "Hover" },
+      { "gK", function() return vim.lsp.buf.signature_help() end, desc = "Signature Help" },
+      { "<c-k>", function() return vim.lsp.buf.signature_help() end, mode = "i", desc = "Signature Help" },
+      { "<leader>cl", function() Snacks.picker.lsp_config() end, desc = "Lsp Info" },
+      { "<leader>ca", vim.lsp.buf.code_action, desc = "Code Action", mode = { "n", "v" } },
+      { "<leader>cc", vim.lsp.codelens.run, desc = "Run Codelens", mode = { "n", "v" } },
+      { "<leader>cC", vim.lsp.codelens.refresh, desc = "Refresh & Display Codelens", mode = { "n" } },
+      { "<leader>cr", vim.lsp.buf.rename, desc = "Rename" },
+      { "<leader>cR", function() Snacks.rename.rename_file() end, desc = "Rename File", mode = { "n" } },
+      { "<leader>cs", function() Snacks.picker.lsp_symbols() end, desc = "Symbols" },
+      { "<leader>cS", function() Snacks.picker.lsp_workspace_symbols() end, desc = "Workspace Symbols" },
     },
-    config = function()
-      require("mason").setup()
-      require("mason-lspconfig").setup({
-        -- ensure_installed = { "clangd", "lua_ls", "pyright" }
-      })
-
-      vim.lsp.enable({"lua_ls", "clangd", "pyright", "cssls", "html", "jsonls", "ts_ls"})
-
+  },
+  {
+    "stevearc/conform.nvim",
+    lazy = true,
+    init = function()
       if lvim.format_on_save == true then
         vim.api.nvim_create_augroup("_lsp_format_on_save", {})
         vim.api.nvim_create_autocmd("BufWritePre", {
@@ -30,31 +44,7 @@ return {
           end)
         end)
       end
-
-      -- stylua: ignore
-      require("which-key").add({
-        { "gd", function() Snacks.picker.lsp_definitions() end, desc = "Goto Definition" },
-        { "gD", function() Snacks.picker.lsp_declarations() end, desc = "Goto Declaration" },
-        { "gr", function() Snacks.picker.lsp_references() end, desc = "References" },
-        { "gI", function() Snacks.picker.lsp_implementations() end, desc = "Goto Implementation" },
-        { "gy", function() Snacks.picker.lsp_type_definitions() end, desc = "Goto T[y]pe Definition" },
-        { "K", function() return vim.lsp.buf.hover() end, desc = "Hover" },
-        { "gK", function() return vim.lsp.buf.signature_help() end, desc = "Signature Help" },
-        { "<c-k>", function() return vim.lsp.buf.signature_help() end, mode = "i", desc = "Signature Help" },
-        { "<leader>cl", function() Snacks.picker.lsp_config() end, desc = "Lsp Info" },
-        { "<leader>ca", vim.lsp.buf.code_action, desc = "Code Action", mode = { "n", "v" } },
-        { "<leader>cc", vim.lsp.codelens.run, desc = "Run Codelens", mode = { "n", "v" } },
-        { "<leader>cC", vim.lsp.codelens.refresh, desc = "Refresh & Display Codelens", mode = { "n" } },
-        { "<leader>cr", vim.lsp.buf.rename, desc = "Rename" },
-        { "<leader>cR", function() Snacks.rename.rename_file() end, desc = "Rename File", mode = { "n" } },
-        { "<leader>cs", function() Snacks.picker.lsp_symbols() end, desc = "Symbols" },
-        { "<leader>cS", function() Snacks.picker.lsp_workspace_symbols() end, desc = "Workspace Symbols" },
-      })
     end,
-  },
-  {
-    "stevearc/conform.nvim",
-    lazy = true,
     opts = {
       formatters_by_ft = {
         lua = { "stylua" },
