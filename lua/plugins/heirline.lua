@@ -413,11 +413,6 @@ return {
         local tname, _ = vim.api.nvim_buf_get_name(0):gsub(".*:", "")
         return " " .. tname
       end,
-      hl = function()
-        if conditions.is_active() then
-          return { fg = "blue", bold = true }
-        end
-      end,
     }
 
     -- stylua: ignore
@@ -453,8 +448,16 @@ return {
       condition = function()
         return conditions.buffer_matches({ buftype = { "terminal" } })
       end,
-      space,
-      terminal_name,
+      {
+        space,
+        terminal_name,
+        space,
+        hl = function()
+          if conditions.is_active() then
+            return { fg = "normal_bg", bg = "blue", bold = true }
+          end
+        end,
+      },
       align,
     }
 

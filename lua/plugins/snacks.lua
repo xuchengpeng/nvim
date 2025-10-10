@@ -36,6 +36,7 @@ return {
     notifier = { enabled = true },
     picker = { enabled = true },
     scope = { enabled = true },
+    terminal = { enabled = true },
   },
   -- stylua: ignore
   keys = {
@@ -82,6 +83,8 @@ return {
     { '<leader>s"', function() Snacks.picker.registers() end, desc = "Registers" },
     { '<leader>s/', function() Snacks.picker.search_history() end, desc = "Search History" },
     { "<leader>uc", function() Snacks.picker.colorschemes() end, desc = "Colorschemes" },
+    { "<c-/>", function() Snacks.terminal() end, desc = "Terminal" },
+    { "<c-_>", function() Snacks.terminal() end, desc = "Terminal" },
   },
   init = function()
     vim.api.nvim_create_autocmd("User", {
