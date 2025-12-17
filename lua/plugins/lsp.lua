@@ -3,7 +3,7 @@ return {
     "neovim/nvim-lspconfig",
     event = { "BufReadPre", "BufNewFile" },
     init = function()
-      vim.lsp.enable({ "lua_ls", "clangd", "pyright", "cssls", "html", "jsonls", "ts_ls" })
+      vim.lsp.enable({ "lua_ls", "clangd", "ty", "ruff", "cssls", "html", "jsonls", "ts_ls" })
     end,
     -- stylua: ignore
     keys = {
@@ -48,7 +48,6 @@ return {
     opts = {
       formatters_by_ft = {
         lua = { "stylua" },
-        python = { "black" },
         markdown = { "prettier" },
         yaml = { "prettier" },
         sh = { "shfmt" },
