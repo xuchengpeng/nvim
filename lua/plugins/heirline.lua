@@ -809,7 +809,7 @@ return {
         "<leader>bc",
         function()
           buffer_picker(function(bufnr)
-            vim.cmd("confirm bd" .. (bufnr == nil and "" or bufnr))
+            Snacks.bufdelete(bufnr)
           end)
         end,
         desc = "Close Buffer",
