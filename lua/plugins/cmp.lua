@@ -31,5 +31,9 @@ return {
     },
     fuzzy = { implementation = "prefer_rust_with_warning" },
     signature = { enabled = true },
+    cmdline = {
+      enabled = true,
+      completion = { menu = { auto_show = true } },
+    },
   },
 }
